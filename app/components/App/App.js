@@ -1,19 +1,23 @@
 import React from 'react';
-import {firebase, database} from "../../../firebase"
+import {firebase, database} from "../../../firebase";
+
 
 class App extends React.Component {
   constructor(){
     super();
     this.state = {
       userBGList: [],
-      userBGListIDs: ["3263", "60131", "1666"],
+      userBGListIDs: ["148228", "13", "60131", "1666", "150376", "3263"],
       matchList: [],
       data: {},
       hotness: [],
-      gameIDarr: []
+      recommendations: []
     }
   }
   componentDidMount(){
+    // "145976", "119673", "3263"
+// "148228", "13", "60131", "1666", "150376"
+    ////////////MAKE THIS A BACKEND CALL//////////////////////////
     // const app = this;
     // database.ref("Boardgames").once("value")
     //   .then(function(snapshot){
@@ -57,23 +61,36 @@ class App extends React.Component {
 //you still need firebase, but your backend/express app will the one communicating with your firebase db.
 
 
-  getGame(){
-    // fetch("http://localhost:3000/boardgames")
-    //   .then(res => res.json())
-    //   .then(bgObj => {
-    //     var newObj = {};
-    //     Object.keys(bgObj).forEach(function(key){
-    //       // console.log(key);
-    //       newObj[key] = JSON.parse(bgObj[key]);
-    //     })
-    //     console.log(newObj);
-    //   })
-      var ids = this.state.userBGListIDs.join(",")
+  getGames(){
+      var ids = this.state.userBGListIDs.join(",");
+      var app = this;
+      var count = 0;
+      var list = []
 
-      fetch(`http://localhost:3000/userBGlist?id=${ids}`)
+      return fetch(`http://localhost:3000/boardgames?id=${ids}`)
         .then(res => res.json())
-        .then(userBGList => this.setState({userBGList}))
-
+        .then(userBGList => {
+          // userBGList.forEach((e, i) => {
+            // count++;
+            // if(e["xml"]){
+            //   fetch(`http://localhost:3000/xml?id=${e["xml"]}`)
+            //     .then(res => res.json())
+            //     .then(data => {
+            //       userBGList[i] = data;
+            //       // this.setState({userBGList})
+            //     })
+            // }
+          // })
+          // return userBGList;
+          this.setState({userBGList})
+        })
+        // .then(function(userBGList){
+        //   if (count === userBGList.length) {
+        //     list = userBGList;
+        //     app.setState({userBGList});
+        //   }
+        // })
+        return list;
       // if(this.state.userBGList.length > 0){
       //   console.log(this.state.userBGList);
       // }
@@ -106,19 +123,51 @@ class App extends React.Component {
       // })
   }
 
-  getRecommendations(){
-    var recommendations =
-    this.state.matchList.reduce(function(obj, id){
-      var newObj = obj;
-      if (obj[id]){
-        newObj[id]++;
-      } else {
-        newObj[id] = 1;
+  getXML(){
+    let list = this.state.userBGList;
+    let found = false;
+    let count = 0;
+    for(let i=0; list.length>i; i++){
+      if(list[i]["xml"]){
+        fetch(`http://localhost:3000/xml?id=${list[i]["xml"]}`)
+          .then(res => res.json())
+          .then(data => {
+            list[i] = data;
+            this.setState({userBGList: list})
+          })
       }
-      return newObj;
-    }, {})
-    console.log(this.state);
-    console.log(recommendations);
+    }
+  }
+
+  getRecommendations(){
+    var app = this;
+    this.getGames().then(() => {
+      var promise = new Promise((resolve) => {
+      app.getXML()
+      setTimeout(()=>{
+        resolve();
+      }, 500)
+      })
+
+      promise.then((test) => {
+        app.getMatches()
+          .then(() => {
+            var recommendations =
+            this.state.matchList.reduce(function(obj, id){
+              var newObj = obj;
+              if (obj[id]){
+                newObj[id]++;
+              } else {
+                newObj[id] = 1;
+              }
+              return newObj;
+            }, {})
+            this.setState({recommendations})
+          })
+      })
+    })
+
+
   }
 
 // var recommendationObj = recommendations([fakeEntry.stubENTRY1, fakeEntry.stubENTRY2]);
@@ -127,20 +176,21 @@ class App extends React.Component {
 
   getMatches(){
     this.setState({matchList: []})
+    var promise;
     this.state.userBGList.forEach(game => {
       Object.keys(game).forEach(key => {
         var value = game[key].join(",")
-        fetch(`http://localhost:3000/recommendation?${key}=${value}`)
-          .then(res => res.json())
-          .then(idArr => {
-            idArr.forEach((id, i) => {
-              if(this.state.userBGListIDs.indexOf(id) === -1)
-                this.setState({matchList: [...this.state.matchList, id]})
-            })
+        promise = fetch(`http://localhost:3000/recommendation?${key}=${value}`)
+        .then(res => res.json())
+        .then(idArr => {
+          idArr.forEach((id, i) => {
+            if(this.state.userBGListIDs.indexOf(id) === -1)
+            this.setState({matchList: [...this.state.matchList, id]})
           })
+        })
       })
     })
-    // this.getRecommendations();
+    return promise
   }
 
   game(){
@@ -149,11 +199,12 @@ class App extends React.Component {
   }
 
   render(){
+    console.log(this.state);
     return (
       <div className="App">
         <h1>app</h1>
         <button onClick={() => {
-          this.getGame(); this.getMatches(); this.getRecommendations()}}>click me</button>
+          this.getRecommendations()}}>click me</button>
         {this.game()}
         {this.mechanics()}
         {this.hotness()}

@@ -100,10 +100,10 @@ class App extends React.Component {
   //             return newObj;
   //           }, {});
   //
-            // recommendations =
-            //   Object.keys(recommendationObj).sort(function(a,b){
-            //     return recommendationObj[b]-recommendationObj[a];
-            //   }).splice(0,10);
+  //           recommendations =
+  //             Object.keys(recommendationObj).sort(function(a,b){
+  //               return recommendationObj[b]-recommendationObj[a];
+  //             }).splice(0,10);
   //
   //           app.getXML(recommendations, "recommendations")
   //         })
@@ -154,7 +154,8 @@ class App extends React.Component {
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
-      fetch(`http://localhost:3000/search?id=${this.state.searchInput}${this.exact()}`)
+      fetch(`http://localhost:3000/search?id=
+        ${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(ids => {
         ids = ids.sort((a, b) => {
@@ -180,7 +181,9 @@ class App extends React.Component {
   searchButton(){
     if(this.state.searchInput){
       return (
-        <Link id="search-link" to="/search" onClick={() => this.getSearch()}>
+        <Link id="search-link"
+              to="/search"
+              onClick={() => this.getSearch()}>
         <button>search</button>
       </Link>
       )

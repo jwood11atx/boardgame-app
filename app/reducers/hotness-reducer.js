@@ -1,4 +1,5 @@
 const hotness = (state=[], action) => {
+  console.log(action);
   switch (action.type) {
     case "GET_HOTNESS":
       return action.hotness;

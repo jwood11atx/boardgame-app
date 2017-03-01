@@ -1,6 +1,6 @@
-export const getHotness = (games) => {
+export const getHotness = (hotness) => {
   return {
     type: "GET_HOTNESS",
-    games
+    hotness
   }
 }

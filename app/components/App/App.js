@@ -1,6 +1,7 @@
 import React from 'react';
 import {firebase, database} from "../../../firebase";
-import Header from "../Header/Header"
+import AppContainer from "../../containers/AppContainer/AppContainer";
+import Header from "../Header/Header";
 
 
 class App extends React.Component {
@@ -19,7 +20,7 @@ class App extends React.Component {
   componentDidMount(){
       fetch("http://localhost:3000/hotness")
         .then(res => res.json())
-        .then(hotness => this.setState({hotness}))
+        .then(hotness => this.props.getHotness(hotness))
   };
 
   // game(){
@@ -144,4 +145,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default AppContainer(App);

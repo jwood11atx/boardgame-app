@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import hotnessReducer from "./hotness-reducer"
+import hotness from "./hotness-reducer"
 
 const rootReducer = combineReducers({
-  hotnessReducer,
+  hotness,
 })
 
 export default rootReducer;

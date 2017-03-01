@@ -5,6 +5,27 @@ body {
   color: $textcolor;
 }
 
-.image {
-  height: 400px;
+.bg-img-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;;
+  padding: 5px;
+}
+
+.bg-image {
+  display: flex;
+  height: 300px;
+  margin: 5px;
+  box-sizing: border-box;
+  background: #e0ddd5;
+  color: #171e42;
+  padding: 10px;
+}
+
+.boardgames-container {
+  text-align: center;
+}
+
+.more-button {
+  margin-bottom: 20px;
 }

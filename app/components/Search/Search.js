@@ -29,24 +29,31 @@ class Search extends React.Component{
   displaySearchResults(){
     const {searchResults} = this.props;
     return searchResults.map((game, i) => {
-      return <img key={i} src={game.thumbnail}/>
+      return <img key={i}
+                  className="bg-image"
+                  src={game.image} />
     })
+
   };
 
   getMoreButton(){
     if(this.state.displayed < this.props.searchIDs.length){
-      return <button onClick={() => this.getNextTen()}>get more!</button>
+      return <button className="more-button"
+                     onClick={() => this.getNextTen()}>get more!</button>
     } else {
-      return <button disabled="true">get more!</button>
+      return <button className="more-button"
+                     disabled="true">get more!</button>
     }
   }
 
 
   render(){
     return (
-      <div>
-        <h2>SEARCH RESULTS!</h2>
-        {this.displaySearchResults()}
+      <div className="boardgames-container">
+        <h2>Search Results!</h2>
+        <section className="bg-img-container">
+          {this.displaySearchResults()}
+        </section>
         {this.getMoreButton()}
       </div>
     )

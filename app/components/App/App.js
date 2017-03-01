@@ -9,9 +9,15 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      searchInput: []
+      searchInput: ""
     }
   }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/hotness")
+      .then(res => res.json())
+      .then(hotness => this.props.getHotness(hotness))
+  };
 
   // game(){
   //   if(Object.keys(this.state.data) != 0)
@@ -128,31 +134,51 @@ class App extends React.Component {
   getGames(ids){
     fetch(`http://localhost:3000/list?id=${ids}`)
     .then(res => res.json())
-    .then(games => this.props.getSearchResults(games))
+    .then(games => {
+      this.props.getSearchResults(games)
+    })
   }
 
   getSearch(){
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
-    fetch(`http://localhost:3000/search?id=${this.state.searchInput}`)
+    if(this.state.searchInput){
+      fetch(`http://localhost:3000/search?id=${this.state.searchInput}`)
       .then(res => res.json())
       .then(ids => {
         ids = ids.sort((a, b) => {
           return Number(a) - Number(b);
         })
         this.props.getSearchIDs(ids);
-
-        let searchIDs = ids;
-
-        if (searchIDs < 10) {
-          searchIDs = searchIDs.join(",");
-          this.getGames(searchIDs);
+        console.log(ids);
+        if (ids.length < 10) {
+          ids = ids.join(",");
+          this.getGames(ids);
         } else {
-          let start = 0;
-          let end = 10;
-          this.getGames(searchIDs.slice(start, end).join(","));
+          ids = ids.slice(0, 10).join(",");
+          this.getGames(ids);
         }
       })
+    }
+  }
+
+  searchButton(){
+    if(this.state.searchInput){
+      return (
+        <Link id="search-link" to="/search" onClick={() => this.getSearch()}>
+        <button>search</button>
+      </Link>
+      )
+    } else {
+      return <button disabled="true">search</button>
+    }
+  }
+
+  enterKey(e){
+    if(e.nativeEvent.key === "Enter"
+       && document.querySelector("#search-link")){
+      document.querySelector("#search-link").click();
+    }
   }
 
   render(){
@@ -162,10 +188,9 @@ class App extends React.Component {
         <p>Search for a boardgame</p>
         <input type="text"
                placeholder="search here!"
-               onChange={e => this.setState({searchInput: e.target.value})}/>
-        <Link to="/search" onClick={e => this.getSearch(e)}>
-          <button>search</button>
-        </Link>
+               onChange={e => this.setState({searchInput: e.target.value})}
+               onKeyDown={e => this.enterKey(e)}/>
+        {this.searchButton()}
         {this.props.children}
       </div>
     );

@@ -10,14 +10,14 @@ class Search extends React.Component{
   }
 
   getNextTen(){
-    let {searchIDs} = this.props;
-    let {displayed} = this.state;
-    let ids = "";
+    let ids = this.props.searchIDs;
+    let start = this.state.displayed;
+    let end = start+10;
 
-    ids = searchIDs.splice(displayed, 10).join(",");
+
+    ids = ids.slice(start, end).join(",");
     this.getGames(ids);
-    displayed += 10;
-    this.setState({displayed: displayed});
+    this.setState({displayed: end})
   }
 
   getGames(ids){
@@ -33,12 +33,21 @@ class Search extends React.Component{
     })
   };
 
+  getMoreButton(){
+    if(this.state.displayed < this.props.searchIDs.length){
+      return <button onClick={() => this.getNextTen()}>get more!</button>
+    } else {
+      return <button disabled="true">get more!</button>
+    }
+  }
+
+
   render(){
     return (
       <div>
         <h2>SEARCH RESULTS!</h2>
         {this.displaySearchResults()}
-        <button onClick={() => this.getNextTen()}>display next 10</button>
+        {this.getMoreButton()}
       </div>
     )
   }

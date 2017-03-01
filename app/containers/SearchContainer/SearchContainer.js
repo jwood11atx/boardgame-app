@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSearchResults: (games) => {
       dispatch(getSearchResults(games))
-    }
+    },
   }
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getHotness, getSearchResults, getSearchIDs} from "../../actions";
+import {getHotness, getSearchResults, getSearchIDs, clearSearchResults, clearSearchIDs} from "../../actions";
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -12,6 +12,12 @@ const mapDispatchToProps = (dispatch) => {
       },
       getSearchIDs: (ids) => {
         dispatch(getSearchIDs(ids))
+      },
+      clearSearchResults: () => {
+        dispatch(clearSearchResults())
+      },
+      clearSearchIDs: () => {
+        dispatch(clearSearchIDs())
       }
     }
 }

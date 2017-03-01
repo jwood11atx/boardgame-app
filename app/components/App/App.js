@@ -13,12 +13,6 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount(){
-    // fetch("http://localhost:3000/hotness")
-    //   .then(res => res.json())
-    //   .then(hotness => this.props.getHotness(hotness));
-  };
-
   // game(){
   //   if(Object.keys(this.state.data) != 0)
   //     return <img className="image" src={this.state.data.image}></img>
@@ -138,17 +132,25 @@ class App extends React.Component {
   }
 
   getSearch(){
+    this.props.clearSearchIDs();
+    this.props.clearSearchResults();
     fetch(`http://localhost:3000/search?id=${this.state.searchInput}`)
       .then(res => res.json())
       .then(ids => {
+        ids = ids.sort((a, b) => {
+          return Number(a) - Number(b);
+        })
         this.props.getSearchIDs(ids);
-        if (ids < 10) {
-          ids = searchIDs.join(",");
-          this.getGames(ids);
+
+        let searchIDs = ids;
+
+        if (searchIDs < 10) {
+          searchIDs = searchIDs.join(",");
+          this.getGames(searchIDs);
         } else {
-          ids = ids.slice(0, 10).join(",");
-          console.log(ids);
-          this.getGames(ids);
+          let start = 0;
+          let end = 10;
+          this.getGames(searchIDs.slice(start, end).join(","));
         }
       })
   }

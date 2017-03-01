@@ -7,7 +7,7 @@ class App extends React.Component {
     super();
     this.state = {
       userBGList: [],
-      userBGListIDs: ["148228", "13", "60131", "1666", "150376", "3263"],
+      userBGListIDs: ["42", "13", "93", "192291", "3076"],
       matchList: [],
       data: {},
       hotness: [],
@@ -15,21 +15,9 @@ class App extends React.Component {
     }
   }
   componentDidMount(){
-    // "145976", "119673", "3263"
-// "148228", "13", "60131", "1666", "150376"
-    ////////////MAKE THIS A BACKEND CALL//////////////////////////
-    // const app = this;
-    // database.ref("Boardgames").once("value")
-    //   .then(function(snapshot){
-    //     let database = snapshot.val();
-    //     let listIDs = Object.keys(database);
-    //     console.log("database", database);
-    //     listIDs.map(bgID => database[bgID] = JSON.parse(bgID));
-    //     app.setState({database});
-    //   })
-    // fetch("https://bgg-json.azurewebsites.net/hot")
-    // .then(res => res.json())
-    // .then(hotness => this.setState({hotness}))
+    fetch("http://localhost:3000/hotness")
+      .then(res => res.json())
+      .then(hotness => this.setState({hotness}))
   };
 
   mechanics(){
@@ -53,80 +41,97 @@ class App extends React.Component {
   }
 
   getGames(){
-    var ids = this.state.userBGListIDs.join(",");
-    var app = this;
-    var count = 0;
-    var list = []
+    const ids = this.state.userBGListIDs.join(",");
+    const app = this;
 
     return fetch(`http://localhost:3000/boardgames?id=${ids}`)
       .then(res => res.json())
       .then(userBGList => {
         this.setState({userBGList})
       })
-    return list;
   }
 
-  getXML(){
-    let list = this.state.userBGList;
-    let found = false;
-    let count = 0;
-    for(let i=0; list.length>i; i++){
-      if(list[i]["xml"]){
-        fetch(`http://localhost:3000/xml?id=${list[i]["xml"]}`)
-          .then(res => res.json())
-          .then(data => {
-            list[i] = data;
-            this.setState({userBGList: list})
-          })
-      }
+  getXML(list, action){
+    if (action === "userBGList") {
+      fetch(`http://localhost:3000/xml?id=${list.join(",")}`)
+      .then(res => res.json())
+      .then(data => {
+        const bglist = this.state.userBGList;
+        bglist.pop();
+        this.setState({userBGList: [...bglist, ...data]})
+      })
+    } else if(action === "recommendations"){
+      fetch(`http://localhost:3000/list?id=${list.join(",")}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({recommendations: data})
+      })
     }
   }
 
   getRecommendations(){
-    var app = this;
+    const app = this;
+    let recommendations;
+    this.setState({ matchList: [],
+                    recommendations: [],
+                    userBGList: [],
+                 });
     this.getGames().then(() => {
-      var promise = new Promise((resolve) => {
-      app.getXML()
-      setTimeout(()=>{
-        resolve();
-      }, 1000)
+      const promise = new Promise((resolve) => {
+        const list = this.state.userBGList;
+        const xmlList = list[list.length-1]["xml"];
+        if (xmlList){
+          app.getXML(xmlList, "userBGList");
+          setTimeout(()=>{
+            resolve();
+          }, 3000)
+        } else {
+          resolve();
+        }
       })
 
       promise.then((test) => {
         app.getMatches()
           .then(() => {
-            var recommendations =
-            this.state.matchList.reduce(function(obj, id){
-              var newObj = obj;
+            let recommendationObj =
+            this.state.matchList.reduce((obj, id) => {
+              let newObj = obj;
               if (obj[id]){
                 newObj[id]++;
               } else {
                 newObj[id] = 1;
               }
               return newObj;
-            }, {})
-            this.setState({recommendations})
+            }, {});
+
+            recommendations =
+              Object.keys(recommendationObj).sort(function(a,b){
+                return recommendationObj[b]-recommendationObj[a];
+              }).splice(0,10);
+
+            app.getXML(recommendations, "recommendations")
           })
       })
     })
-
-
   }
 
   getMatches(){
     this.setState({matchList: []})
-    var promise;
+    let promise;
     this.state.userBGList.forEach(game => {
       Object.keys(game).forEach(key => {
-        var value = game[key].join(",")
-        promise = fetch(`http://localhost:3000/recommendation?${key}=${value}`)
-        .then(res => res.json())
-        .then(idArr => {
-          idArr.forEach((id, i) => {
-            if(this.state.userBGListIDs.indexOf(id) === -1)
-            this.setState({matchList: [...this.state.matchList, id]})
+        if(game[key].indexOf("N/A") === -1){
+          const value = game[key].join(",");
+          promise = fetch(`http://localhost:3000/recommendation?${key}=${value}`)
+          .then(res => res.json())
+          .then(idArr => {
+            idArr.forEach((id, i) => {
+              if(this.state.userBGListIDs.indexOf(id) === -1){
+                this.setState({matchList: [...this.state.matchList, id]})
+              }
+            })
           })
-        })
+        }
       })
     })
     return promise
@@ -138,7 +143,7 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state);
+    console.log("state", this.state.recommendations);
     return (
       <div className="App">
         <h1>app</h1>

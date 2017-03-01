@@ -4,14 +4,16 @@ import HotnessContainer from "../../containers/HotnessContainer/HotnessContainer
 const Hotness = (props) => {
 
   const displayTheHotness = () => {
-    const hotness = props.hotness.map((game, i) => {
+    return props.hotness.map((game, i) => {
       return <img key={i} src={game.thumbnail}/>
     })
-    return hotness;
   }
 
   return (
-    <p>{displayTheHotness()}</p>
+    <div>
+      <h2>The Hotness!</h2>
+      {displayTheHotness()}
+    </div>
   )
 }
 

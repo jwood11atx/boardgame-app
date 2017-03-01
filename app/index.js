@@ -9,6 +9,7 @@ import rootReducer from './reducers/index';
 
 import App from "./components/App/App";
 import Hotness from "./components/Hotness/Hotness";
+import Search from "./components/Search/Search";
 // import Recommendations from "./components/Recommendations/Recommendations";
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -20,6 +21,7 @@ const router = (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Hotness} />
+        <Route path="/search" component={Search} />
         {/* <Route path="/recommendations" component={Recommendations} /> */}
       </Route>
     </Router>

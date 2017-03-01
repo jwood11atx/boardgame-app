@@ -2,25 +2,21 @@ import React from 'react';
 import {firebase, database} from "../../../firebase";
 import AppContainer from "../../containers/AppContainer/AppContainer";
 import Header from "../Header/Header";
+import {Link} from "react-router";
 
 
 class App extends React.Component {
   constructor(){
     super();
-    // this.state = {
-    //   userBGList: [],
-    //   userBGListIDs: ["42", "13", "93", "192291", "3076"],
-    //   matchList: [],
-    //   data: {},
-    //   hotness: [],
-    //   recommendations: []
-    // }
+    this.state = {
+      searchInput: []
+    }
   }
 
   componentDidMount(){
-      fetch("http://localhost:3000/hotness")
-        .then(res => res.json())
-        .then(hotness => this.props.getHotness(hotness))
+    // fetch("http://localhost:3000/hotness")
+    //   .then(res => res.json())
+    //   .then(hotness => this.props.getHotness(hotness));
   };
 
   // game(){
@@ -135,10 +131,39 @@ class App extends React.Component {
   //   return promise
   // }
 
+  getGames(ids){
+    fetch(`http://localhost:3000/list?id=${ids}`)
+    .then(res => res.json())
+    .then(games => this.props.getSearchResults(games))
+  }
+
+  getSearch(){
+    fetch(`http://localhost:3000/search?id=${this.state.searchInput}`)
+      .then(res => res.json())
+      .then(ids => {
+        this.props.getSearchIDs(ids);
+        if (ids < 10) {
+          ids = searchIDs.join(",");
+          this.getGames(ids);
+        } else {
+          ids = ids.slice(0, 10).join(",");
+          console.log(ids);
+          this.getGames(ids);
+        }
+      })
+  }
+
   render(){
     return (
       <div className="App">
         <Header />
+        <p>Search for a boardgame</p>
+        <input type="text"
+               placeholder="search here!"
+               onChange={e => this.setState({searchInput: e.target.value})}/>
+        <Link to="/search" onClick={e => this.getSearch(e)}>
+          <button>search</button>
+        </Link>
         {this.props.children}
       </div>
     );

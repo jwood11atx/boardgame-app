@@ -9,17 +9,18 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;;
-  padding: 5px;
+  padding:10px;
 }
 
-.bg-image {
+.bg-card {
+  position: relative;
   display: flex;
-  height: 300px;
   margin: 5px;
-  box-sizing: border-box;
-  background: #e0ddd5;
-  color: #171e42;
-  padding: 10px;
+  background: #fff;
+  padding: 5px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
 }
 
 .boardgames-container {
@@ -28,4 +29,22 @@ body {
 
 .more-button {
   margin-bottom: 20px;
+}
+
+.bg-image {
+  height: 300px;
+}
+
+.bg-thumbnail {
+  height: 200px;
+}
+
+.loading {
+  margin-top: 50px;
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

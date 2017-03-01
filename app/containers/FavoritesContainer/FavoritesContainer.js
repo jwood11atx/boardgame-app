@@ -1,13 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getHotness} from "../../actions";
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-      getHotness: (hotness) => {
-        dispatch(getHotness(hotness))
-      },
+  return {
+    addFavorite: (favorite) => {
+      dispatch(addFavorite(favorite))
     }
+  }
 };
 
 export default connect(null, mapDispatchToProps);

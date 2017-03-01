@@ -1,5 +1,7 @@
 import React from "react";
+import AppContainer from "../../containers/AppContainer/AppContainer";
 import SearchContainer from "../../containers/SearchContainer/SearchContainer";
+import BoardgameCard from "../BoardgameCards/BoardgameCards";
 
 class Search extends React.Component{
   constructor(){
@@ -52,7 +54,7 @@ class Search extends React.Component{
       <div className="boardgames-container">
         <h2>Search Results!</h2>
         <section className="bg-img-container">
-          {this.displaySearchResults()}
+          <BoardgameCard path={this.props.location.pathname} />
         </section>
         {this.getMoreButton()}
       </div>
@@ -61,4 +63,4 @@ class Search extends React.Component{
 
 };
 
-export default SearchContainer(Search);
+export default SearchContainer(AppContainer(Search));

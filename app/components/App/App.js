@@ -1,6 +1,8 @@
 import React from 'react';
 import {firebase, database} from "../../../firebase";
 import AppContainer from "../../containers/AppContainer/AppContainer";
+import SearchContainer from "../../containers/SearchContainer/SearchContainer";
+import HotnessContainer from "../../containers/HotnessContainer/HotnessContainer";
 import Header from "../Header/Header";
 import {Link} from "react-router";
 
@@ -98,10 +100,10 @@ class App extends React.Component {
   //             return newObj;
   //           }, {});
   //
-  //           recommendations =
-  //             Object.keys(recommendationObj).sort(function(a,b){
-  //               return recommendationObj[b]-recommendationObj[a];
-  //             }).splice(0,10);
+            // recommendations =
+            //   Object.keys(recommendationObj).sort(function(a,b){
+            //     return recommendationObj[b]-recommendationObj[a];
+            //   }).splice(0,10);
   //
   //           app.getXML(recommendations, "recommendations")
   //         })
@@ -139,18 +141,31 @@ class App extends React.Component {
     })
   }
 
+  exact(){
+    const checkbox = document.getElementById("exact-match-chechbox");
+    if(checkbox.checked){
+      return "&exact=1"
+    } else {
+      return "&exact=0";
+    }
+  }
+
   getSearch(){
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
-      fetch(`http://localhost:3000/search?id=${this.state.searchInput}`)
+      fetch(`http://localhost:3000/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(ids => {
         ids = ids.sort((a, b) => {
           return Number(a) - Number(b);
         })
+
+        if(document.getElementById("show-newest-checkbox").checked)
+          ids = ids.reverse();
+
         this.props.getSearchIDs(ids);
-        console.log(ids);
+
         if (ids.length < 10) {
           ids = ids.join(",");
           this.getGames(ids);
@@ -191,10 +206,17 @@ class App extends React.Component {
                onChange={e => this.setState({searchInput: e.target.value})}
                onKeyDown={e => this.enterKey(e)}/>
         {this.searchButton()}
+        <input type="checkbox"
+               id="exact-match-chechbox"/>
+               <label>exact match</label>
+        <input type="checkbox"
+              id="show-newest-checkbox"/>
+              <label>show newest</label>
+
         {this.props.children}
       </div>
     );
   }
 }
 
-export default AppContainer(App);
+export default AppContainer(SearchContainer(HotnessContainer(App)));

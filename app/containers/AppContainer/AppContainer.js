@@ -1,25 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getHotness, getSearchResults, getSearchIDs, clearSearchResults, clearSearchIDs} from "../../actions";
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getHotness: (hotness) => {
-        dispatch(getHotness(hotness))
-      },
-      getSearchResults: (games) => {
-        dispatch(getSearchResults(games))
-      },
-      getSearchIDs: (ids) => {
-        dispatch(getSearchIDs(ids))
-      },
-      clearSearchResults: () => {
-        dispatch(clearSearchResults())
-      },
-      clearSearchIDs: () => {
-        dispatch(clearSearchIDs())
-      }
-    }
-}
+const mapStateToProps = (state) => {
+  return {
+    searchIDs: state.searchIDs,
+    searchResults: state.searchResults,
+    displayed: state.displayed,
+    hotness: state.hotness,
+    favorites: state.favorites
+  }
+};
 
-export default connect(null, mapDispatchToProps);
+export default connect(mapStateToProps);

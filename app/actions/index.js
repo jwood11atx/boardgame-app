@@ -29,4 +29,23 @@ export const clearSearchIDs = () => {
   return {
     type: "CLEAR_SEARCH_IDS"
   }
-}
+};
+
+export const incDisplayed = () => {
+  return {
+    type: "INCREASE_DISPLAY"
+  }
+};
+
+export const resetDisplayed = () => {
+  return {
+    type: "RESET_DISPLAY"
+  }
+};
+
+export const addFavorite = (favorite) => {
+  return {
+    type: "ADD_FAVORITE",
+    favorite
+  }
+};

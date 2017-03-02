@@ -5,7 +5,7 @@ import BoardgameCards from "../BoardgameCards/BoardgameCards";
 const Hotness = (props) => {
   return (
     <div className="boardgames-container">
-      <h2>The Hotness!</h2>
+      <h2 className="page-title">The Hotness!</h2>
       <BoardgameCards />
     </div>
   )

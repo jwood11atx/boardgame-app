@@ -5,6 +5,31 @@ body {
   color: $textcolor;
 }
 
+.App {
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  color: #555;
+  margin: 10px;
+}
+
+.logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 42px;
+  color: #555;
+  margin: 10px;
+}
+
+.header-text {
+  font-family: 'Eczar', cursive;
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
 .bg-img-container {
   display: flex;
   flex-flow: row wrap;
@@ -49,6 +74,6 @@ body {
 
 .favorite-button {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
 }

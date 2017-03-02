@@ -64,7 +64,6 @@ class Recommendations extends React.Component{
     this.state.matachedDBList.forEach(game => {
       Object.keys(game).forEach(key => {
         if(game[key].indexOf("N/A") === -1){
-          console.log(game);
           const value = game[key].join(",");
           promise = fetch(`http://localhost:3000/recommendation?${key}=${value}`)
           .then(res => res.json())

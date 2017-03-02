@@ -5,6 +5,7 @@ import searchIDs from "./searchIDs-reducer";
 import favoritesIDs from "./favoritesIDs-reducer";
 import favorites from "./favorites-reducer";
 import recommendations from "./recommendations-reducer";
+import bgDetails from "./bgDetails-reducer";
 
 const rootReducer = combineReducers({
   hotness,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   searchIDs,
   favoritesIDs,
   favorites,
-  recommendations
+  recommendations,
+  bgDetails
 })
 
 export default rootReducer;

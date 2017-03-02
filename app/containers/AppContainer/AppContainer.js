@@ -3,13 +3,14 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
-    searchIDs: state.searchIDs,
-    searchResults: state.searchResults,
+    bgDetails: state.bgDetails,
     displayed: state.displayed,
-    hotness: state.hotness,
-    favoritesIDs: state.favoritesIDs,
     favorites: state.favorites,
-    recommendations: state.recommendations
+    favoritesIDs: state.favoritesIDs,
+    hotness: state.hotness,
+    recommendations: state.recommendations,
+    searchIDs: state.searchIDs,
+    searchResults: state.searchResults
   }
 };
 

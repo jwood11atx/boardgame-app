@@ -8,7 +8,7 @@ const Nav = () => {
         <button>home</button>
       </Link>
       <Link to="/favorites">
-        <button>go to favorites</button>
+        <button>favorites</button>
       </Link>
       <Link to="/recommendations">
         <button>recommendations</button>

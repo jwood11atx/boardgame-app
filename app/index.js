@@ -12,6 +12,7 @@ import Hotness from "./components/Hotness/Hotness";
 import Search from "./components/Search/Search";
 import Favorites from "./components/Favorites/Favorites";
 import Recommendations from "./components/Recommendations/Recommendations";
+import BGDetailPage from "./components/BGDetailPage/BGDetailPage";
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -25,6 +26,7 @@ const router = (
         <Route path="/search" component={Search} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/recommendations" component={Recommendations} />
+        <Route path="/boardgame/:name" component={BGDetailPage} />
       </Route>
     </Router>
   </Provider>

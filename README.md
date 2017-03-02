@@ -9,8 +9,7 @@ An application used to recommend boardgames to try out based on boardgame titles
 This project is currently in development. Still working on building a scraper with selenium to build a database.
 
 ## Project Screen Shot(s)
-
-No current Screenshots.
+![](http://i.imgur.com/A80d5kb.jpg)
 
 ## Installation and Setup Instructions
 

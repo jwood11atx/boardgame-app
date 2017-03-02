@@ -43,9 +43,16 @@ export const resetDisplayed = () => {
   }
 };
 
+export const addFavoriteIDs = (favoriteIDs) => {
+  return {
+    type: "ADD_FAVORITE_ID",
+    favoriteIDs
+  }
+};
+
 export const addFavorite = (favorite) => {
   return {
     type: "ADD_FAVORITE",
     favorite
   }
-};
+}

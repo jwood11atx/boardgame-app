@@ -154,8 +154,7 @@ class App extends React.Component {
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
-      fetch(`http://localhost:3000/search?id=
-        ${this.state.searchInput}${this.exact()}`)
+      fetch(`http://localhost:3000/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(ids => {
         ids = ids.sort((a, b) => {

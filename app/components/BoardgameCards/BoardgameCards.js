@@ -14,7 +14,24 @@ const BoardgameCard = (props) => {
         <div key={i} className="bg-card">
             <img className="bg-image"
                  src={game.image}/>
-               <button className="favorite-button">favorite!</button>
+            <button className="favorite-button"
+                    id={game.id}
+                    onClick={e =>
+                      addToFavorites(e.target)}>favorite!</button>
+        </div>
+      )
+    })
+
+  } else if(props.path === "/favorites") {
+    props.favorites.map((game, i) => {
+      display.push(
+        <div key={i} className="bg-card">
+            <img className="bg-image"
+                 src={game.image}/>
+            <button className="favorite-button"
+                    id={game.id}
+                    onClick={e =>
+                      addToFavorites(e.target)}>favorite!</button>
         </div>
       )
     })
@@ -26,16 +43,33 @@ const BoardgameCard = (props) => {
                      id={game.id}>
             <img className="bg-thumbnail"
                  src={game.thumbnail}/>
-               <button className="favorite-button"
-                       id={game.gameId}
-                       onClick={(e) => addToFavorites(e.target)}>favorite!</button>
+            <button className="favorite-button"
+                    id={game.gameId}
+                    onClick={e =>
+                     addToFavorites(e.target)}>favorite!</button>
         </div>
       )
     })
   }
 
   const addToFavorites = (game) => {
-    props.addFavorite(game.id)
+    props.addFavoriteIDs(game.id)
+
+    if(props.path === "/search"){
+      let list = props.searchResults;
+      for(let i=0; list.length>i; i++){
+        if(list[i].id == game.id){
+          props.addFavorite(list[i])
+          return;
+        }
+      }
+    } else {
+      fetch(`http://localhost:3000/list?id=${game.id}`)
+      .then(res => res.json())
+      .then(game => {
+        props.addFavorite(game)
+      })
+    }
   }
 
   return (

@@ -8,14 +8,15 @@ body {
 .bg-img-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;;
+  justify-content: center;
   padding:10px;
 }
 
 .bg-card {
   position: relative;
   display: flex;
-  margin: 5px;
+  max-width: 95vw;
+  margin: 10px;
   background: #fff;
   padding: 5px;
   padding-bottom: 40px;
@@ -32,10 +33,13 @@ body {
 }
 
 .bg-image {
+  max-height: 60vw;
   height: 300px;
+
 }
 
 .bg-thumbnail {
+  max-height: 60vw;
   height: 200px;
 }
 

@@ -5,6 +5,55 @@ body {
   color: $textcolor;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+button:hover:disabled {
+  cursor: default;
+}
+
+.App {
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  color: #555;
+  margin: 10px;
+}
+
+.logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 42px;
+  color: #555;
+  margin: 10px;
+}
+
+.header-text, .game-details, .game-description {
+  font-family: 'Eczar', cursive;
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.game-details {
+  margin-bottom: 100px;
+}
+
+.game-description {
+  display: flex;
+  width: 93vw;
+  padding: 22px;
+  margin: 5px;
+  background-color: white;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+  vertical-align: middle;
+}
+
 .bg-img-container {
   display: flex;
   flex-flow: row wrap;
@@ -35,7 +84,6 @@ body {
 .bg-image {
   max-height: 60vw;
   height: 300px;
-
 }
 
 .bg-thumbnail {
@@ -49,6 +97,52 @@ body {
 
 .favorite-button {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 5px;
+}
+
+.bg-details-page {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.right-container, .left-container {
+  display: flex;
+  position: relative;
+  width: 47vw;
+  padding: 5px;
+  margin: 5px;
+  color: #ddd;
+  background-color: white;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+  vertical-align: middle;
+}
+
+.detail-image {
+  height: 100%;
+  width: 100%;
+}
+
+.game-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  margin: 5px;
+}
+
+
+.detail-section-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.details-favorite-btn {
+  position: absolute;
+  height: 50px;
+  width: 100px;
+  bottom: 25px;
 }

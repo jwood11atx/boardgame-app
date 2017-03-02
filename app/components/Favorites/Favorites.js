@@ -4,10 +4,6 @@ import FavoritesContainer from "../../containers/FavoritesContainer/FavoritesCon
 import BoardgameCards from "../BoardgameCards/BoardgameCards";
 
 class Favorites extends React.Component{
-  componentDidMount(){
-    console.log(this.props);
-  }
-
   render(){
     return (
       <div className="boardgames-container">

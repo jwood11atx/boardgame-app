@@ -52,7 +52,7 @@ class Search extends React.Component{
   render(){
     return (
       <div className="boardgames-container">
-        <h2>Search Results!</h2>
+        <h2 className="page-title">Search Results!</h2>
         <section className="bg-img-container">
           <BoardgameCard path={this.props.location.pathname} />
         </section>

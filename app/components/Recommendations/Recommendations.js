@@ -64,7 +64,6 @@ class Recommendations extends React.Component{
     this.state.matachedDBList.forEach(game => {
       Object.keys(game).forEach(key => {
         if(game[key].indexOf("N/A") === -1){
-          console.log(game);
           const value = game[key].join(",");
           promise = fetch(`http://localhost:3000/recommendation?${key}=${value}`)
           .then(res => res.json())
@@ -114,6 +113,7 @@ class Recommendations extends React.Component{
   render(){
     return (
       <div>
+        <h2 className="page-title">Recommendations!</h2>
         <button onClick={() => this.getRecommendations()}>get recommendations</button>
         <BoardgameCards path={this.props.location.pathname} />
       </div>

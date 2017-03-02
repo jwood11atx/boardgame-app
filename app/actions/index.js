@@ -55,11 +55,18 @@ export const addFavorite = (favorite) => {
     type: "ADD_FAVORITE",
     favorite
   }
-}
+};
 
 export const getRecommendations = (recommendations) => {
   return {
     type: "GET_RECOMMENDATIONS",
     recommendations
   }
-}
+};
+
+export const getBGDetails = (bgDetails) => {
+  return {
+    type: "GET_BGDETAILS",
+    bgDetails
+  }
+};

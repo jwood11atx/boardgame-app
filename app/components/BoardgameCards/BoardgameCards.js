@@ -1,6 +1,8 @@
 import React from "react";
 import AppContainer from "../../containers/AppContainer/AppContainer";
 import FavoritesContainer from "../../containers/FavoritesContainer/FavoritesContainer";
+import BGDetailsContainer from "../../containers/BGDetailsContainer/BGDetailsContainer";
+import {Link} from "react-router";
 
 const BoardgameCard = (props) => {
   let display = [];
@@ -12,13 +14,17 @@ const BoardgameCard = (props) => {
     props.searchResults.map((game, i) => {
       display.push(
         <div key={i} className="bg-card">
+          <Link to={game.name[0] ? `/boardgame/${game.name[0].value}`
+                                 : `/boardgame/details`}
+                onClick={() => addBGDetails(game.id)}>
             <img className="bg-image"
                  src={game.image}/>
+          </Link>
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                      addToFavorites(e.target)}>favorite!</button>
-        </div>
+                      addToFavorites(e)}>favorite!</button>
+          </div>
       )
     })
 
@@ -26,12 +32,16 @@ const BoardgameCard = (props) => {
     props.favorites.map((game, i) => {
       display.push(
         <div key={i} className="bg-card">
+          <Link to={game.name[0] ? `/boardgame/${game.name[0].value}`
+                                 : `/boardgame/details`}
+                onClick={() => addBGDetails(game.id)}>
             <img className="bg-image"
                  src={game.image}/>
+          </Link>
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                      addToFavorites(e.target)}>favorite!</button>
+                      addToFavorites(e)}>favorite!</button>
         </div>
       )
     })
@@ -40,12 +50,17 @@ const BoardgameCard = (props) => {
     props.recommendations.map((game, i) => {
       display.push(
         <div key={i} className="bg-card">
+          <Link to={game.name[0] ? `/boardgame/${game.name[0].value}`
+                                 : `/boardgame/details`}
+                onClick={() => addBGDetails(game.id)}>
             <img className="bg-image"
                  src={game.image}/>
+          </Link>
+
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                      addToFavorites(e.target)}>favorite!</button>
+                      addToFavorites(e)}>favorite!</button>
         </div>
       )
     })
@@ -54,20 +69,27 @@ const BoardgameCard = (props) => {
     props.hotness.map((game, i) => {
       display.push(
         <div key={i} className="bg-card"
-                     id={game.id}>
-            <img className="bg-thumbnail"
-                 src={game.thumbnail}/>
+                     id={game.gameId}>
+            <Link to={game.name[0] ? `/boardgame/${game.name}`
+                                   : `/boardgame/details`}
+                  onClick={() => addBGDetails(game.gameId)}>
+              <img className="bg-thumbnail"
+                   src={game.thumbnail}/>
+           </Link>
             <button className="favorite-button"
                     id={game.gameId}
                     onClick={e =>
-                     addToFavorites(e.target)}>favorite!</button>
+                     addToFavorites(e)}>favorite!</button>
         </div>
       )
     })
   }
 
-  const addToFavorites = (game) => {
-    props.addFavoriteIDs(game.id)
+  const addToFavorites = (event) => {
+    const game = event.target;
+    event.stopPropagation();
+    props.addFavoriteIDs(game.id);
+
 
     if(props.path === "/search"){
       let list = props.searchResults;
@@ -86,6 +108,14 @@ const BoardgameCard = (props) => {
     }
   }
 
+  const addBGDetails = (id) => {
+    fetch(`http://localhost:3000/list?id=${id}`)
+    .then(res => res.json())
+    .then(game => {
+      props.getBGDetails(game);
+    })
+  }
+
   return (
     <section className="bg-img-container">
       {display}
@@ -93,4 +123,4 @@ const BoardgameCard = (props) => {
   )
 }
 
-export default AppContainer(FavoritesContainer(BoardgameCard));
+export default BGDetailsContainer(AppContainer(FavoritesContainer(BoardgameCard)));

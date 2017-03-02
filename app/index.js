@@ -11,7 +11,7 @@ import App from "./components/App/App";
 import Hotness from "./components/Hotness/Hotness";
 import Search from "./components/Search/Search";
 import Favorites from "./components/Favorites/Favorites";
-// import Recommendations from "./components/Recommendations/Recommendations";
+import Recommendations from "./components/Recommendations/Recommendations";
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -24,7 +24,7 @@ const router = (
         <IndexRoute component={Hotness} />
         <Route path="/search" component={Search} />
         <Route path="/favorites" component={Favorites} />
-        {/* <Route path="/recommendations" component={Recommendations} /> */}
+        <Route path="/recommendations" component={Recommendations} />
       </Route>
     </Router>
   </Provider>

@@ -11,4 +11,4 @@ const Hotness = (props) => {
   )
 }
 
-export default HotnessContainer(Hotness);
+export default Hotness;

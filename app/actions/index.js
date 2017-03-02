@@ -56,3 +56,10 @@ export const addFavorite = (favorite) => {
     favorite
   }
 }
+
+export const getRecommendations = (recommendations) => {
+  return {
+    type: "GET_RECOMMENDATIONS",
+    recommendations
+  }
+}

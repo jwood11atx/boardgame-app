@@ -36,6 +36,20 @@ const BoardgameCard = (props) => {
       )
     })
 
+  } else if(props.path === "/recommendations") {
+    props.recommendations.map((game, i) => {
+      display.push(
+        <div key={i} className="bg-card">
+            <img className="bg-image"
+                 src={game.image}/>
+            <button className="favorite-button"
+                    id={game.id}
+                    onClick={e =>
+                      addToFavorites(e.target)}>favorite!</button>
+        </div>
+      )
+    })
+
   } else {
     props.hotness.map((game, i) => {
       display.push(

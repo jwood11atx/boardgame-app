@@ -12,6 +12,9 @@ const Header = () => {
       <Link to="/favorites">
         <button>go to favorites</button>
       </Link>
+      <Link to="/recommendations">
+        <button>recommendations</button>
+      </Link>
     </div>
   );
 }

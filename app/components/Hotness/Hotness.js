@@ -1,18 +1,14 @@
 import React from "react";
 import HotnessContainer from "../../containers/HotnessContainer/HotnessContainer";
+import BoardgameCards from "../BoardgameCards/BoardgameCards";
 
 const Hotness = (props) => {
-
-  const displayTheHotness = () => {
-    const hotness = props.hotness.map((game, i) => {
-      return <img key={i} src={game.thumbnail}/>
-    })
-    return hotness;
-  }
-
   return (
-    <p>{displayTheHotness()}</p>
+    <div className="boardgames-container">
+      <h2>The Hotness!</h2>
+      <BoardgameCards />
+    </div>
   )
 }
 
-export default HotnessContainer(Hotness);
+export default Hotness;

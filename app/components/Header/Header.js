@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import {Link} from "react-router";
 
 const logStuff = () => {
   console.log("clicked!");
@@ -8,8 +9,12 @@ const Header = () => {
   return (
     <div className="Header">
       <h1>Boardgame App</h1>
-      <button onClick={() => {
-        this.getRecommendations()}}>click me</button>
+      <Link to="/favorites">
+        <button>go to favorites</button>
+      </Link>
+      <Link to="/recommendations">
+        <button>recommendations</button>
+      </Link>
     </div>
   );
 }

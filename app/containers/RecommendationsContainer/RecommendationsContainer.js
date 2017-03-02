@@ -1,11 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getHotness} from "../../actions";
+import {getRecommendations} from "../../actions";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getHotness: (hotness) => {
-      dispatch(getHotness(hotness))
+    getRecommendations: (recommendations) => {
+      dispatch(getRecommendations(recommendations))
     },
   }
 };

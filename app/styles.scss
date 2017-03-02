@@ -5,6 +5,50 @@ body {
   color: $textcolor;
 }
 
-.image {
-  height: 400px;
+.bg-img-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding:10px;
+}
+
+.bg-card {
+  position: relative;
+  display: flex;
+  max-width: 95vw;
+  margin: 10px;
+  background: #fff;
+  padding: 5px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+}
+
+.boardgames-container {
+  text-align: center;
+}
+
+.more-button {
+  margin-bottom: 20px;
+}
+
+.bg-image {
+  max-height: 60vw;
+  height: 300px;
+
+}
+
+.bg-thumbnail {
+  max-height: 60vw;
+  height: 200px;
+}
+
+.loading {
+  margin-top: 50px;
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

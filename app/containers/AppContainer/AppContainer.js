@@ -1,21 +1,16 @@
-
-
 import React from "react";
 import {connect} from "react-redux";
-import {getHotness} from "../../actions";
 
 const mapStateToProps = (state) => {
   return {
-    hotness: state.hotness
+    searchIDs: state.searchIDs,
+    searchResults: state.searchResults,
+    displayed: state.displayed,
+    hotness: state.hotness,
+    favoritesIDs: state.favoritesIDs,
+    favorites: state.favorites,
+    recommendations: state.recommendations
   }
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      getHotness: (hotness) => {
-        dispatch(getHotness(hotness))
-      }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps);
+export default connect(mapStateToProps);

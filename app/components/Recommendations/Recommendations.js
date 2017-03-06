@@ -18,6 +18,7 @@ class Recommendations extends React.Component{
     let recommendations;
 
     this.getGames().then(() => {
+      this.setState({matchList: []});
       const promise = new Promise((resolve) => {
         const list = this.props.favoritesIDs;
         if(list.length){
@@ -26,7 +27,7 @@ class Recommendations extends React.Component{
             app.getXML(xmlList, "favoritesIDs");
             setTimeout(()=>{
               resolve();
-            }, 3000)
+            }, 1500)
           } else {
             resolve();
           }

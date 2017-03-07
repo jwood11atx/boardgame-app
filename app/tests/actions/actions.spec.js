@@ -1,4 +1,4 @@
-import * as actions from "./index";
+import * as actions from "../../actions";
 import {expect} from 'chai';
 
 

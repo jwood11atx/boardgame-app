@@ -9,4 +9,4 @@ const displayed = (state=10, action) => {
   }
 }
 
-export default displayed
+export default displayed;

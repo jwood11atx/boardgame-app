@@ -6,7 +6,7 @@ An application used to recommend boardgames to try out based on boardgame titles
 
 ## Project Status
 
-This project is currently in development. Still working on building a scraper with selenium to build a database.
+This project is currently in development.
 
 ## Project Screen Shot(s)
 ![](http://i.imgur.com/A80d5kb.jpg)

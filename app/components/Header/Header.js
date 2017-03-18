@@ -5,7 +5,7 @@ import Nav from "../Nav/Nav";
 const Header = () => {
   return (
     <div className="Header">
-      <h1 className="logo">Boardgame App</h1>
+      <h1 className="logo">Boardgame It!</h1>
       <Nav />
     </div>
   );

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js | webpack --config webpack.config.js -d --watch",
+    "start": "webpack --config webpack.config.js -d --watch | node server.js",
     "test": "mocha -w --compilers js:babel-core/register --require helpers/test-setup.js app/**/*.spec.js"
   },
   "keywords": [],
@@ -39,6 +39,8 @@
     "cors": "^2.8.1",
     "express": "^4.15.2",
     "firebase": "^3.7.2",
+    "knex": "^0.12.8",
+    "pg": "^6.1.4",
     "promise": "^7.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

@@ -1,9 +1,13 @@
 //--------TEMP TO BE REPLACED WITH NEW DB
-const {firebase, database} = require("./firebase");
+// const {firebase, database} = require("./firebase");
 const cors = require('cors');
 const request = require("request");
 const xmlParser = require("xml2json");
 const Promises = require("promise");
+
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+const database = require('knex')(configuration);
 //-------------------------------------------------
 const express = require("express");
 const path = require("path");
@@ -15,6 +19,12 @@ app.set("port", process.env.PORT || 3000);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+app.get("/test", (req, res) => {
+  database("boardgames").select()
+    .then((boardgames) => res.status(200).json(boardgames))
+    .catch((err) => console.log("something went wrong with /test!"));
 });
 
 app.get(`/boardgames?`, function(req, res){
@@ -39,15 +49,15 @@ app.get(`/boardgames?`, function(req, res){
     .then(function(){
       if (count === ids.length) {
         if(xmlList.length > 0){
-          results.push({xml: xmlList})
+          results.push({xml: xmlList});
           res.send(results);
         } else {
           res.send(results);
         }
       }
-    })
-  })
-})
+    });
+  });
+});
 
 app.get(`/hotness`, function(req, res){
   request("https://bgg-json.azurewebsites.net/hot",
@@ -55,8 +65,8 @@ app.get(`/hotness`, function(req, res){
     if (!error && response.statusCode == 200){
       res.send(body);
     }
-  })
-})
+  });
+});
 
 app.get(`/list?`, function(req, res){
   var ids = req.query.id;
@@ -69,8 +79,8 @@ app.get(`/list?`, function(req, res){
       if(json.items)
         res.send(json.items.item);
     }
-  })
-})
+  });
+});
 
 app.get(`/xml?`, function(req, res){
   var ids = req.query.id;
@@ -123,13 +133,13 @@ app.get(`/xml?`, function(req, res){
             default:
             return obj;
           }
-        }, {})
+        }, {});
         results.push(newObj);
-      })
+      });
       res.send(results);
     }
-  })
-})
+  });
+});
 
 app.get(`/recommendation?`, function(req, res){
   var key = Object.keys(req.query)[0];
@@ -147,9 +157,9 @@ app.get(`/recommendation?`, function(req, res){
       if(cleanValues.length-1 === index){
         res.json(results)
       }
-    })
-  })
-})
+    });
+  });
+});
 
 app.get(`/search?`, function(req, res){
   var search = req.query.id.split(" ").join("+");
@@ -167,21 +177,21 @@ app.get(`/search?`, function(req, res){
         if(gameList.length > 1){
           gameList = gameList.map(function(game){
             return game.id;
-          })
+          });
           res.send(gameList);
         } else {
           res.send([gameList.id]);
         }
       }
     }
-  })
-})
+  });
+});
 
 function cleanData(data){
   if(typeof data == "object"){
     return data.map(function(e){
       return e.split(/[\.#$/\]\[\s]/g).join("_");
-    })
+    });
   } else {
     return data.split(/[\.#$/\]\[\s]/g).join("_");
   }

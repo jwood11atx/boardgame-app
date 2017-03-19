@@ -22,9 +22,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  database("boardgames").select()
-    .then((boardgames) => res.status(200).json(boardgames))
-    .catch((err) => console.log("something went wrong with /test!"));
+  // database.ref(`Categories/`).once("value")
+  //   .then((snap) => {
+  //     res.json(snap.val());
+  //   })
+  // database("boardgames").select()
+  //   .then((boardgames) => res.status(200).json(boardgames))
+  //   .catch((err) => console.log("something went wrong with /test!"));
 });
 
 app.get(`/boardgames?`, function(req, res){
@@ -34,10 +38,11 @@ app.get(`/boardgames?`, function(req, res){
   var count = 0;
 
   ids.forEach(function(id, i){
-    database.ref(`Boardgames/${id}`).once("value")
-    .then(function(snap){
-      return JSON.parse(snap.val());
-    })
+    // database.ref(`Boardgames/${id}`).once("value")
+    // .then(function(snap){
+    //   return JSON.parse(snap.val());
+    // })
+    database.get("boardgames")
     .then(function(result){
       count++;
       if(result === null){

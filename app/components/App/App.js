@@ -90,6 +90,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        <button onClick={() => {
+          fetch("/test").then(res => res.json()).then(json => console.log(json))
+        }}>test</button>
         <p className="header-text">Search for a boardgame</p>
         <input type="text"
                placeholder="search here!"

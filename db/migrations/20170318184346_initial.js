@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
     return Promise.all([
         knex.schema.createTable("boardgames", function(table) {
-            table.increments("id").primary();
+            table.integer("id").primary();
             table.string("title");
             table.timestamps();
         }),
@@ -30,7 +30,7 @@ exports.up = function(knex, Promise) {
             table.integer("boardgame_id")
                  .references("id")
                  .inTable("boardgames");
-            table.integer("mechanisms_id")
+            table.integer("mechanism_id")
                  .references("id")
                  .inTable("mechanisms");
             table.timestamps();
@@ -40,7 +40,7 @@ exports.up = function(knex, Promise) {
             table.integer("boardgame_id")
                  .references("id")
                  .inTable("boardgames");
-            table.integer("categories_id")
+            table.integer("category_id")
                  .references("id")
                  .inTable("categories");
             table.timestamps();
@@ -50,7 +50,7 @@ exports.up = function(knex, Promise) {
             table.integer("boardgame_id")
                  .references("id")
                  .inTable("boardgames");
-            table.integer("designers_id")
+            table.integer("designer_id")
                  .references("id")
                  .inTable("designers");
             table.timestamps();
@@ -60,7 +60,7 @@ exports.up = function(knex, Promise) {
             table.integer("boardgame_id")
                  .references("id")
                  .inTable("boardgames");
-            table.integer("families_id")
+            table.integer("family_id")
                  .references("id")
                  .inTable("families");
             table.timestamps();

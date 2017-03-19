@@ -30364,6 +30364,17 @@
 	        { className: "App" },
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
+	          "button",
+	          { onClick: function onClick() {
+	              fetch("/test").then(function (res) {
+	                return res.json();
+	              }).then(function (json) {
+	                return console.log(json);
+	              });
+	            } },
+	          "test"
+	        ),
+	        _react2.default.createElement(
 	          "p",
 	          { className: "header-text" },
 	          "Search for a boardgame"
@@ -32230,13 +32241,22 @@
 	    });
 	
 	    display = Object.keys(details).map(function (key, i) {
-	      var list = details[key].map(function (e, i) {
-	        return _react2.default.createElement(
+	      var list = [];
+	      if (details[key].length !== 0) {
+	        details[key].forEach(function (e, i) {
+	          list.push(_react2.default.createElement(
+	            "p",
+	            { key: i },
+	            e
+	          ));
+	        });
+	      } else {
+	        list.push(_react2.default.createElement(
 	          "p",
-	          { key: i },
-	          e
-	        );
-	      });
+	          { key: 1 },
+	          "N/A"
+	        ));
+	      }
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "detail-section",

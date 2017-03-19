@@ -34,7 +34,7 @@ class Recommendations extends React.Component{
         }
       })
 
-      promise.then((test) => {
+      promise.then(() => {
         app.getMatches()
           .then(() => {
             let recommendationObj =

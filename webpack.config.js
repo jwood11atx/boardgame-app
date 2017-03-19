@@ -8,8 +8,8 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?/,
-        loader: "babel-loader",
         exclude: /node_modules/,
+        loader: "babel-loader",
         query:
         {
           presets:["react", "es2015"]
@@ -30,9 +30,9 @@ module.exports = {
   'cheerio': 'window',
   'react/lib/ExecutionEnvironment': true,
   'react/lib/ReactContext': true,
-  },
-  node: {
-  fs: "empty",
-  net: "empty"
   }
+  // node: {
+  // fs: "empty",
+  // net: "empty"
+  // }
 }

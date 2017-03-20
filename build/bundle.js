@@ -69,27 +69,27 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _App = __webpack_require__(/*! ./components/App/App */ 283);
+	var _App = __webpack_require__(/*! ./components/App/App */ 282);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 297);
+	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 296);
 	
 	var _Hotness2 = _interopRequireDefault(_Hotness);
 	
-	var _Search = __webpack_require__(/*! ./components/Search/Search */ 301);
+	var _Search = __webpack_require__(/*! ./components/Search/Search */ 300);
 	
 	var _Search2 = _interopRequireDefault(_Search);
 	
-	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 302);
+	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 301);
 	
 	var _Favorites2 = _interopRequireDefault(_Favorites);
 	
-	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 303);
+	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 302);
 	
 	var _Recommendations2 = _interopRequireDefault(_Recommendations);
 	
-	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 305);
+	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 304);
 	
 	var _BGDetailPage2 = _interopRequireDefault(_BGDetailPage);
 	
@@ -29969,19 +29969,15 @@
 	
 	var _searchIDsReducer2 = _interopRequireDefault(_searchIDsReducer);
 	
-	var _favoritesIDsReducer = __webpack_require__(/*! ./favoritesIDs-reducer */ 279);
-	
-	var _favoritesIDsReducer2 = _interopRequireDefault(_favoritesIDsReducer);
-	
-	var _favoritesReducer = __webpack_require__(/*! ./favorites-reducer */ 280);
+	var _favoritesReducer = __webpack_require__(/*! ./favorites-reducer */ 279);
 	
 	var _favoritesReducer2 = _interopRequireDefault(_favoritesReducer);
 	
-	var _recommendationsReducer = __webpack_require__(/*! ./recommendations-reducer */ 281);
+	var _recommendationsReducer = __webpack_require__(/*! ./recommendations-reducer */ 280);
 	
 	var _recommendationsReducer2 = _interopRequireDefault(_recommendationsReducer);
 	
-	var _bgDetailsReducer = __webpack_require__(/*! ./bgDetails-reducer */ 282);
+	var _bgDetailsReducer = __webpack_require__(/*! ./bgDetails-reducer */ 281);
 	
 	var _bgDetailsReducer2 = _interopRequireDefault(_bgDetailsReducer);
 	
@@ -29991,7 +29987,6 @@
 	  hotness: _hotnessReducer2.default,
 	  searchResults: _searchResultsReducer2.default,
 	  searchIDs: _searchIDsReducer2.default,
-	  favoritesIDs: _favoritesIDsReducer2.default,
 	  favorites: _favoritesReducer2.default,
 	  recommendations: _recommendationsReducer2.default,
 	  bgDetails: _bgDetailsReducer2.default
@@ -30090,35 +30085,6 @@
 
 /***/ },
 /* 279 */
-/*!**********************************************!*\
-  !*** ./app/reducers/favoritesIDs-reducer.js ***!
-  \**********************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	var favoritesIDs = function favoritesIDs() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case "ADD_FAVORITE_ID":
-	      return [].concat(_toConsumableArray(state), [action.favoriteIDs]);
-	    default:
-	      return state;
-	  }
-	};
-	
-	exports.default = favoritesIDs;
-
-/***/ },
-/* 280 */
 /*!*******************************************!*\
   !*** ./app/reducers/favorites-reducer.js ***!
   \*******************************************/
@@ -30147,7 +30113,7 @@
 	exports.default = favorites;
 
 /***/ },
-/* 281 */
+/* 280 */
 /*!*************************************************!*\
   !*** ./app/reducers/recommendations-reducer.js ***!
   \*************************************************/
@@ -30173,7 +30139,7 @@
 	exports.default = recommendations;
 
 /***/ },
-/* 282 */
+/* 281 */
 /*!*******************************************!*\
   !*** ./app/reducers/bgDetails-reducer.js ***!
   \*******************************************/
@@ -30199,7 +30165,7 @@
 	exports.default = bgDetails;
 
 /***/ },
-/* 283 */
+/* 282 */
 /*!***********************************!*\
   !*** ./app/components/App/App.js ***!
   \***********************************/
@@ -30217,21 +30183,21 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _firebase = __webpack_require__(/*! ../../../firebase */ 284);
+	var _firebase = __webpack_require__(/*! ../../../firebase */ 283);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 292);
+	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 291);
 	
 	var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
 	
-	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 294);
+	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 293);
 	
 	var _HotnessContainer2 = _interopRequireDefault(_HotnessContainer);
 	
-	var _Header = __webpack_require__(/*! ../Header/Header */ 295);
+	var _Header = __webpack_require__(/*! ../Header/Header */ 294);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
@@ -30264,7 +30230,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      fetch("http://localhost:3000/hotness").then(function (res) {
+	      fetch("/hotness").then(function (res) {
 	        return res.json();
 	      }).then(function (hotness) {
 	        return _this2.props.getHotness(hotness);
@@ -30275,7 +30241,7 @@
 	    value: function getGames(ids) {
 	      var _this3 = this;
 	
-	      fetch("http://localhost:3000/list?id=" + ids).then(function (res) {
+	      fetch("/list?id=" + ids).then(function (res) {
 	        return res.json();
 	      }).then(function (games) {
 	        _this3.props.getSearchResults(games);
@@ -30299,7 +30265,7 @@
 	      this.props.clearSearchIDs();
 	      this.props.clearSearchResults();
 	      if (this.state.searchInput) {
-	        fetch("http://localhost:3000/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
+	        fetch("/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
 	          return res.json();
 	        }).then(function (ids) {
 	          ids = ids.sort(function (a, b) {
@@ -30364,17 +30330,6 @@
 	        { className: "App" },
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
-	          "button",
-	          { onClick: function onClick() {
-	              fetch("/test").then(function (res) {
-	                return res.json();
-	              }).then(function (json) {
-	                return console.log(json);
-	              });
-	            } },
-	          "test"
-	        ),
-	        _react2.default.createElement(
 	          "p",
 	          { className: "header-text" },
 	          "Search for a boardgame"
@@ -30413,7 +30368,7 @@
 	exports.default = (0, _AppContainer2.default)((0, _SearchContainer2.default)((0, _HotnessContainer2.default)(App)));
 
 /***/ },
-/* 284 */
+/* 283 */
 /*!*********************!*\
   !*** ./firebase.js ***!
   \*********************/
@@ -30421,7 +30376,7 @@
 
 	"use strict";
 	
-	var firebase = __webpack_require__(/*! firebase */ 285);
+	var firebase = __webpack_require__(/*! firebase */ 284);
 	
 	var config = {
 	  apiKey: "AIzaSyA6dAV3gwmGQXotavP3j58sgwKFop3LUiM",
@@ -30437,7 +30392,7 @@
 	module.exports = { firebase: firebase, database: database };
 
 /***/ },
-/* 285 */
+/* 284 */
 /*!****************************************!*\
   !*** ./~/firebase/firebase-browser.js ***!
   \****************************************/
@@ -30450,16 +30405,16 @@
 	 *
 	 *   firebase = require('firebase');
 	 */
-	var firebase = __webpack_require__(/*! ./app */ 286);
-	__webpack_require__(/*! ./auth */ 287);
-	__webpack_require__(/*! ./database */ 288);
-	__webpack_require__(/*! ./storage */ 289);
-	__webpack_require__(/*! ./messaging */ 290);
+	var firebase = __webpack_require__(/*! ./app */ 285);
+	__webpack_require__(/*! ./auth */ 286);
+	__webpack_require__(/*! ./database */ 287);
+	__webpack_require__(/*! ./storage */ 288);
+	__webpack_require__(/*! ./messaging */ 289);
 	module.exports = firebase;
 
 
 /***/ },
-/* 286 */
+/* 285 */
 /*!***************************!*\
   !*** ./~/firebase/app.js ***!
   \***************************/
@@ -30507,13 +30462,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 287 */
+/* 286 */
 /*!****************************!*\
   !*** ./~/firebase/auth.js ***!
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 286);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -30762,13 +30717,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 288 */
+/* 287 */
 /*!********************************!*\
   !*** ./~/firebase/database.js ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 286);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31035,13 +30990,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 289 */
+/* 288 */
 /*!*******************************!*\
   !*** ./~/firebase/storage.js ***!
   \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 286);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31102,13 +31057,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 290 */
+/* 289 */
 /*!*********************************!*\
   !*** ./~/firebase/messaging.js ***!
   \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 286);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31151,7 +31106,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 291 */
+/* 290 */
 /*!*****************************************************!*\
   !*** ./app/containers/AppContainer/AppContainer.js ***!
   \*****************************************************/
@@ -31176,7 +31131,6 @@
 	    bgDetails: state.bgDetails,
 	    displayed: state.displayed,
 	    favorites: state.favorites,
-	    favoritesIDs: state.favoritesIDs,
 	    hotness: state.hotness,
 	    recommendations: state.recommendations,
 	    searchIDs: state.searchIDs,
@@ -31187,7 +31141,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps);
 
 /***/ },
-/* 292 */
+/* 291 */
 /*!***********************************************************!*\
   !*** ./app/containers/SearchContainer/SearchContainer.js ***!
   \***********************************************************/
@@ -31205,7 +31159,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 293);
+	var _actions = __webpack_require__(/*! ../../actions */ 292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31235,7 +31189,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 293 */
+/* 292 */
 /*!******************************!*\
   !*** ./app/actions/index.js ***!
   \******************************/
@@ -31320,7 +31274,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 293 */
 /*!*************************************************************!*\
   !*** ./app/containers/HotnessContainer/HotnessContainer.js ***!
   \*************************************************************/
@@ -31338,7 +31292,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 293);
+	var _actions = __webpack_require__(/*! ../../actions */ 292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31353,7 +31307,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 295 */
+/* 294 */
 /*!*****************************************!*\
   !*** ./app/components/Header/Header.js ***!
   \*****************************************/
@@ -31371,7 +31325,7 @@
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 184);
 	
-	var _Nav = __webpack_require__(/*! ../Nav/Nav */ 296);
+	var _Nav = __webpack_require__(/*! ../Nav/Nav */ 295);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
@@ -31393,7 +31347,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 296 */
+/* 295 */
 /*!***********************************!*\
   !*** ./app/components/Nav/Nav.js ***!
   \***********************************/
@@ -31450,7 +31404,7 @@
 	exports.default = Nav;
 
 /***/ },
-/* 297 */
+/* 296 */
 /*!*******************************************!*\
   !*** ./app/components/Hotness/Hotness.js ***!
   \*******************************************/
@@ -31466,11 +31420,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 294);
+	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 293);
 	
 	var _HotnessContainer2 = _interopRequireDefault(_HotnessContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31492,7 +31446,7 @@
 	exports.default = Hotness;
 
 /***/ },
-/* 298 */
+/* 297 */
 /*!*********************************************************!*\
   !*** ./app/components/BoardgameCards/BoardgameCards.js ***!
   \*********************************************************/
@@ -31508,15 +31462,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
@@ -31650,7 +31604,7 @@
 	        }
 	      }
 	    } else {
-	      fetch("http://localhost:3000/list?id=" + game.id).then(function (res) {
+	      fetch("/list?id=" + game.id).then(function (res) {
 	        return res.json();
 	      }).then(function (game) {
 	        props.addFavorite(game);
@@ -31659,7 +31613,7 @@
 	  };
 	
 	  var addBGDetails = function addBGDetails(id) {
-	    fetch("http://localhost:3000/list?id=" + id).then(function (res) {
+	    fetch("/list?id=" + id).then(function (res) {
 	      return res.json();
 	    }).then(function (game) {
 	      props.getBGDetails(game);
@@ -31676,7 +31630,7 @@
 	exports.default = (0, _BGDetailsContainer2.default)((0, _AppContainer2.default)((0, _FavoritesContainer2.default)(BoardgameCard)));
 
 /***/ },
-/* 299 */
+/* 298 */
 /*!*****************************************************************!*\
   !*** ./app/containers/FavoritesContainer/FavoritesContainer.js ***!
   \*****************************************************************/
@@ -31694,7 +31648,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 293);
+	var _actions = __webpack_require__(/*! ../../actions */ 292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31712,7 +31666,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 300 */
+/* 299 */
 /*!*****************************************************************!*\
   !*** ./app/containers/BGDetailsContainer/BGDetailsContainer.js ***!
   \*****************************************************************/
@@ -31730,7 +31684,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 293);
+	var _actions = __webpack_require__(/*! ../../actions */ 292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31745,7 +31699,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 301 */
+/* 300 */
 /*!*****************************************!*\
   !*** ./app/components/Search/Search.js ***!
   \*****************************************/
@@ -31763,15 +31717,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 292);
+	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 291);
 	
 	var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31813,7 +31767,7 @@
 	    value: function getGames(ids) {
 	      var _this2 = this;
 	
-	      fetch("http://localhost:3000/list?id=" + ids).then(function (res) {
+	      fetch("/list?id=" + ids).then(function (res) {
 	        return res.json();
 	      }).then(function (games) {
 	        return _this2.props.getSearchResults(games);
@@ -31882,7 +31836,7 @@
 	exports.default = (0, _SearchContainer2.default)((0, _AppContainer2.default)(Search));
 
 /***/ },
-/* 302 */
+/* 301 */
 /*!***********************************************!*\
   !*** ./app/components/Favorites/Favorites.js ***!
   \***********************************************/
@@ -31900,15 +31854,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31951,7 +31905,7 @@
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(Favorites));
 
 /***/ },
-/* 303 */
+/* 302 */
 /*!***********************************************************!*\
   !*** ./app/components/Recommendations/Recommendations.js ***!
   \***********************************************************/
@@ -31969,21 +31923,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 304);
+	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 303);
 	
 	var _RecommendationsContainer2 = _interopRequireDefault(_RecommendationsContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -31997,13 +31949,7 @@
 	  function Recommendations() {
 	    _classCallCheck(this, Recommendations);
 	
-	    var _this = _possibleConstructorReturn(this, (Recommendations.__proto__ || Object.getPrototypeOf(Recommendations)).call(this));
-	
-	    _this.state = {
-	      matchList: [],
-	      matachedDBList: []
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Recommendations.__proto__ || Object.getPrototypeOf(Recommendations)).apply(this, arguments));
 	  }
 	
 	  _createClass(Recommendations, [{
@@ -32011,112 +31957,26 @@
 	    value: function getRecommendations() {
 	      var _this2 = this;
 	
-	      var app = this;
-	      var recommendations = void 0;
+	      var favorites = this.props.favorites;
 	
-	      this.getGames().then(function () {
-	        _this2.setState({ matchList: [] });
-	        var promise = new Promise(function (resolve) {
-	          var list = _this2.props.favoritesIDs;
-	          if (list.length) {
-	            var xmlList = list[list.length - 1]["xml"];
-	            if (xmlList) {
-	              app.getXML(xmlList, "favoritesIDs");
-	              setTimeout(function () {
-	                resolve();
-	              }, 1500);
-	            } else {
-	              resolve();
-	            }
-	          }
-	        });
-	
-	        promise.then(function (test) {
-	          app.getMatches().then(function () {
-	            var recommendationObj = _this2.state.matchList.reduce(function (obj, id) {
-	              var newObj = obj;
-	              if (obj[id]) {
-	                newObj[id]++;
-	              } else {
-	                newObj[id] = 1;
-	              }
-	              return newObj;
-	            }, {});
-	
-	            recommendations = Object.keys(recommendationObj).sort(function (a, b) {
-	              return recommendationObj[b] - recommendationObj[a];
-	            }).splice(0, 10);
-	
-	            app.getXML(recommendations, "recommendations");
-	          });
-	        });
+	      var favoritesIDs = this.props.favorites.map(function (favorite) {
+	        return favorite.id;
 	      });
-	    }
-	  }, {
-	    key: "getMatches",
-	    value: function getMatches() {
-	      var _this3 = this;
 	
-	      this.setState({ matchList: [] });
-	      var promise = void 0;
-	      this.state.matachedDBList.forEach(function (game) {
-	        Object.keys(game).forEach(function (key) {
-	          if (game[key].indexOf("N/A") === -1) {
-	            var value = game[key].join(",");
-	            promise = fetch("http://localhost:3000/recommendation?" + key + "=" + value).then(function (res) {
-	              return res.json();
-	            }).then(function (idArr) {
-	              idArr.forEach(function (id, i) {
-	                if (_this3.props.favoritesIDs.indexOf(id) === -1) {
-	                  _this3.setState({ matchList: [].concat(_toConsumableArray(_this3.state.matchList), [id]) });
-	                }
-	              });
-	            });
-	          }
-	        });
-	      });
-	      return promise;
-	    }
-	  }, {
-	    key: "getGames",
-	    value: function getGames() {
-	      var _this4 = this;
-	
-	      var ids = this.props.favoritesIDs.join(",");
-	      var app = this;
-	
-	      return fetch("http://localhost:3000/boardgames?id=" + ids).then(function (res) {
+	      fetch("/matched-boardgames?id=" + favoritesIDs.join(",")).then(function (res) {
 	        return res.json();
-	      }).then(function (matachedDBList) {
-	        _this4.setState({ matachedDBList: matachedDBList });
+	      }).then(function (list) {
+	        fetch("/list?id=" + list.join(",")).then(function (res) {
+	          return res.json();
+	        }).then(function (data) {
+	          _this2.props.getRecommendations(data);
+	        });
 	      });
-	    }
-	  }, {
-	    key: "getXML",
-	    value: function getXML(list, action) {
-	      var _this5 = this;
-	
-	      if (action === "favoritesIDs") {
-	        fetch("http://localhost:3000/xml?id=" + list.join(",")).then(function (res) {
-	          return res.json();
-	        }).then(function (data) {
-	          var bglist = _this5.state.matachedDBList;
-	          bglist.pop();
-	          _this5.setState({ matachedDBList: [].concat(_toConsumableArray(bglist), _toConsumableArray(data)) });
-	        });
-	      } else if (action === "recommendations") {
-	        fetch("http://localhost:3000/list?id=" + list.join(",")).then(function (res) {
-	          return res.json();
-	        }).then(function (data) {
-	          _this5.props.getRecommendations(data);
-	          // this.setState({recommendations: data})
-	        });
-	      }
 	    }
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this6 = this;
+	      var _this3 = this;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -32129,7 +31989,7 @@
 	        _react2.default.createElement(
 	          "button",
 	          { onClick: function onClick() {
-	              return _this6.getRecommendations();
+	              return _this3.getRecommendations();
 	            } },
 	          "get recommendations"
 	        ),
@@ -32144,7 +32004,7 @@
 	exports.default = (0, _RecommendationsContainer2.default)((0, _AppContainer2.default)(Recommendations));
 
 /***/ },
-/* 304 */
+/* 303 */
 /*!*****************************************************************************!*\
   !*** ./app/containers/RecommendationsContainer/RecommendationsContainer.js ***!
   \*****************************************************************************/
@@ -32162,7 +32022,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 293);
+	var _actions = __webpack_require__(/*! ../../actions */ 292);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32177,7 +32037,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 305 */
+/* 304 */
 /*!*****************************************************!*\
   !*** ./app/components/BGDetailPage/BGDetailPage.js ***!
   \*****************************************************/
@@ -32193,15 +32053,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 291);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	

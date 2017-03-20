@@ -23,7 +23,7 @@ class Search extends React.Component{
   }
 
   getGames(ids){
-    fetch(`http://localhost:3000/list?id=${ids}`)
+    fetch(`/list?id=${ids}`)
     .then(res => res.json())
     .then(games => this.props.getSearchResults(games))
   }

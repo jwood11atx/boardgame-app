@@ -100,7 +100,7 @@ const BoardgameCard = (props) => {
         }
       }
     } else {
-      fetch(`http://localhost:3000/list?id=${game.id}`)
+      fetch(`/list?id=${game.id}`)
       .then(res => res.json())
       .then(game => {
         props.addFavorite(game)
@@ -109,7 +109,7 @@ const BoardgameCard = (props) => {
   }
 
   const addBGDetails = (id) => {
-    fetch(`http://localhost:3000/list?id=${id}`)
+    fetch(`/list?id=${id}`)
     .then(res => res.json())
     .then(game => {
       props.getBGDetails(game);

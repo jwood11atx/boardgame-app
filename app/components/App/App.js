@@ -16,13 +16,13 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch("http://localhost:3000/hotness")
+    fetch("/hotness")
       .then(res => res.json())
       .then(hotness => this.props.getHotness(hotness))
   };
 
   getGames(ids){
-    fetch(`http://localhost:3000/list?id=${ids}`)
+    fetch(`/list?id=${ids}`)
     .then(res => res.json())
     .then(games => {
       this.props.getSearchResults(games)
@@ -42,7 +42,7 @@ class App extends React.Component {
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
-      fetch(`http://localhost:3000/search?id=${this.state.searchInput}${this.exact()}`)
+      fetch(`/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(ids => {
         ids = ids.sort((a, b) => {
@@ -90,6 +90,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        {/* <button onClick={() => {
+          fetch("/test").then(res => res.json()).then(json => console.log(json))
+        }}>test</button> */}
         <p className="header-text">Search for a boardgame</p>
         <input type="text"
                placeholder="search here!"

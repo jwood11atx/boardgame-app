@@ -38,10 +38,14 @@ const BGDetailPage = (props) => {
 
     display =
     Object.keys(details).map((key, i) => {
-      let list =
-      details[key].map((e, i) => {
-        return <p key={i}>{e}</p>
-      })
+      let list = [];
+      if(details[key].length !== 0){
+        details[key].forEach((e, i) => {
+          list.push(<p key={i}>{e}</p>)
+        })
+      } else {
+        list.push(<p key={1}>N/A</p>)
+      }
       return (
         <div className="detail-section"
              key={i}>

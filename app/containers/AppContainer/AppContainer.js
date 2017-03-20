@@ -6,7 +6,6 @@ const mapStateToProps = (state) => {
     bgDetails: state.bgDetails,
     displayed: state.displayed,
     favorites: state.favorites,
-    favoritesIDs: state.favoritesIDs,
     hotness: state.hotness,
     recommendations: state.recommendations,
     searchIDs: state.searchIDs,

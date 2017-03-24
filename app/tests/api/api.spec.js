@@ -46,7 +46,7 @@ describe("Server/API", () => {
   describe("/matched-bg-ids", () => {
     it("should return a list of matched games", (done) => {
       chai.request(app)
-        .get("/api/v1/matched-boardgames?id=18749,18785")
+        .get("/api/v1/matched-bg-ids?id=18749,18785")
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res).to.be.json;

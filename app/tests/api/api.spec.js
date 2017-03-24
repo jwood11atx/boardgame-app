@@ -64,7 +64,7 @@ describe("Server/API", () => {
   describe("/bg-details", () => {
     it("should return an object with the game's details", (done) => {
       chai.request(app)
-        .get(`/api/v1/bg-details?id=18749`)
+        .get(`/api/v1/bg-details/18749`)
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res).to.be.json;

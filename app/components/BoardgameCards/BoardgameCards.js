@@ -74,11 +74,10 @@ const BoardgameCard = (props) => {
       display.push(
         <div key={i} className="bg-card"
                      id={game.id}>
-            <Link to={game.name.value ? `/boardgame/${game.name.value}`
-                                   : `/boardgame/details`}
+            <Link to={`/boardgame/${game.name}`}
                   onClick={() => addBGDetails(game.id, hotness)}>
               <img className="bg-thumbnail"
-                   src={game.thumbnail.value}/>
+                   src={game.thumbnail}/>
              </Link>
              <FavButton favID={game.id}
                         list={hotness}/>
@@ -87,9 +86,8 @@ const BoardgameCard = (props) => {
     })
   }
 
-
   const addBGDetails = (id, list) => {
-    fetch(`/api/v1/bg-details?id=${id}`)
+    fetch(`/api/v1/bg-details/${id}`)
       .then(res => res.json())
       .then(details => {
         list.forEach(game => {

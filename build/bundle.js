@@ -77,19 +77,19 @@
 	
 	var _Hotness2 = _interopRequireDefault(_Hotness);
 	
-	var _Search = __webpack_require__(/*! ./components/Search/Search */ 300);
+	var _Search = __webpack_require__(/*! ./components/Search/Search */ 301);
 	
 	var _Search2 = _interopRequireDefault(_Search);
 	
-	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 301);
+	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 302);
 	
 	var _Favorites2 = _interopRequireDefault(_Favorites);
 	
-	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 302);
+	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 303);
 	
 	var _Recommendations2 = _interopRequireDefault(_Recommendations);
 	
-	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 304);
+	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 305);
 	
 	var _BGDetailPage2 = _interopRequireDefault(_BGDetailPage);
 	
@@ -31497,7 +31497,7 @@
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 305);
+	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 300);
 	
 	var _FavButton2 = _interopRequireDefault(_FavButton);
 	
@@ -31591,12 +31591,12 @@
 	          id: game.id },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: game.name.value ? "/boardgame/" + game.name.value : "/boardgame/details",
+	          { to: "/boardgame/" + game.name,
 	            onClick: function onClick() {
 	              return addBGDetails(game.id, hotness);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-thumbnail",
-	            src: game.thumbnail.value })
+	            src: game.thumbnail })
 	        ),
 	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
 	          list: hotness })
@@ -31605,7 +31605,7 @@
 	  }
 	
 	  var addBGDetails = function addBGDetails(id, list) {
-	    fetch("/api/v1/bg-details?id=" + id).then(function (res) {
+	    fetch("/api/v1/bg-details/" + id).then(function (res) {
 	      return res.json();
 	    }).then(function (details) {
 	      list.forEach(function (game) {
@@ -31697,6 +31697,80 @@
 
 /***/ },
 /* 300 */
+/*!***********************************************!*\
+  !*** ./app/components/FavButton/FavButton.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	
+	var _AppContainer2 = _interopRequireDefault(_AppContainer);
+	
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	
+	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var FavButton = function FavButton(props) {
+	  var found = false;
+	  var list = props.list,
+	      favID = props.favID,
+	      favorites = props.favorites,
+	      removeFavorite = props.removeFavorite;
+	
+	  var addToFavorites = function addToFavorites(event, list) {
+	    var game = event.target;
+	    event.stopPropagation();
+	
+	    for (var i = 0; list.length > i; i++) {
+	      if (list[i].id == game.id) {
+	        props.addFavorite(list[i]);
+	        return;
+	      }
+	    }
+	  };
+	  favorites.forEach(function (fav) {
+	    if (fav.id === favID) found = fav;
+	  });
+	
+	  if (!found) {
+	    return _react2.default.createElement(
+	      "button",
+	      { className: "favorite-button",
+	        id: favID,
+	        onClick: function onClick(e) {
+	          return addToFavorites(e, list);
+	        } },
+	      "favorite!"
+	    );
+	  } else {
+	    return _react2.default.createElement(
+	      "button",
+	      { className: "favorite-button",
+	        id: favID,
+	        onClick: function onClick(e) {
+	          return removeFavorite(found);
+	        } },
+	      "remove favorite"
+	    );
+	  }
+	};
+	
+	exports.default = (0, _AppContainer2.default)((0, _FavoritesContainer2.default)(FavButton));
+
+/***/ },
+/* 301 */
 /*!*****************************************!*\
   !*** ./app/components/Search/Search.js ***!
   \*****************************************/
@@ -31834,7 +31908,7 @@
 	exports.default = (0, _SearchContainer2.default)((0, _AppContainer2.default)(Search));
 
 /***/ },
-/* 301 */
+/* 302 */
 /*!***********************************************!*\
   !*** ./app/components/Favorites/Favorites.js ***!
   \***********************************************/
@@ -31903,7 +31977,7 @@
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(Favorites));
 
 /***/ },
-/* 302 */
+/* 303 */
 /*!***********************************************************!*\
   !*** ./app/components/Recommendations/Recommendations.js ***!
   \***********************************************************/
@@ -31925,7 +31999,7 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 303);
+	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 304);
 	
 	var _RecommendationsContainer2 = _interopRequireDefault(_RecommendationsContainer);
 	
@@ -32004,7 +32078,7 @@
 	exports.default = (0, _RecommendationsContainer2.default)((0, _AppContainer2.default)(Recommendations));
 
 /***/ },
-/* 303 */
+/* 304 */
 /*!*****************************************************************************!*\
   !*** ./app/containers/RecommendationsContainer/RecommendationsContainer.js ***!
   \*****************************************************************************/
@@ -32037,7 +32111,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 304 */
+/* 305 */
 /*!*****************************************************!*\
   !*** ./app/components/BGDetailPage/BGDetailPage.js ***!
   \*****************************************************/
@@ -32078,6 +32152,19 @@
 	    "Artists": [],
 	    "Designers": [],
 	    "Publishers": []
+	  };
+	
+	  if (!game.image && game.id) {
+	    fetch("/api/v1/boardgame/" + game.id).then(function (res) {
+	      return res.json();
+	    }).then(function (details1) {
+	      fetch("/api/v1/bg-details/" + game.id).then(function (res) {
+	        return res.json();
+	      }).then(function (details2) {
+	        var boardgame = Object.assign({}, details1, details2);
+	        props.getBGDetails(boardgame);
+	      });
+	    });
 	  };
 	
 	  var convertKey = function convertKey(str) {
@@ -32200,81 +32287,7 @@
 	    );
 	  }
 	};
-	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage));
-
-/***/ },
-/* 305 */
-/*!***********************************************!*\
-  !*** ./app/components/FavButton/FavButton.js ***!
-  \***********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
-	
-	var _AppContainer2 = _interopRequireDefault(_AppContainer);
-	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
-	
-	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var FavButton = function FavButton(props) {
-	  var found = false;
-	  var list = props.list,
-	      favID = props.favID,
-	      favorites = props.favorites,
-	      removeFavorite = props.removeFavorite;
-	
-	  var addToFavorites = function addToFavorites(event, list) {
-	    var game = event.target;
-	    event.stopPropagation();
-	
-	    for (var i = 0; list.length > i; i++) {
-	      if (list[i].id == game.id) {
-	        props.addFavorite(list[i]);
-	        return;
-	      }
-	    }
-	  };
-	  favorites.forEach(function (fav) {
-	    if (fav.id === favID) found = fav;
-	  });
-	
-	  if (!found) {
-	    return _react2.default.createElement(
-	      "button",
-	      { className: "favorite-button",
-	        id: favID,
-	        onClick: function onClick(e) {
-	          return addToFavorites(e, list);
-	        } },
-	      "favorite!"
-	    );
-	  } else {
-	    return _react2.default.createElement(
-	      "button",
-	      { className: "favorite-button",
-	        id: favID,
-	        onClick: function onClick(e) {
-	          return removeFavorite(found);
-	        } },
-	      "remove favorite"
-	    );
-	  }
-	};
-	
-	exports.default = (0, _AppContainer2.default)((0, _FavoritesContainer2.default)(FavButton));
+	exports.default = (0, _BGDetailsContainer2.default)((0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage)));
 
 /***/ }
 /******/ ]);

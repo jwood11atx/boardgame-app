@@ -28,7 +28,12 @@ app.get(`/api/v1/hotness`, function(req, res){
     if (!error && response.statusCode == 200){
       var json = xmlParser.toJson(body);
       json = JSON.parse(json);
-      res.send(json.items.item);
+      var games = json.items.item;
+      games.forEach(game => {
+        game.name = game.name.value;
+        game.thumbnail = game.thumbnail.value;
+      })
+      res.send(games);
     }
   });
 });
@@ -172,8 +177,8 @@ app.get(`/api/v1/bg-rec-list?`, function(req, res){
     .then(recommendations => res.send(recommendations));
 });
 
-app.get('/api/v1/bg-details?', (req, res) => {
-  const id = req.query.id;
+app.get(`/api/v1/bg-details/:id`, (req, res) => {
+  const id = req.params.id;
   const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
 
   const promise = new Promise((resolve) => {
@@ -228,8 +233,8 @@ app.get('/api/v1/bg-details?', (req, res) => {
 })
 
 app.get(`/api/v1/search?`, function(req, res){
-  var search = req.query.id.split(" ");
-  var exact = req.query.exact
+  let search = req.query.id.split(" ");
+  const exact = req.query.exact;
 
   search = search.map(str => {
     let result = str.toLowerCase();
@@ -239,6 +244,14 @@ app.get(`/api/v1/search?`, function(req, res){
   database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
     .then(games => res.json(games.rows));
 });
+
+app.get(`/api/v1/boardgame/:id`, (req, res) => {
+  const id = req.params.id;
+
+  database("boardgames").where("id", id).select()
+    .then(game => res.send(game[0]));
+
+})
 
 const convertKey = (str) => {
   switch (str) {

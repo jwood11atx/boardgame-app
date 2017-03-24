@@ -43,10 +43,10 @@ export const resetDisplayed = () => {
   }
 };
 
-export const addFavoriteIDs = (favoriteIDs) => {
+export const removeFavorite = (favorite) => {
   return {
-    type: "ADD_FAVORITE_ID",
-    favoriteIDs
+    type: "REMOVE_FAVORITE",
+    favorite
   }
 };
 

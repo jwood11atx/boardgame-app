@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details-container, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details-container {\n  margin-bottom: 50px; }\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center; }\n\n.game-description, .right-container {\n  position: relative;\n  display: flex;\n  width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.left-container {\n  display: flex;\n  position: relative;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: auto;\n  width: auto; }\n\n.game-title {\n  display: block;\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section {\n  flex: 1;\n  padding: 15px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
+	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details-container, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details-container {\n  margin-bottom: 50px; }\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center; }\n\n.game-description, .right-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.left-container {\n  display: flex;\n  position: relative;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto; }\n\n.game-title {\n  display: block;\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section {\n  flex: 1;\n  padding: 15px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
 	
 	// exports
 
@@ -30105,6 +30105,12 @@
 	  switch (action.type) {
 	    case "ADD_FAVORITE":
 	      return [].concat(_toConsumableArray(state), [action.favorite]);
+	    case "REMOVE_FAVORITE":
+	      return state.filter(function (fav) {
+	        if (fav.id != action.favorite.id) {
+	          return fav;
+	        }
+	      });
 	    default:
 	      return state;
 	  }
@@ -30268,7 +30274,6 @@
 	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
 	          return res.json();
 	        }).then(function (boardgames) {
-	          console.log(boardgames);
 	          boardgames.sort(function (a, b) {
 	            return a.id - b.id;
 	          });
@@ -31263,10 +31268,10 @@
 	  };
 	};
 	
-	var addFavoriteIDs = exports.addFavoriteIDs = function addFavoriteIDs(favoriteIDs) {
+	var removeFavorite = exports.removeFavorite = function removeFavorite(favorite) {
 	  return {
-	    type: "ADD_FAVORITE_ID",
-	    favoriteIDs: favoriteIDs
+	    type: "REMOVE_FAVORITE",
+	    favorite: favorite
 	  };
 	};
 	
@@ -31492,6 +31497,10 @@
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
+	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 305);
+	
+	var _FavButton2 = _interopRequireDefault(_FavButton);
+	
 	var _reactRouter = __webpack_require__(/*! react-router */ 184);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31527,15 +31536,8 @@
 	            _react2.default.createElement("img", { className: "bg-image",
 	              src: game.image })
 	          ),
-	          _react2.default.createElement(
-	            "button",
-	            { className: "favorite-button",
-	              id: game.id,
-	              onClick: function onClick(e) {
-	                return addToFavorites(e, searchResults);
-	              } },
-	            "favorite!"
-	          )
+	          _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	            list: searchResults })
 	        ));
 	      } else {
 	        display = _react2.default.createElement(
@@ -31559,15 +31561,8 @@
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image })
 	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "favorite-button",
-	            id: game.id,
-	            onClick: function onClick(e) {
-	              return addToFavorites(e, favorites);
-	            } },
-	          "favorite!"
-	        )
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: favorites })
 	      ));
 	    });
 	  } else if (path === "/recommendations") {
@@ -31584,15 +31579,8 @@
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image })
 	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "favorite-button",
-	            id: game.id,
-	            onClick: function onClick(e) {
-	              return addToFavorites(e, recommendations);
-	            } },
-	          "favorite!"
-	        )
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: recommendations })
 	      ));
 	    });
 	  } else {
@@ -31610,31 +31598,11 @@
 	          _react2.default.createElement("img", { className: "bg-thumbnail",
 	            src: game.thumbnail.value })
 	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "favorite-button",
-	            id: game.id,
-	            onClick: function onClick(e) {
-	              return addToFavorites(e, hotness);
-	            } },
-	          "favorite!"
-	        )
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: hotness })
 	      ));
 	    });
 	  }
-	
-	  var addToFavorites = function addToFavorites(event, list) {
-	    var game = event.target;
-	    event.stopPropagation();
-	    props.addFavoriteIDs(game.id);
-	
-	    for (var i = 0; list.length > i; i++) {
-	      if (list[i].id == game.id) {
-	        props.addFavorite(list[i]);
-	        return;
-	      }
-	    }
-	  };
 	
 	  var addBGDetails = function addBGDetails(id, list) {
 	    fetch("/api/v1/bg-details?id=" + id).then(function (res) {
@@ -31683,8 +31651,8 @@
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    addFavoriteIDs: function addFavoriteIDs(favoriteIDs) {
-	      dispatch((0, _actions.addFavoriteIDs)(favoriteIDs));
+	    removeFavorite: function removeFavorite(favorite) {
+	      dispatch((0, _actions.removeFavorite)(favorite));
 	    },
 	    addFavorite: function addFavorite(favorite) {
 	      dispatch((0, _actions.addFavorite)(favorite));
@@ -32233,6 +32201,80 @@
 	  }
 	};
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage));
+
+/***/ },
+/* 305 */
+/*!***********************************************!*\
+  !*** ./app/components/FavButton/FavButton.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	
+	var _AppContainer2 = _interopRequireDefault(_AppContainer);
+	
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	
+	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var FavButton = function FavButton(props) {
+	  var found = false;
+	  var list = props.list,
+	      favID = props.favID,
+	      favorites = props.favorites,
+	      removeFavorite = props.removeFavorite;
+	
+	  var addToFavorites = function addToFavorites(event, list) {
+	    var game = event.target;
+	    event.stopPropagation();
+	
+	    for (var i = 0; list.length > i; i++) {
+	      if (list[i].id == game.id) {
+	        props.addFavorite(list[i]);
+	        return;
+	      }
+	    }
+	  };
+	  favorites.forEach(function (fav) {
+	    if (fav.id === favID) found = fav;
+	  });
+	
+	  if (!found) {
+	    return _react2.default.createElement(
+	      "button",
+	      { className: "favorite-button",
+	        id: favID,
+	        onClick: function onClick(e) {
+	          return addToFavorites(e, list);
+	        } },
+	      "favorite!"
+	    );
+	  } else {
+	    return _react2.default.createElement(
+	      "button",
+	      { className: "favorite-button",
+	        id: favID,
+	        onClick: function onClick(e) {
+	          return removeFavorite(found);
+	        } },
+	      "remove favorite"
+	    );
+	  }
+	};
+	
+	exports.default = (0, _AppContainer2.default)((0, _FavoritesContainer2.default)(FavButton));
 
 /***/ }
 /******/ ]);

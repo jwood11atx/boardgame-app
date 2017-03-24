@@ -1,12 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
-import {addFavoriteIDs} from "../../actions";
+import {removeFavorite} from "../../actions";
 import {addFavorite} from "../../actions"
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addFavoriteIDs: (favoriteIDs) => {
-      dispatch(addFavoriteIDs(favoriteIDs))
+    removeFavorite: (favorite) => {
+      dispatch(removeFavorite(favorite))
     },
     addFavorite: (favorite) => {
       dispatch(addFavorite(favorite))

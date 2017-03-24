@@ -46,7 +46,6 @@ class App extends React.Component {
       fetch(`/api/v1/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(boardgames => {
-        console.log(boardgames);
         boardgames.sort((a,b) => {
           return a.id - b.id;
         })

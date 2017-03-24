@@ -172,49 +172,6 @@ app.get(`/api/v1/bg-rec-list?`, function(req, res){
     .then(recommendations => res.send(recommendations));
 });
 
-// app.get(`/api/v1/xml?`, (req, res) => {
-//   var ids = req.params.id;
-//   var results = [];
-//   request(`${xmlRoot}/thing?id=${ids}`,
-//   function (error, response, body){
-//     if (!error && response.statusCode == 200){
-//       var json = xmlParser.toJson(body);
-//       json = JSON.parse(json);
-//
-//       if(json.items.item.length){
-//         json.items.item.forEach(function(data){
-//           results.push(convertToObject(data));
-//         });
-//         res.send(results);
-//       } else {
-//         results.push(convertToObject(json.items.item));
-//         res.send(results);
-//       }
-//     }
-//   })
-// });
-
-// app.get(`/api/v1/recommendation?`, function(req, res){
-//   var key = Object.keys(req.query)[0];
-//   var cleanValues = cleanData(req.query[key]).split(",");
-//   var results = []
-//
-//   cleanValues.forEach(function(value, index){
-//     database.ref(`${key}/${value}`).once("value")
-//     .then(function(snapshot){
-//       if(snapshot.val() !== null){
-//         results.push(...snapshot.val());
-//       }
-//     })
-//     .then(function(){
-//       if(cleanValues.length-1 === index){
-//         res.json(results)
-//       }
-//     });
-//   });
-// });
-
-
 app.get('/api/v1/bg-details?', (req, res) => {
   const id = req.query.id;
   const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
@@ -281,27 +238,6 @@ app.get(`/api/v1/search?`, function(req, res){
 
   database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
     .then(games => res.json(games.rows));
-
-  // request(`${xmlRoot}/search?query=${search}&type=boardgame&exact=${exact}`,
-  // function (error, response, body){
-  //   if (!error && response.statusCode == 200){
-  //     var json = xmlParser.toJson(body);
-  //     var gameList = JSON.parse(json);
-  //     if(gameList.items.total == 0){
-  //       res.send([])
-  //     } else {
-  //       gameList = gameList.items.item;
-  //       if(gameList.length > 1){
-  //         gameList = gameList.map(function(game){
-  //           return game.id;
-  //         });
-  //         res.send(gameList);
-  //       } else {
-  //         res.send([gameList.id]);
-  //       }
-  //     }
-  //   }
-  // });
 });
 
 const convertKey = (str) => {

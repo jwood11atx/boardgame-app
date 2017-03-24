@@ -9,14 +9,16 @@ class Recommendations extends React.Component{
     const {favorites} = this.props;
     const favoritesIDs = this.props.favorites.map(favorite => favorite.id);
 
-    fetch(`/matched-boardgames?id=${favoritesIDs.join(",")}`)
+    fetch(`/api/v1/matched-boardgames?id=${favoritesIDs.join(",")}`)
       .then(res => res.json())
       .then(list => {
-        fetch(`/list?id=${list.join(",")}`)
+        fetch(`/api/v1/list?id=${list.join(",")}`)
             .then(res => res.json())
             .then(data => {
+              console.log(data);
               this.props.getRecommendations(data)
             })
+            .catch(err => console.log(err))
       });
   };
 

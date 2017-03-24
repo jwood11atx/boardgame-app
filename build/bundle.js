@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details {\n  margin-bottom: 100px; }\n\n.game-description {\n  display: flex;\n  width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.right-container, .left-container {\n  display: flex;\n  position: relative;\n  width: 67vw;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.right-container {\n  width: 27vw; }\n\n.detail-image {\n  height: 100%;\n  width: 100%; }\n\n.game-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n", ""]);
+	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details {\n  margin-bottom: 100px; }\n\n.game-description {\n  display: flex;\n  width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.right-container, .left-container {\n  display: flex;\n  position: relative;\n  width: 67vw;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.right-container {\n  width: 27vw; }\n\n.detail-image {\n  height: 100%;\n  width: 100%; }\n\n.game-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
 	
 	// exports
 
@@ -30230,7 +30230,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      fetch("/hotness").then(function (res) {
+	      fetch("/api/v1/hotness").then(function (res) {
 	        return res.json();
 	      }).then(function (hotness) {
 	        return _this2.props.getHotness(hotness);
@@ -30241,9 +30241,10 @@
 	    value: function getGames(ids) {
 	      var _this3 = this;
 	
-	      fetch("/list?id=" + ids).then(function (res) {
+	      fetch("/api/v1/list?id=" + ids).then(function (res) {
 	        return res.json();
 	      }).then(function (games) {
+	        console.log(games);
 	        _this3.props.getSearchResults(games);
 	      });
 	    }
@@ -30265,24 +30266,31 @@
 	      this.props.clearSearchIDs();
 	      this.props.clearSearchResults();
 	      if (this.state.searchInput) {
-	        fetch("/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
+	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
 	          return res.json();
-	        }).then(function (ids) {
-	          ids = ids.sort(function (a, b) {
-	            return Number(a) - Number(b);
+	        }).then(function (boardgames) {
+	          console.log(boardgames);
+	          boardgames.sort(function (a, b) {
+	            return a.id - b.id;
 	          });
+	          _this4.props.getSearchResults(boardgames);
 	
-	          if (document.getElementById("show-newest-checkbox").checked) ids = ids.reverse();
-	
-	          _this4.props.getSearchIDs(ids);
-	
-	          if (ids.length < 10) {
-	            ids = ids.join(",");
-	            _this4.getGames(ids);
-	          } else {
-	            ids = ids.slice(0, 10).join(",");
-	            _this4.getGames(ids);
-	          }
+	          // ids = ids.sort((a, b) => {
+	          //   return Number(a) - Number(b);
+	          // });
+	          //
+	          // if(document.getElementById("show-newest-checkbox").checked)
+	          //   ids = ids.reverse();
+	          //
+	          // this.props.getSearchIDs(ids);
+	          //
+	          // if (ids.length < 10) {
+	          //   ids = ids.join(",");
+	          //   this.getGames(ids);
+	          // } else {
+	          //   ids = ids.slice(0, 10).join(",");
+	          //   this.getGames(ids);
+	          // }
 	        });
 	      }
 	    }
@@ -30357,7 +30365,18 @@
 	          { className: "header-text" },
 	          "show newest"
 	        ),
-	        this.props.children
+	        this.props.children,
+	        _react2.default.createElement(
+	          "footer",
+	          null,
+	          "All data sourced from ",
+	          _react2.default.createElement(
+	            "a",
+	            { href: "https://www.boardgamegeek.com" },
+	            "BoardGameGeek  "
+	          ),
+	          _react2.default.createElement("img", { id: "bgg-logo", src: "//cf.geekdo-static.com/images/logos/bgg.png" })
+	        )
 	      );
 	    }
 	  }]);
@@ -31489,28 +31508,36 @@
 	    );
 	  } else if (props.path === "/search") {
 	    props.searchResults.map(function (game, i) {
-	      display.push(_react2.default.createElement(
-	        "div",
-	        { key: i, className: "bg-card" },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: game.name[0] ? "/boardgame/" + game.name[0].value : "/boardgame/details",
-	            onClick: function onClick() {
-	              return addBGDetails(game.id);
-	            } },
-	          _react2.default.createElement("img", { className: "bg-image",
-	            src: game.image })
-	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "favorite-button",
-	            id: game.id,
-	            onClick: function onClick(e) {
-	              return addToFavorites(e);
-	            } },
-	          "favorite!"
-	        )
-	      ));
+	      if (game.name) {
+	        display.push(_react2.default.createElement(
+	          "div",
+	          { key: i, className: "bg-card" },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
+	              onClick: function onClick() {
+	                return addBGDetails(game.id);
+	              } },
+	            _react2.default.createElement("img", { className: "bg-image",
+	              src: game.image })
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { className: "favorite-button",
+	              id: game.id,
+	              onClick: function onClick(e) {
+	                return addToFavorites(e);
+	              } },
+	            "favorite!"
+	          )
+	        ));
+	      } else {
+	        display = _react2.default.createElement(
+	          "div",
+	          { key: 1 },
+	          "Nothing Found!"
+	        );
+	      }
 	    });
 	  } else if (props.path === "/favorites") {
 	    props.favorites.map(function (game, i) {
@@ -31519,7 +31546,7 @@
 	        { key: i, className: "bg-card" },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: game.name[0] ? "/boardgame/" + game.name[0].value : "/boardgame/details",
+	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
 	              return addBGDetails(game.id);
 	            } },
@@ -31544,7 +31571,7 @@
 	        { key: i, className: "bg-card" },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: game.name[0] ? "/boardgame/" + game.name[0].value : "/boardgame/details",
+	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
 	              return addBGDetails(game.id);
 	            } },
@@ -31567,20 +31594,20 @@
 	      display.push(_react2.default.createElement(
 	        "div",
 	        { key: i, className: "bg-card",
-	          id: game.gameId },
+	          id: game.id },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
+	          { to: game.name.value ? "/boardgame/" + game.name.value : "/boardgame/details",
 	            onClick: function onClick() {
-	              return addBGDetails(game.gameId);
+	              return addBGDetails(game.id);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-thumbnail",
-	            src: game.thumbnail })
+	            src: game.thumbnail.value })
 	        ),
 	        _react2.default.createElement(
 	          "button",
 	          { className: "favorite-button",
-	            id: game.gameId,
+	            id: game.id,
 	            onClick: function onClick(e) {
 	              return addToFavorites(e);
 	            } },
@@ -31604,7 +31631,7 @@
 	        }
 	      }
 	    } else {
-	      fetch("/list?id=" + game.id).then(function (res) {
+	      fetch("/api/v1/list?id=" + game.id).then(function (res) {
 	        return res.json();
 	      }).then(function (game) {
 	        props.addFavorite(game);
@@ -31613,10 +31640,15 @@
 	  };
 	
 	  var addBGDetails = function addBGDetails(id) {
-	    fetch("/list?id=" + id).then(function (res) {
+	    fetch("/api/v1/bg-details?id=" + id).then(function (res) {
 	      return res.json();
-	    }).then(function (game) {
-	      props.getBGDetails(game);
+	    }).then(function (details) {
+	      props.searchResults.forEach(function (game) {
+	        if (game.id === id) {
+	          Object.assign(game, details);
+	          props.getBGDetails(game);
+	        }
+	      });
 	    });
 	  };
 	
@@ -31767,10 +31799,11 @@
 	    value: function getGames(ids) {
 	      var _this2 = this;
 	
-	      fetch("/list?id=" + ids).then(function (res) {
+	      fetch("/api/v1/list?id=" + ids).then(function (res) {
 	        return res.json();
 	      }).then(function (games) {
-	        return _this2.props.getSearchResults(games);
+	        console.log(games);
+	        _this2.props.getSearchResults(games);
 	      });
 	    }
 	  }, {
@@ -31963,13 +31996,16 @@
 	        return favorite.id;
 	      });
 	
-	      fetch("/matched-boardgames?id=" + favoritesIDs.join(",")).then(function (res) {
+	      fetch("/api/v1/matched-boardgames?id=" + favoritesIDs.join(",")).then(function (res) {
 	        return res.json();
 	      }).then(function (list) {
-	        fetch("/list?id=" + list.join(",")).then(function (res) {
+	        fetch("/api/v1/list?id=" + list.join(",")).then(function (res) {
 	          return res.json();
 	        }).then(function (data) {
+	          console.log(data);
 	          _this2.props.getRecommendations(data);
+	        }).catch(function (err) {
+	          return console.log(err);
 	        });
 	      });
 	    }
@@ -32049,6 +32085,8 @@
 	  value: true
 	});
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
 	var _react = __webpack_require__(/*! react */ 7);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -32074,48 +32112,49 @@
 	    "Mechanics": [],
 	    "Family": [],
 	    "Artists": [],
-	    "Designers": []
+	    "Designers": [],
+	    "Publishers": []
+	  };
+	
+	  var convertKey = function convertKey(str) {
+	    switch (str) {
+	      case "Mechanics":
+	        return "mechanisms";
+	      case "Categories":
+	        return "categories";
+	      case "Family":
+	        return "families";
+	      case "Designers":
+	        return "designers";
+	      case "Publishers":
+	        return "publishers";
+	      case "Artists":
+	        return "artists";
+	      default:
+	        break;
+	    }
 	  };
 	
 	  if (Object.keys(game).length != 0) {
-	    game.link.forEach(function (e) {
-	      switch (e.type) {
-	        case "boardgamecategory":
-	          details.Categories.push(e.value);
-	          break;
-	        case "boardgamemechanic":
-	          details.Mechanics.push(e.value);
-	          break;
-	        case "boardgamefamily":
-	          details.Family.push(e.value);
-	          break;
-	        case "boardgamedesigner":
-	          details.Designers.push(e.value);
-	          break;
-	        case "boardgameartist":
-	          details.Artists.push(e.value);
-	          break;
-	        default:
-	          break;
-	      }
-	    });
-	
 	    display = Object.keys(details).map(function (key, i) {
 	      var list = [];
-	      if (details[key].length !== 0) {
-	        details[key].forEach(function (e, i) {
+	      key = convertKey(key);
+	      if (_typeof(game[key]) === "object") {
+	        if (game[key].length > 0) {
+	          game[key].forEach(function (e, i) {
+	            list.push(_react2.default.createElement(
+	              "p",
+	              { key: i },
+	              e
+	            ));
+	          });
+	        } else {
 	          list.push(_react2.default.createElement(
 	            "p",
-	            { key: i },
-	            e
+	            { key: 1 },
+	            "N/A"
 	          ));
-	        });
-	      } else {
-	        list.push(_react2.default.createElement(
-	          "p",
-	          { key: 1 },
-	          "N/A"
-	        ));
+	        }
 	      }
 	      return _react2.default.createElement(
 	        "div",
@@ -32130,14 +32169,6 @@
 	        list
 	      );
 	    });
-	
-	    var getName = function getName() {
-	      if (game.name.length) {
-	        return game.name[0].value;
-	      } else {
-	        return game.name.value;
-	      }
-	    };
 	
 	    return _react2.default.createElement(
 	      "div",
@@ -32156,21 +32187,21 @@
 	          _react2.default.createElement(
 	            "h2",
 	            { className: "game-title" },
-	            getName()
+	            game.name
 	          ),
 	          _react2.default.createElement(
 	            "p",
 	            null,
 	            "players: ",
-	            game.minplayers.value,
+	            game.minplayers,
 	            "-",
-	            game.maxplayers.value
+	            game.maxplayers
 	          ),
 	          _react2.default.createElement(
 	            "p",
 	            null,
 	            "playingtime: ",
-	            game.playingtime.value,
+	            game.playingtime,
 	            "min"
 	          ),
 	          _react2.default.createElement(

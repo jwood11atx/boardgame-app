@@ -19,7 +19,7 @@ describe('<Search />', () => {
 
     const button = wrapper.find(".more-button");
 
-    console.log(button);
+    // console.log(button);
     // console.log(wrapper.simulate("click"));
   })
 })

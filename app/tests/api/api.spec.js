@@ -43,7 +43,7 @@ describe("Server/API", () => {
     });
   });
 
-  describe("/matched-boardgames", () => {
+  describe("/matched-bg-ids", () => {
     it("should return a list of matched games", (done) => {
       chai.request(app)
         .get("/api/v1/matched-boardgames?id=18749,18785")

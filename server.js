@@ -35,7 +35,7 @@ app.get(`/api/v1/hotness`, function(req, res){
   });
 });
 
-app.get(`/api/v1/matched-boardgames?`, function(req, res){
+app.get(`/api/v1/matched-bg-ids?`, function(req, res){
   const ids = req.query.id.split(",")
   let count = 0;
   let userEntryTypes = {
@@ -167,24 +167,12 @@ app.get(`/api/v1/matched-boardgames?`, function(req, res){
     })
 });
 
-// app.get(`/api/v1/list?`, function(req, res){
-//   var ids = req.query.id;
-//
-//   database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
-//     .then(result => {
-//       console.log("hello?");
-//       res.json(result.rows)});
-//
-//   // request(`${xmlRoot}/thing?id=${ids}`,
-//   // function(error, response, body){
-//   //   if (!error && response.statusCode == 200){
-//   //     var json = xmlParser.toJson(body);
-//   //     json = JSON.parse(json);
-//   //     if(json.items)
-//   //       res.send(json.items.item);
-//   //   }
-//   // });
-// });
+app.get(`/api/v1/bg-rec-list?`, function(req, res){
+  var ids = req.query.id.split(",");
+
+  database("boardgames").where("id", "in", [...ids]).select()
+    .then(recommendations => res.send(recommendations));
+});
 
 // app.get(`/api/v1/xml?`, (req, res) => {
 //   var ids = req.params.id;

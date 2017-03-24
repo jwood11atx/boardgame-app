@@ -3,13 +3,11 @@
 const request = require("request");
 const xmlParser = require("xml2json");
 const Promises = require("promise");
-
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 const async = require("async");
 const each = require("async/each");
-//-------------------------------------------------
 const express = require("express");
 const path = require("path");
 const app = express();

@@ -13,6 +13,11 @@ button:hover:disabled {
   cursor: default;
 }
 
+footer {
+  font-size: 18px;
+  padding: 10px;
+}
+
 .App {
   text-align: center;
 }
@@ -149,4 +154,8 @@ button:hover:disabled {
   height: 50px;
   width: 100px;
   bottom: 25px;
+}
+
+#bgg-logo {
+  height: 30px;
 }

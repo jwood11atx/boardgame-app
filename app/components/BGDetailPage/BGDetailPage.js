@@ -10,41 +10,42 @@ const BGDetailPage = (props) => {
                     "Mechanics": [],
                     "Family": [],
                     "Artists": [],
-                    "Designers": []
+                    "Designers": [],
+                    "Publishers": []
                   };
 
-  if(Object.keys(game).length != 0){
-    game.link.forEach(e => {
-      switch (e.type) {
-        case "boardgamecategory":
-          details.Categories.push(e.value);
-          break;
-        case "boardgamemechanic":
-          details.Mechanics.push(e.value);
-          break;
-        case "boardgamefamily":
-          details.Family.push(e.value);
-          break;
-        case "boardgamedesigner":
-          details.Designers.push(e.value);
-          break;
-        case "boardgameartist":
-          details.Artists.push(e.value);
-          break;
-        default:
-          break;
-      }
-    })
+  const convertKey = (str) => {
+    switch (str) {
+      case "Mechanics":
+        return "mechanisms"
+      case "Categories":
+        return "categories";
+      case "Family":
+        return "families";
+      case "Designers":
+        return "designers";
+      case "Publishers":
+        return "publishers";
+      case "Artists":
+        return "artists";
+      default:
+        break;
+    }
+  };
 
+  if(Object.keys(game).length != 0){
     display =
     Object.keys(details).map((key, i) => {
       let list = [];
-      if(details[key].length !== 0){
-        details[key].forEach((e, i) => {
-          list.push(<p key={i}>{e}</p>)
-        })
-      } else {
-        list.push(<p key={1}>N/A</p>)
+      key = convertKey(key);
+      if(typeof game[key] === "object"){
+        if(game[key].length > 0){
+          game[key].forEach((e, i) => {
+            list.push(<p key={i}>{e}</p>)
+          })
+        } else {
+          list.push(<p key={1}>N/A</p>)
+        }
       }
       return (
         <div className="detail-section"
@@ -54,14 +55,6 @@ const BGDetailPage = (props) => {
       )
     })
 
-    const getName = () => {
-      if(game.name.length){
-        return game.name[0].value
-      } else {
-        return game.name.value
-      }
-    }
-
     return (
       <div className="bg-details-page">
         <div className="left-container">
@@ -69,9 +62,9 @@ const BGDetailPage = (props) => {
         </div>
         <div className="right-container">
           <div className="game-details">
-            <h2 className="game-title">{getName()}</h2>
-            <p>players: {game.minplayers.value}-{game.maxplayers.value}</p>
-            <p>playingtime: {game.playingtime.value}min</p>
+            <h2 className="game-title">{game.name}</h2>
+            <p>players: {game.minplayers}-{game.maxplayers}</p>
+            <p>playingtime: {game.playingtime}min</p>
             <div>{display}</div>
           </div>
           <button className="details-favorite-btn" onClick={() => props.addFavorite(game)}>add to favorite!</button>

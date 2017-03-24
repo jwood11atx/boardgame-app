@@ -23,9 +23,12 @@ class Search extends React.Component{
   }
 
   getGames(ids){
-    fetch(`/list?id=${ids}`)
+    fetch(`/api/v1/list?id=${ids}`)
     .then(res => res.json())
-    .then(games => this.props.getSearchResults(games))
+    .then(games => {
+      console.log(games);
+      this.props.getSearchResults(games)
+    })
   }
 
   displaySearchResults(){

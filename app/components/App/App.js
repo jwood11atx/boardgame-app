@@ -16,15 +16,16 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch("/hotness")
+    fetch("/api/v1/hotness")
       .then(res => res.json())
       .then(hotness => this.props.getHotness(hotness))
   };
 
   getGames(ids){
-    fetch(`/list?id=${ids}`)
+    fetch(`/api/v1/list?id=${ids}`)
     .then(res => res.json())
     .then(games => {
+      console.log(games);
       this.props.getSearchResults(games)
     })
   }
@@ -42,25 +43,31 @@ class App extends React.Component {
     this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
-      fetch(`/search?id=${this.state.searchInput}${this.exact()}`)
+      fetch(`/api/v1/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
-      .then(ids => {
-        ids = ids.sort((a, b) => {
-          return Number(a) - Number(b);
+      .then(boardgames => {
+        console.log(boardgames);
+        boardgames.sort((a,b) => {
+          return a.id - b.id;
         })
+        this.props.getSearchResults(boardgames)
 
-        if(document.getElementById("show-newest-checkbox").checked)
-          ids = ids.reverse();
-
-        this.props.getSearchIDs(ids);
-
-        if (ids.length < 10) {
-          ids = ids.join(",");
-          this.getGames(ids);
-        } else {
-          ids = ids.slice(0, 10).join(",");
-          this.getGames(ids);
-        }
+        // ids = ids.sort((a, b) => {
+        //   return Number(a) - Number(b);
+        // });
+        //
+        // if(document.getElementById("show-newest-checkbox").checked)
+        //   ids = ids.reverse();
+        //
+        // this.props.getSearchIDs(ids);
+        //
+        // if (ids.length < 10) {
+        //   ids = ids.join(",");
+        //   this.getGames(ids);
+        // } else {
+        //   ids = ids.slice(0, 10).join(",");
+        //   this.getGames(ids);
+        // }
       })
     }
   }
@@ -90,9 +97,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        {/* <button onClick={() => {
-          fetch("/test").then(res => res.json()).then(json => console.log(json))
-        }}>test</button> */}
         <p className="header-text">Search for a boardgame</p>
         <input type="text"
                placeholder="search here!"
@@ -107,6 +111,9 @@ class App extends React.Component {
               <label className="header-text">show newest</label>
 
         {this.props.children}
+        <footer>All data sourced from <a href="https://www.boardgamegeek.com">BoardGameGeek  </a>
+        <img id="bgg-logo" src="//cf.geekdo-static.com/images/logos/bgg.png" />
+      </footer>
       </div>
     );
   }

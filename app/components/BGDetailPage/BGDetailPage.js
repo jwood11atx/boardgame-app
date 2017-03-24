@@ -14,6 +14,19 @@ const BGDetailPage = (props) => {
                     "Publishers": []
                   };
 
+  if(!game.image && game.id){
+    fetch(`/api/v1/boardgame/${game.id}`)
+      .then(res => res.json())
+      .then(details1 => {
+        fetch(`/api/v1/bg-details/${game.id}`)
+          .then(res => res.json())
+          .then(details2 => {
+            const boardgame = Object.assign({}, details1, details2);
+            props.getBGDetails(boardgame)
+          })
+      })
+  };
+
   const convertKey = (str) => {
     switch (str) {
       case "Mechanics":
@@ -80,4 +93,4 @@ const BGDetailPage = (props) => {
     return <div>loading...</div>
   }
 }
-export default FavoritesContainer(AppContainer(BGDetailPage));
+export default BGDetailsContainer(FavoritesContainer(AppContainer(BGDetailPage)));

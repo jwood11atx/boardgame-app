@@ -7,24 +7,30 @@ import {Link} from "react-router";
 const BoardgameCard = (props) => {
   let display = [];
 
-  if(props.hotness.length === 0){
+  const { searchResults,
+          favorites,
+          recommendations,
+          hotness,
+          path} = props;
+
+  if(hotness.length === 0){
     return <p className="loading">loading...</p>
 
-  } else if(props.path === "/search") {
-      props.searchResults.map((game, i) => {
+  } else if(path === "/search") {
+      searchResults.map((game, i) => {
         if(game.name){
           display.push(
             <div key={i} className="bg-card">
               <Link to={game.name[0] ? `/boardgame/${game.name}`
               : `/boardgame/details`}
-              onClick={() => addBGDetails(game.id)}>
+              onClick={() => addBGDetails(game.id, searchResults)}>
               <img className="bg-image"
                 src={game.image}/>
               </Link>
               <button className="favorite-button"
                 id={game.id}
                 onClick={e =>
-                  addToFavorites(e)}>favorite!</button>
+                  addToFavorites(e, searchResults)}>favorite!</button>
             </div>
           )
         } else {
@@ -32,31 +38,31 @@ const BoardgameCard = (props) => {
         }
       })
 
-  } else if(props.path === "/favorites") {
-    props.favorites.map((game, i) => {
+  } else if(path === "/favorites") {
+    favorites.map((game, i) => {
       display.push(
         <div key={i} className="bg-card">
           <Link to={game.name[0] ? `/boardgame/${game.name}`
                                  : `/boardgame/details`}
-                onClick={() => addBGDetails(game.id)}>
+                onClick={() => addBGDetails(game.id, favorites)}>
             <img className="bg-image"
                  src={game.image}/>
           </Link>
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                      addToFavorites(e)}>favorite!</button>
+                      addToFavorites(e, favorites)}>favorite!</button>
         </div>
       )
     })
 
-  } else if(props.path === "/recommendations") {
-    props.recommendations.map((game, i) => {
+  } else if(path === "/recommendations") {
+    recommendations.map((game, i) => {
       display.push(
         <div key={i} className="bg-card">
           <Link to={game.name[0] ? `/boardgame/${game.name}`
                                  : `/boardgame/details`}
-                onClick={() => addBGDetails(game.id)}>
+                onClick={() => addBGDetails(game.id, recommendations)}>
             <img className="bg-image"
                  src={game.image}/>
           </Link>
@@ -64,59 +70,49 @@ const BoardgameCard = (props) => {
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                      addToFavorites(e)}>favorite!</button>
+                      addToFavorites(e, recommendations)}>favorite!</button>
         </div>
       )
     })
 
   } else {
-    props.hotness.map((game, i) => {
+    hotness.map((game, i) => {
       display.push(
         <div key={i} className="bg-card"
                      id={game.id}>
             <Link to={game.name.value ? `/boardgame/${game.name.value}`
                                    : `/boardgame/details`}
-                  onClick={() => addBGDetails(game.id)}>
+                  onClick={() => addBGDetails(game.id, hotness)}>
               <img className="bg-thumbnail"
                    src={game.thumbnail.value}/>
            </Link>
             <button className="favorite-button"
                     id={game.id}
                     onClick={e =>
-                     addToFavorites(e)}>favorite!</button>
+                     addToFavorites(e, hotness)}>favorite!</button>
         </div>
       )
     })
   }
 
-  const addToFavorites = (event) => {
+  const addToFavorites = (event, list) => {
     const game = event.target;
     event.stopPropagation();
     props.addFavoriteIDs(game.id);
 
-
-    if(props.path === "/search"){
-      let list = props.searchResults;
-      for(let i=0; list.length>i; i++){
-        if(list[i].id == game.id){
-          props.addFavorite(list[i])
-          return;
-        }
+    for(let i=0; list.length>i; i++){
+      if(list[i].id == game.id){
+        props.addFavorite(list[i])
+        return;
       }
-    } else {
-      fetch(`/api/v1/list?id=${game.id}`)
-      .then(res => res.json())
-      .then(game => {
-        props.addFavorite(game)
-      })
     }
   }
 
-  const addBGDetails = (id) => {
+  const addBGDetails = (id, list) => {
     fetch(`/api/v1/bg-details?id=${id}`)
       .then(res => res.json())
       .then(details => {
-        props.searchResults.forEach(game => {
+        list.forEach(game => {
           if(game.id === id){
             Object.assign(game, details);
             props.getBGDetails(game);

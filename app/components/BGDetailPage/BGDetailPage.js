@@ -61,11 +61,11 @@ const BGDetailPage = (props) => {
           <img className="detail-image" src={game.image}/>
         </div>
         <div className="right-container">
-          <div className="game-details">
+          <div className="game-details-container">
             <h2 className="game-title">{game.name}</h2>
             <p>players: {game.minplayers}-{game.maxplayers}</p>
             <p>playingtime: {game.playingtime}min</p>
-            <div>{display}</div>
+            <div className="game-details">{display}</div>
           </div>
           <button className="details-favorite-btn" onClick={() => props.addFavorite(game)}>add to favorite!</button>
         </div>

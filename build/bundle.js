@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details {\n  margin-bottom: 100px; }\n\n.game-description {\n  display: flex;\n  width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.right-container, .left-container {\n  display: flex;\n  position: relative;\n  width: 67vw;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.right-container {\n  width: 27vw; }\n\n.detail-image {\n  height: 100%;\n  width: 100%; }\n\n.game-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
+	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details-container, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details-container {\n  margin-bottom: 50px; }\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center; }\n\n.game-description, .right-container {\n  position: relative;\n  display: flex;\n  width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.left-container {\n  display: flex;\n  position: relative;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: auto;\n  width: auto; }\n\n.game-title {\n  display: block;\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section {\n  flex: 1;\n  padding: 15px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
 	
 	// exports
 
@@ -30237,19 +30237,18 @@
 	      });
 	    }
 	  }, {
-	    key: "getGames",
-	    value: function getGames(ids) {
-	      var _this3 = this;
-	
-	      fetch("/api/v1/list?id=" + ids).then(function (res) {
-	        return res.json();
-	      }).then(function (games) {
-	        console.log(games);
-	        _this3.props.getSearchResults(games);
-	      });
-	    }
-	  }, {
 	    key: "exact",
+	
+	
+	    // getGames(ids){
+	    //   fetch(`/api/v1/list?id=${ids}`)
+	    //   .then(res => res.json())
+	    //   .then(games => {
+	    //     console.log(games);
+	    //     this.props.getSearchResults(games)
+	    //   })
+	    // }
+	
 	    value: function exact() {
 	      var checkbox = document.getElementById("exact-match-chechbox");
 	      if (checkbox.checked) {
@@ -30261,7 +30260,7 @@
 	  }, {
 	    key: "getSearch",
 	    value: function getSearch() {
-	      var _this4 = this;
+	      var _this3 = this;
 	
 	      this.props.clearSearchIDs();
 	      this.props.clearSearchResults();
@@ -30273,7 +30272,7 @@
 	          boardgames.sort(function (a, b) {
 	            return a.id - b.id;
 	          });
-	          _this4.props.getSearchResults(boardgames);
+	          _this3.props.getSearchResults(boardgames);
 	
 	          // ids = ids.sort((a, b) => {
 	          //   return Number(a) - Number(b);
@@ -30297,7 +30296,7 @@
 	  }, {
 	    key: "searchButton",
 	    value: function searchButton() {
-	      var _this5 = this;
+	      var _this4 = this;
 	
 	      if (this.state.searchInput) {
 	        return _react2.default.createElement(
@@ -30305,7 +30304,7 @@
 	          { id: "search-link",
 	            to: "/search",
 	            onClick: function onClick() {
-	              return _this5.getSearch();
+	              return _this4.getSearch();
 	            } },
 	          _react2.default.createElement(
 	            "button",
@@ -30331,7 +30330,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this6 = this;
+	      var _this5 = this;
 	
 	      return _react2.default.createElement(
 	        "div",
@@ -30345,10 +30344,10 @@
 	        _react2.default.createElement("input", { type: "text",
 	          placeholder: "search here!",
 	          onChange: function onChange(e) {
-	            return _this6.setState({ searchInput: e.target.value });
+	            return _this5.setState({ searchInput: e.target.value });
 	          },
 	          onKeyDown: function onKeyDown(e) {
-	            return _this6.enterKey(e);
+	            return _this5.enterKey(e);
 	          } }),
 	        this.searchButton(),
 	        _react2.default.createElement("input", { type: "checkbox",
@@ -31500,14 +31499,21 @@
 	var BoardgameCard = function BoardgameCard(props) {
 	  var display = [];
 	
-	  if (props.hotness.length === 0) {
+	  var searchResults = props.searchResults,
+	      favorites = props.favorites,
+	      recommendations = props.recommendations,
+	      hotness = props.hotness,
+	      path = props.path;
+	
+	
+	  if (hotness.length === 0) {
 	    return _react2.default.createElement(
 	      "p",
 	      { className: "loading" },
 	      "loading..."
 	    );
-	  } else if (props.path === "/search") {
-	    props.searchResults.map(function (game, i) {
+	  } else if (path === "/search") {
+	    searchResults.map(function (game, i) {
 	      if (game.name) {
 	        display.push(_react2.default.createElement(
 	          "div",
@@ -31516,7 +31522,7 @@
 	            _reactRouter.Link,
 	            { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	              onClick: function onClick() {
-	                return addBGDetails(game.id);
+	                return addBGDetails(game.id, searchResults);
 	              } },
 	            _react2.default.createElement("img", { className: "bg-image",
 	              src: game.image })
@@ -31526,7 +31532,7 @@
 	            { className: "favorite-button",
 	              id: game.id,
 	              onClick: function onClick(e) {
-	                return addToFavorites(e);
+	                return addToFavorites(e, searchResults);
 	              } },
 	            "favorite!"
 	          )
@@ -31539,8 +31545,8 @@
 	        );
 	      }
 	    });
-	  } else if (props.path === "/favorites") {
-	    props.favorites.map(function (game, i) {
+	  } else if (path === "/favorites") {
+	    favorites.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
 	        { key: i, className: "bg-card" },
@@ -31548,7 +31554,7 @@
 	          _reactRouter.Link,
 	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
-	              return addBGDetails(game.id);
+	              return addBGDetails(game.id, favorites);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image })
@@ -31558,14 +31564,14 @@
 	          { className: "favorite-button",
 	            id: game.id,
 	            onClick: function onClick(e) {
-	              return addToFavorites(e);
+	              return addToFavorites(e, favorites);
 	            } },
 	          "favorite!"
 	        )
 	      ));
 	    });
-	  } else if (props.path === "/recommendations") {
-	    props.recommendations.map(function (game, i) {
+	  } else if (path === "/recommendations") {
+	    recommendations.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
 	        { key: i, className: "bg-card" },
@@ -31573,7 +31579,7 @@
 	          _reactRouter.Link,
 	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
-	              return addBGDetails(game.id);
+	              return addBGDetails(game.id, recommendations);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image })
@@ -31583,14 +31589,14 @@
 	          { className: "favorite-button",
 	            id: game.id,
 	            onClick: function onClick(e) {
-	              return addToFavorites(e);
+	              return addToFavorites(e, recommendations);
 	            } },
 	          "favorite!"
 	        )
 	      ));
 	    });
 	  } else {
-	    props.hotness.map(function (game, i) {
+	    hotness.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
 	        { key: i, className: "bg-card",
@@ -31599,7 +31605,7 @@
 	          _reactRouter.Link,
 	          { to: game.name.value ? "/boardgame/" + game.name.value : "/boardgame/details",
 	            onClick: function onClick() {
-	              return addBGDetails(game.id);
+	              return addBGDetails(game.id, hotness);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-thumbnail",
 	            src: game.thumbnail.value })
@@ -31609,7 +31615,7 @@
 	          { className: "favorite-button",
 	            id: game.id,
 	            onClick: function onClick(e) {
-	              return addToFavorites(e);
+	              return addToFavorites(e, hotness);
 	            } },
 	          "favorite!"
 	        )
@@ -31617,33 +31623,24 @@
 	    });
 	  }
 	
-	  var addToFavorites = function addToFavorites(event) {
+	  var addToFavorites = function addToFavorites(event, list) {
 	    var game = event.target;
 	    event.stopPropagation();
 	    props.addFavoriteIDs(game.id);
 	
-	    if (props.path === "/search") {
-	      var list = props.searchResults;
-	      for (var i = 0; list.length > i; i++) {
-	        if (list[i].id == game.id) {
-	          props.addFavorite(list[i]);
-	          return;
-	        }
+	    for (var i = 0; list.length > i; i++) {
+	      if (list[i].id == game.id) {
+	        props.addFavorite(list[i]);
+	        return;
 	      }
-	    } else {
-	      fetch("/api/v1/list?id=" + game.id).then(function (res) {
-	        return res.json();
-	      }).then(function (game) {
-	        props.addFavorite(game);
-	      });
 	    }
 	  };
 	
-	  var addBGDetails = function addBGDetails(id) {
+	  var addBGDetails = function addBGDetails(id, list) {
 	    fetch("/api/v1/bg-details?id=" + id).then(function (res) {
 	      return res.json();
 	    }).then(function (details) {
-	      props.searchResults.forEach(function (game) {
+	      list.forEach(function (game) {
 	        if (game.id === id) {
 	          Object.assign(game, details);
 	          props.getBGDetails(game);
@@ -31996,13 +31993,12 @@
 	        return favorite.id;
 	      });
 	
-	      fetch("/api/v1/matched-boardgames?id=" + favoritesIDs.join(",")).then(function (res) {
+	      fetch("/api/v1/matched-bg-ids?id=" + favoritesIDs.join(",")).then(function (res) {
 	        return res.json();
 	      }).then(function (list) {
-	        fetch("/api/v1/list?id=" + list.join(",")).then(function (res) {
+	        fetch("/api/v1/bg-rec-list?id=" + list.join(",")).then(function (res) {
 	          return res.json();
 	        }).then(function (data) {
-	          console.log(data);
 	          _this2.props.getRecommendations(data);
 	        }).catch(function (err) {
 	          return console.log(err);
@@ -32183,7 +32179,7 @@
 	        { className: "right-container" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "game-details" },
+	          { className: "game-details-container" },
 	          _react2.default.createElement(
 	            "h2",
 	            { className: "game-title" },
@@ -32206,7 +32202,7 @@
 	          ),
 	          _react2.default.createElement(
 	            "div",
-	            null,
+	            { className: "game-details" },
 	            display
 	          )
 	        ),

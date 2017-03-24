@@ -21,14 +21,14 @@ class App extends React.Component {
       .then(hotness => this.props.getHotness(hotness))
   };
 
-  getGames(ids){
-    fetch(`/api/v1/list?id=${ids}`)
-    .then(res => res.json())
-    .then(games => {
-      console.log(games);
-      this.props.getSearchResults(games)
-    })
-  }
+  // getGames(ids){
+  //   fetch(`/api/v1/list?id=${ids}`)
+  //   .then(res => res.json())
+  //   .then(games => {
+  //     console.log(games);
+  //     this.props.getSearchResults(games)
+  //   })
+  // }
 
   exact(){
     const checkbox = document.getElementById("exact-match-chechbox");

@@ -63,15 +63,6 @@ describe("actions", () => {
     expect(actions.resetDisplayed()).eql(expectedReturn);
   })
 
-  it("should fire addFavoriteIDs action", () => {
-    const favoriteIDs = [1,2,3,5]
-    const expectedReturn = {
-      type: "ADD_FAVORITE_ID",
-      favoriteIDs
-    }
-    expect(actions.addFavoriteIDs(favoriteIDs)).eql(expectedReturn);
-  })
-
   it("should fire addFavorite action", () => {
     const favorite = [{id: "13", title: "catan"}];
     const expectedReturn = {

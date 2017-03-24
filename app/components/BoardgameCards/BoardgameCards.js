@@ -2,6 +2,7 @@ import React from "react";
 import AppContainer from "../../containers/AppContainer/AppContainer";
 import FavoritesContainer from "../../containers/FavoritesContainer/FavoritesContainer";
 import BGDetailsContainer from "../../containers/BGDetailsContainer/BGDetailsContainer";
+import FavButton from "../FavButton/FavButton"
 import {Link} from "react-router";
 
 const BoardgameCard = (props) => {
@@ -27,10 +28,8 @@ const BoardgameCard = (props) => {
               <img className="bg-image"
                 src={game.image}/>
               </Link>
-              <button className="favorite-button"
-                id={game.id}
-                onClick={e =>
-                  addToFavorites(e, searchResults)}>favorite!</button>
+                <FavButton favID={game.id}
+                           list={searchResults}/>
             </div>
           )
         } else {
@@ -48,10 +47,8 @@ const BoardgameCard = (props) => {
             <img className="bg-image"
                  src={game.image}/>
           </Link>
-            <button className="favorite-button"
-                    id={game.id}
-                    onClick={e =>
-                      addToFavorites(e, favorites)}>favorite!</button>
+          <FavButton favID={game.id}
+                     list={favorites}/>
         </div>
       )
     })
@@ -66,11 +63,8 @@ const BoardgameCard = (props) => {
             <img className="bg-image"
                  src={game.image}/>
           </Link>
-
-            <button className="favorite-button"
-                    id={game.id}
-                    onClick={e =>
-                      addToFavorites(e, recommendations)}>favorite!</button>
+          <FavButton favID={game.id}
+                     list={recommendations}/>
         </div>
       )
     })
@@ -85,28 +79,14 @@ const BoardgameCard = (props) => {
                   onClick={() => addBGDetails(game.id, hotness)}>
               <img className="bg-thumbnail"
                    src={game.thumbnail.value}/>
-           </Link>
-            <button className="favorite-button"
-                    id={game.id}
-                    onClick={e =>
-                     addToFavorites(e, hotness)}>favorite!</button>
+             </Link>
+             <FavButton favID={game.id}
+                        list={hotness}/>
         </div>
       )
     })
   }
 
-  const addToFavorites = (event, list) => {
-    const game = event.target;
-    event.stopPropagation();
-    props.addFavoriteIDs(game.id);
-
-    for(let i=0; list.length>i; i++){
-      if(list[i].id == game.id){
-        props.addFavorite(list[i])
-        return;
-      }
-    }
-  }
 
   const addBGDetails = (id, list) => {
     fetch(`/api/v1/bg-details?id=${id}`)

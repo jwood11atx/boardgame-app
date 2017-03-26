@@ -31591,12 +31591,12 @@
 	          id: game.id },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: game.name.value ? "/boardgame/" + game.name.value : "/boardgame/details",
+	          { to: "/boardgame/" + game.name,
 	            onClick: function onClick() {
 	              return addBGDetails(game.id, hotness);
 	            } },
 	          _react2.default.createElement("img", { className: "bg-thumbnail",
-	            src: game.thumbnail.value })
+	            src: game.thumbnail })
 	        ),
 	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
 	          list: hotness })
@@ -31605,7 +31605,7 @@
 	  }
 	
 	  var addBGDetails = function addBGDetails(id, list) {
-	    fetch("/api/v1/bg-details?id=" + id).then(function (res) {
+	    fetch("/api/v1/bg-details/" + id).then(function (res) {
 	      return res.json();
 	    }).then(function (details) {
 	      list.forEach(function (game) {
@@ -31708,6 +31708,8 @@
 	  value: true
 	});
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
 	var _react = __webpack_require__(/*! react */ 7);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31729,15 +31731,32 @@
 	      favorites = props.favorites,
 	      removeFavorite = props.removeFavorite;
 	
+	
 	  var addToFavorites = function addToFavorites(event, list) {
 	    var game = event.target;
 	    event.stopPropagation();
 	
-	    for (var i = 0; list.length > i; i++) {
+	    var _loop = function _loop(i) {
 	      if (list[i].id == game.id) {
-	        props.addFavorite(list[i]);
-	        return;
+	        if (list[i].image) {
+	          props.addFavorite(list[i]);
+	          return {
+	            v: void 0
+	          };
+	        } else {
+	          fetch("/api/v1/boardgame/" + game.id).then(function (res) {
+	            return res.json();
+	          }).then(function (details) {
+	            props.addFavorite(Object.assign({}, list[i], details));
+	          });
+	        }
 	      }
+	    };
+	
+	    for (var i = 0; list.length > i; i++) {
+	      var _ret = _loop(i);
+	
+	      if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
 	    }
 	  };
 	  favorites.forEach(function (fav) {
@@ -32154,6 +32173,19 @@
 	    "Publishers": []
 	  };
 	
+	  if (!game.image && game.id) {
+	    fetch("/api/v1/boardgame/" + game.id).then(function (res) {
+	      return res.json();
+	    }).then(function (details1) {
+	      fetch("/api/v1/bg-details/" + game.id).then(function (res) {
+	        return res.json();
+	      }).then(function (details2) {
+	        var boardgame = Object.assign({}, details1, details2);
+	        props.getBGDetails(boardgame);
+	      });
+	    });
+	  };
+	
 	  var convertKey = function convertKey(str) {
 	    switch (str) {
 	      case "Mechanics":
@@ -32274,7 +32306,7 @@
 	    );
 	  }
 	};
-	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage));
+	exports.default = (0, _BGDetailsContainer2.default)((0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage)));
 
 /***/ }
 /******/ ]);

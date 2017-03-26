@@ -4,15 +4,27 @@ import FavoritesContainer from "../../containers/FavoritesContainer/FavoritesCon
 
 const FavButton = (props) => {
   let found = false;
-  const {list, favID, favorites, removeFavorite} = props
+  const {list, favID, favorites, removeFavorite} = props;
+
   const addToFavorites = (event, list) => {
     const game = event.target;
     event.stopPropagation();
 
+
     for(let i=0; list.length>i; i++){
       if(list[i].id == game.id){
-        props.addFavorite(list[i])
-        return;
+        if(list[i].image){
+          props.addFavorite(list[i])
+          return;
+        } else {
+          fetch(`/api/v1/boardgame/${game.id}`)
+            .then(res => res.json())
+            .then(details => {
+              props.addFavorite(
+                Object.assign({}, list[i], details)
+              );
+            })
+        }
       }
     }
   }

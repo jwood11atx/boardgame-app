@@ -179,58 +179,104 @@ app.get(`/api/v1/bg-rec-list?`, function(req, res){
 
 app.get(`/api/v1/bg-details/:id`, (req, res) => {
   const id = req.params.id;
-  const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
 
-  const promise = new Promise((resolve) => {
-    let typeList = {};
-    types.forEach((type, i) => {
-      database(`boardgame_${type}`).where("boardgame_id", id).select()
-        .then(typeIDs => {
-          typeList[type] = [];
-          typeIDs.forEach(dbObj => typeList[type].push(dbObj[convertKey(type)]));
-        })
-        .then(() => {
-          if(types.length-1 === i){
-            resolve(typeList);
-          }
-        })
-      })
-  })
 
-  promise.then(typeList => {
-    let count = 0;
-    let bgDetails = {};
-    let listCount = 0;
-    Object.keys(typeList).forEach(type => {
-      listCount += typeList[type].length;
-    });
-    new Promise((resolve)=> {
-      types.forEach((type, i) => {
-        if (typeList[type].length > 0) {
-          typeList[type].forEach(typeID => {
-              database(type).where("id", typeID).select()
-              .then(obj => {
-                if(bgDetails[type]){
-                  bgDetails[type].push(obj[0].type)
-                } else {
-                  bgDetails[type] = [obj[0].type];
-                }
-              }). then(() => {
-                count++;
-                if(listCount === count){
-                  setTimeout(() => {
-                    resolve(bgDetails)
-                  }, 200)
-                }
-              })
+
+    database(`boardgames`).where("id", id).select()
+      .then(result => {
+        if(result.length === 0){
+
+          request(`${xmlRoot}/thing?id=${id}`,
+              (error, response, body) => {
+            if (!error && response.statusCode == 200){
+              let gameDetails = xmlParser.toJson(body);
+              gameDetails = JSON.parse(gameDetails).items.item;
+
+              let { thumbnail, image, name, description, yearpublished, minplayers, maxplayers, playingtime} = gameDetails;
+
+              description = description.replace(/&times;/g, "x")
+                               .replace(/&mdash;/g, "-")
+                               .replace(/&#10;/g, "")
+                               .replace(/&.*;/g, "");
+
+              let boardgame = {
+                id,
+                thumbnail,
+                image,
+                description,
+                name: name.value,
+                yearpublished: yearpublished.value,
+                minplayers: minplayers.value,
+                maxplayers: maxplayers.value,
+                playingtime: playingtime.value
+              };
+
+
+              let bgDetails = Object.assign({}, boardgame, convertToObject(gameDetails));
+              res.send(bgDetails);
+            }
           })
         } else {
-          bgDetails[type] = ["N/A"]
+          const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
+          let typeList = {};
+          let count = 0;
+
+          const promise = new Promise((resolve) => {
+            types.forEach((type, i) => {
+              database(`boardgame_${type}`).where("boardgame_id", id).select()
+                .then(typeIDs => {
+                  typeList[type] = [];
+                  typeIDs.forEach(dbObj => {
+                    typeList[type].push(dbObj[convertKey(type)]);
+                  })
+                })
+                .then(() => {
+                  count++;
+                  if(types.length === count){
+                    resolve(typeList);
+                  }
+                });
+            });
+          });
+
+          promise.then(typeList => {
+            let count = 0;
+            let bgDetails = {};
+            let listCount = 0;
+            Object.keys(typeList).forEach(type => {
+              listCount += typeList[type].length;
+            });
+            new Promise((resolve)=> {
+              types.forEach((type, i) => {
+                if (typeList[type].length > 0) {
+                  typeList[type].forEach(typeID => {
+                      database(type).where("id", typeID).select()
+                      .then(obj => {
+                        if(bgDetails[type]){
+                          bgDetails[type].push(obj[0].type)
+                        } else {
+                          bgDetails[type] = [obj[0].type];
+                        }
+                      }). then(() => {
+                        count++;
+                        if(listCount === count){
+                          setTimeout(() => {
+                            resolve(bgDetails)
+                          }, 200)
+                        }
+                      })
+                  })
+                } else {
+                  bgDetails[type] = ["N/A"]
+                }
+              })
+            }).then(bgDetails => {
+              res.json(bgDetails)
+            });
+          });
         }
-      })
-    }).then(bgDetails => res.json(bgDetails))
-  })
-})
+      });
+});
 
 app.get(`/api/v1/search?`, function(req, res){
   let search = req.query.id.split(" ");
@@ -294,38 +340,56 @@ const convertToObject = (data) => {
   return data.link.reduce((obj, e) => {
     switch (e.type) {
       case "boardgamedesigner":
-      if (obj["Designers"]) {
-        obj["Designers"].push(e.value);
+      if (obj["designers"]) {
+        obj["designers"].push(e.value);
         return obj;
       } else {
-        obj["Designers"] = [e.value];
+        obj["designers"] = [e.value];
+        return obj;
+      }
+
+      case "boardgameartist":
+      if (obj["artists"]) {
+        obj["artists"].push(e.value);
+        return obj;
+      } else {
+        obj["artists"] = [e.value];
+        return obj;
+      }
+
+      case "boardgamepublisher":
+      if (obj["publishers"]) {
+        obj["publishers"].push(e.value);
+        return obj;
+      } else {
+        obj["publishers"] = [e.value];
         return obj;
       }
 
       case "boardgamecategory":
-      if (obj["Categories"]) {
-        obj["Categories"].push(e.value);
+      if (obj["categories"]) {
+        obj["categories"].push(e.value);
         return obj;
       } else {
-        obj["Categories"] = [e.value];
+        obj["categories"] = [e.value];
         return obj;
       }
 
       case "boardgamemechanic":
-      if (obj["Mechanisms"]) {
-        obj["Mechanisms"].push(e.value);
+      if (obj["mechanisms"]) {
+        obj["mechanisms"].push(e.value);
         return obj;
       } else {
-        obj["Mechanisms"] = [e.value];
+        obj["mechanisms"] = [e.value];
         return obj;
       }
 
       case "boardgamefamily":
-      if (obj["Family"]) {
-        obj["Family"].push(e.value);
+      if (obj["families"]) {
+        obj["families"].push(e.value);
         return obj;
       } else {
-        obj["Family"] = [e.value];
+        obj["families"] = [e.value];
         return obj;
       }
       default:

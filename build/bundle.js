@@ -31708,6 +31708,8 @@
 	  value: true
 	});
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
 	var _react = __webpack_require__(/*! react */ 7);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -31729,15 +31731,32 @@
 	      favorites = props.favorites,
 	      removeFavorite = props.removeFavorite;
 	
+	
 	  var addToFavorites = function addToFavorites(event, list) {
 	    var game = event.target;
 	    event.stopPropagation();
 	
-	    for (var i = 0; list.length > i; i++) {
+	    var _loop = function _loop(i) {
 	      if (list[i].id == game.id) {
-	        props.addFavorite(list[i]);
-	        return;
+	        if (list[i].image) {
+	          props.addFavorite(list[i]);
+	          return {
+	            v: void 0
+	          };
+	        } else {
+	          fetch("/api/v1/boardgame/" + game.id).then(function (res) {
+	            return res.json();
+	          }).then(function (details) {
+	            props.addFavorite(Object.assign({}, list[i], details));
+	          });
+	        }
 	      }
+	    };
+	
+	    for (var i = 0; list.length > i; i++) {
+	      var _ret = _loop(i);
+	
+	      if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
 	    }
 	  };
 	  favorites.forEach(function (fav) {
@@ -32123,8 +32142,6 @@
 	  value: true
 	});
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
 	var _react = __webpack_require__(/*! react */ 7);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -32146,13 +32163,8 @@
 	var BGDetailPage = function BGDetailPage(props) {
 	  var game = props.bgDetails;
 	  var display = [];
-	  var details = { "Categories": [],
-	    "Mechanics": [],
-	    "Family": [],
-	    "Artists": [],
-	    "Designers": [],
-	    "Publishers": []
-	  };
+	
+	  var types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
 	
 	  if (!game.image && game.id) {
 	    fetch("/api/v1/boardgame/" + game.id).then(function (res) {
@@ -32187,25 +32199,24 @@
 	  };
 	
 	  if (Object.keys(game).length != 0) {
-	    display = Object.keys(details).map(function (key, i) {
+	    display = types.map(function (type, i) {
 	      var list = [];
-	      key = convertKey(key);
-	      if (_typeof(game[key]) === "object") {
-	        if (game[key].length > 0) {
-	          game[key].forEach(function (e, i) {
-	            list.push(_react2.default.createElement(
-	              "p",
-	              { key: i },
-	              e
-	            ));
-	          });
-	        } else {
+	      if (!game[type]) game[type] = 0;
+	
+	      if (game[type].length > 0) {
+	        game[type].forEach(function (e, i) {
 	          list.push(_react2.default.createElement(
 	            "p",
-	            { key: 1 },
-	            "N/A"
+	            { key: i },
+	            e
 	          ));
-	        }
+	        });
+	      } else {
+	        list.push(_react2.default.createElement(
+	          "p",
+	          { key: 1 },
+	          "N/A"
+	        ));
 	      }
 	      return _react2.default.createElement(
 	        "div",
@@ -32214,13 +32225,12 @@
 	        _react2.default.createElement(
 	          "h3",
 	          { className: "detail-section-title" },
-	          key,
+	          type,
 	          ":"
 	        ),
 	        list
 	      );
 	    });
-	
 	    return _react2.default.createElement(
 	      "div",
 	      { className: "bg-details-page" },

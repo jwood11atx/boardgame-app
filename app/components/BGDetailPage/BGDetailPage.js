@@ -6,13 +6,8 @@ import FavoritesContainer from "../../containers/FavoritesContainer/FavoritesCon
 const BGDetailPage = (props) => {
   const game = props.bgDetails;
   let display = [];
-  const details = { "Categories": [],
-                    "Mechanics": [],
-                    "Family": [],
-                    "Artists": [],
-                    "Designers": [],
-                    "Publishers": []
-                  };
+
+  const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
 
   if(!game.image && game.id){
     fetch(`/api/v1/boardgame/${game.id}`)
@@ -48,26 +43,25 @@ const BGDetailPage = (props) => {
 
   if(Object.keys(game).length != 0){
     display =
-    Object.keys(details).map((key, i) => {
+    types.map((type, i) => {
       let list = [];
-      key = convertKey(key);
-      if(typeof game[key] === "object"){
-        if(game[key].length > 0){
-          game[key].forEach((e, i) => {
+        if(!game[type]) game[type] = 0;
+
+        if(game[type].length > 0){
+          game[type].forEach((e, i) => {
             list.push(<p key={i}>{e}</p>)
           })
         } else {
           list.push(<p key={1}>N/A</p>)
         }
-      }
       return (
         <div className="detail-section"
              key={i}>
-          <h3 className="detail-section-title">{key}:</h3>{list}
+          <h3 className="detail-section-title">{type}:</h3>
+            {list}
         </div>
       )
     })
-
     return (
       <div className="bg-details-page">
         <div className="left-container">

@@ -32291,6 +32291,9 @@
 	exports.default = (0, _BGDetailsContainer2.default)((0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage)));
 =======
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(BGDetailPage));
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 /***/ }

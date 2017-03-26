@@ -21,15 +21,6 @@ class App extends React.Component {
       .then(hotness => this.props.getHotness(hotness))
   };
 
-  // getGames(ids){
-  //   fetch(`/api/v1/list?id=${ids}`)
-  //   .then(res => res.json())
-  //   .then(games => {
-  //     console.log(games);
-  //     this.props.getSearchResults(games)
-  //   })
-  // }
-
   exact(){
     const checkbox = document.getElementById("exact-match-chechbox");
     if(checkbox.checked){
@@ -46,27 +37,19 @@ class App extends React.Component {
       fetch(`/api/v1/search?id=${this.state.searchInput}${this.exact()}`)
       .then(res => res.json())
       .then(boardgames => {
-        boardgames.sort((a,b) => {
-          return a.id - b.id;
-        })
-        this.props.getSearchResults(boardgames)
 
-        // ids = ids.sort((a, b) => {
-        //   return Number(a) - Number(b);
-        // });
-        //
-        // if(document.getElementById("show-newest-checkbox").checked)
-        //   ids = ids.reverse();
-        //
-        // this.props.getSearchIDs(ids);
-        //
-        // if (ids.length < 10) {
-        //   ids = ids.join(",");
-        //   this.getGames(ids);
-        // } else {
-        //   ids = ids.slice(0, 10).join(",");
-        //   this.getGames(ids);
-        // }
+
+        if (boardgames.length > 1) {
+          boardgames.sort((a,b) => {
+            return a.id - b.id;
+          });
+
+          if(document.getElementById("show-newest-checkbox").checked)
+            boardgames = boardgames.reverse();
+
+        }
+
+        this.props.getSearchResults(boardgames)
       })
     }
   }

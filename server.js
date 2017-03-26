@@ -255,10 +255,16 @@ app.get(`/api/v1/search?`, function(req, res){
   search = search.map(str => {
     let result = str.toLowerCase();
     return result[0].toUpperCase() + result.slice(1);
-  })
+  });
 
-  database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
-    .then(games => res.json(games.rows));
+  if (exact == 0) {
+    database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
+      .then(games => res.json(games.rows));
+  } else {
+    database("boardgames").where("name", search.join(" ")).select()
+      .then(games => res.send(games));
+  }
+
 });
 
 app.get(`/api/v1/boardgame/:id`, (req, res) => {

@@ -30274,9 +30274,19 @@
 	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
 	          return res.json();
 	        }).then(function (boardgames) {
-	          boardgames.sort(function (a, b) {
-	            return a.id - b.id;
-	          });
+	
+	          if (boardgames.length > 1) {
+	            boardgames.sort(function (a, b) {
+	              return a.id - b.id;
+	            });
+	
+	            if (document.getElementById("show-newest-checkbox").checked) boardgames = boardgames.reverse();
+	          }
+	
+	          if (boardgames.length > 10) {
+	            boardgames = boardgames.slice(0, 10);
+	          }
+	
 	          _this3.props.getSearchResults(boardgames);
 	
 	          // ids = ids.sort((a, b) => {

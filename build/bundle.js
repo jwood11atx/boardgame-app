@@ -31747,7 +31747,6 @@
 	          fetch("/api/v1/boardgame/" + game.id).then(function (res) {
 	            return res.json();
 	          }).then(function (details) {
-	            console.log(details);
 	            props.addFavorite(Object.assign({}, list[i], details));
 	          });
 	        }
@@ -31760,8 +31759,9 @@
 	      if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
 	    }
 	  };
+	
 	  favorites.forEach(function (fav) {
-	    if (fav.id === favID) found = fav;
+	    if (fav.id == favID) found = fav;
 	  });
 	
 	  if (!found) {

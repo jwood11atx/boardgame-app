@@ -31747,6 +31747,7 @@
 	          fetch("/api/v1/boardgame/" + game.id).then(function (res) {
 	            return res.json();
 	          }).then(function (details) {
+	            console.log(details);
 	            props.addFavorite(Object.assign({}, list[i], details));
 	          });
 	        }

@@ -20,6 +20,7 @@ const FavButton = (props) => {
           fetch(`/api/v1/boardgame/${game.id}`)
             .then(res => res.json())
             .then(details => {
+              console.log(details);
               props.addFavorite(
                 Object.assign({}, list[i], details)
               );

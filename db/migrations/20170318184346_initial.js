@@ -100,19 +100,19 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
     return Promise.all([
-        knex.schema.dropTable("boardgame_mechanisms"),
-        knex.schema.dropTable("boardgame_categories"),
-        knex.schema.dropTable("boardgame_families"),
-        knex.schema.dropTable("boardgame_designers"),
-        knex.schema.dropTable("boardgame_artists"),
-        knex.schema.dropTable("boardgame_publishers"),
-        knex.schema.dropTable("boardgames"),
-        knex.schema.dropTable("categories"),
-        knex.schema.dropTable("mechanisms"),
-        knex.schema.dropTable("families"),
-        knex.schema.dropTable("designers"),
-        knex.schema.dropTable("artists"),
-        knex.schema.dropTable("publishers")
+        // knex.schema.dropTable("boardgame_mechanisms"),
+        // knex.schema.dropTable("boardgame_categories"),
+        // knex.schema.dropTable("boardgame_families"),
+        // knex.schema.dropTable("boardgame_designers"),
+        // knex.schema.dropTable("boardgame_artists"),
+        // knex.schema.dropTable("boardgame_publishers"),
+        // knex.schema.dropTable("boardgames"),
+        // knex.schema.dropTable("categories"),
+        // knex.schema.dropTable("mechanisms"),
+        // knex.schema.dropTable("families"),
+        // knex.schema.dropTable("designers"),
+        // knex.schema.dropTable("artists"),
+        // knex.schema.dropTable("publishers")
         //============DO NOT UNCOMMENT===========//
         // knex.schema.dropTable("boardgame_ids")
     ])

@@ -185,37 +185,7 @@ app.get(`/api/v1/bg-details/:id`, (req, res) => {
     database(`boardgames`).where("id", id).select()
       .then(result => {
         if(result.length === 0){
-
-          request(`${xmlRoot}/thing?id=${id}`,
-              (error, response, body) => {
-            if (!error && response.statusCode == 200){
-              let gameDetails = xmlParser.toJson(body);
-              gameDetails = JSON.parse(gameDetails).items.item;
-
-              let { thumbnail, image, name, description, yearpublished, minplayers, maxplayers, playingtime} = gameDetails;
-
-              description = description.replace(/&times;/g, "x")
-                               .replace(/&mdash;/g, "-")
-                               .replace(/&#10;/g, "")
-                               .replace(/&.*;/g, "");
-
-              let boardgame = {
-                id,
-                thumbnail,
-                image,
-                description,
-                name: name.value,
-                yearpublished: yearpublished.value,
-                minplayers: minplayers.value,
-                maxplayers: maxplayers.value,
-                playingtime: playingtime.value
-              };
-
-
-              let bgDetails = Object.assign({}, boardgame, convertToObject(gameDetails));
-              res.send(bgDetails);
-            }
-          })
+          getXML(id, res);
         } else {
           const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
           let typeList = {};
@@ -295,9 +265,63 @@ app.get(`/api/v1/boardgame/:id`, (req, res) => {
   const id = req.params.id;
 
   database("boardgames").where("id", id).select()
-    .then(game => res.send(game[0]));
+    .then(game => {
+      if (game[0]) {
+        res.send(game[0])
+      } else {
+        getXML(id, res);
+      }
+    });
 
-})
+});
+
+
+const getXML = (id, res) => {
+  request(`${xmlRoot}/thing?id=${id}`,
+      (error, response, body) => {
+    if (!error && response.statusCode == 200){
+      let gameDetails = xmlParser.toJson(body);
+      gameDetails = JSON.parse(gameDetails).items.item;
+
+      let { thumbnail, image, name, description, yearpublished, minplayers, maxplayers, playingtime} = gameDetails;
+
+      description = description.replace(/&times;/g, "x")
+                       .replace(/&mdash;/g, "-")
+                       .replace(/&#10;/g, "")
+                       .replace(/&.*;/g, "");
+
+      let boardgame = {
+        id,
+        thumbnail,
+        image,
+        description,
+        name: name.value,
+        yearpublished: yearpublished.value,
+        minplayers: minplayers.value,
+        maxplayers: maxplayers.value,
+        playingtime: playingtime.value
+      };
+
+      database("boardgames").insert(boardgame)
+        .then(() => {
+          database("boardgames").select();
+        });
+
+      const detailsObj = convertToObject(gameDetails);
+
+      updateTypeTables(detailsObj.categories, "categories", "category_id", id);
+      updateTypeTables(detailsObj.mechanisms, "mechanisms", "mechanism_id", id);
+      updateTypeTables(detailsObj.families, "families", "family_id", id);
+      updateTypeTables(detailsObj.designers, "designers", "designer_id", id);
+      updateTypeTables(detailsObj.artists, "artists", "artist_id", id);
+      updateTypeTables(detailsObj.publishers, "publishers", "publisher_id", id);
+
+
+      let bgDetails = Object.assign({}, boardgame, detailsObj);
+      res.send(bgDetails);
+    }
+  })
+}
 
 const convertKey = (str) => {
   switch (str) {
@@ -415,7 +439,49 @@ function cleanData(data){
   } else {
     return data.split(/[\.#$/\]\[\s]/g).join("_");
   }
-}
+};
+
+const updateTypeTables = (typeArr, typeStr, type_id, boardgame_id) => {
+  if (typeArr) {
+    typeArr.forEach(type => {
+      database(typeStr).where("type", type).select()
+      .then((selection) => {
+        if(selection.length === 0){
+          database(typeStr).insert({type})
+          .then(() => {
+            updateJoinTables(type, typeArr, typeStr, type_id, boardgame_id);
+          })
+        } else {
+          updateJoinTables(type, typeArr, typeStr, type_id, boardgame_id, selection);
+        }
+      });
+    })
+  }
+};
+
+const insertData = (typeStr, type_id, boardgame_id, result) => {
+  database(`boardgame_${typeStr}`).insert(
+    {
+      boardgame_id,
+      [type_id]: result[0].id
+    }
+  )
+    .then(() => {
+      database(`boardgame_${typeStr}`).select();
+    })
+};
+
+const updateJoinTables = (type, typeArr, typeStr, type_id, boardgame_id, result) => {
+  let dataObj = {};
+  if (result) {
+    insertData(typeStr, type_id, boardgame_id, result)
+  } else {
+    database(typeStr).where("type", type).select()
+    .then((result) => {
+      insertData(typeStr, type_id, boardgame_id, result)
+    })
+  }
+};
 
 app.listen(app.get("port"), () => {
   console.log(`Server is running on ${app.get("port")}.`);

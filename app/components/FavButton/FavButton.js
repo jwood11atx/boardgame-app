@@ -10,7 +10,6 @@ const FavButton = (props) => {
     const game = event.target;
     event.stopPropagation();
 
-
     for(let i=0; list.length>i; i++){
       if(list[i].id == game.id){
         if(list[i].image){
@@ -20,7 +19,6 @@ const FavButton = (props) => {
           fetch(`/api/v1/boardgame/${game.id}`)
             .then(res => res.json())
             .then(details => {
-              console.log(details);
               props.addFavorite(
                 Object.assign({}, list[i], details)
               );
@@ -29,8 +27,9 @@ const FavButton = (props) => {
       }
     }
   }
+
   favorites.forEach(fav => {
-    if(fav.id === favID) found = fav;
+    if(fav.id == favID) found = fav;
   })
 
   if(!found){

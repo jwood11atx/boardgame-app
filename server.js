@@ -1,5 +1,5 @@
 //--------TEMP TO BE REPLACED WITH NEW DB
-// const {firebase, database} = require("./firebase");
+const {firebase, fbdb} = require("./firebase");
 const request = require("request");
 const xmlParser = require("xml2json");
 const Promises = require("promise");
@@ -22,13 +22,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.get(`/api/v1/hotness`, function(req, res){
+app.get(`/api/v1/hotness`, (req, res) => {
   request(`${xmlRoot}/hot?type=boardgame`,
-  function(error, response, body){
+  (error, response, body) => {
     if (!error && response.statusCode == 200){
-      var json = xmlParser.toJson(body);
+      let json = xmlParser.toJson(body);
       json = JSON.parse(json);
-      var games = json.items.item;
+      let games = json.items.item;
       games.forEach(game => {
         game.name = game.name.value;
         game.thumbnail = game.thumbnail.value;
@@ -38,7 +38,7 @@ app.get(`/api/v1/hotness`, function(req, res){
   });
 });
 
-app.get(`/api/v1/matched-bg-ids?`, function(req, res){
+app.get(`/api/v1/matched-bg-ids?`, (req, res) => {
   const ids = req.query.id.split(",")
   let count = 0;
   let userEntryTypes = {
@@ -170,8 +170,8 @@ app.get(`/api/v1/matched-bg-ids?`, function(req, res){
     })
 });
 
-app.get(`/api/v1/bg-rec-list?`, function(req, res){
-  var ids = req.query.id.split(",");
+app.get(`/api/v1/bg-rec-list?`, (req, res) => {
+  const ids = req.query.id.split(",");
 
   database("boardgames").where("id", "in", [...ids]).select()
     .then(recommendations => res.send(recommendations));
@@ -180,75 +180,73 @@ app.get(`/api/v1/bg-rec-list?`, function(req, res){
 app.get(`/api/v1/bg-details/:id`, (req, res) => {
   const id = req.params.id;
 
+  database(`boardgames`).where("id", id).select()
+    .then(result => {
+      if(result.length === 0){
+        getXML(id, res);
+      } else {
+        const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
+        let typeList = {};
+        let count = 0;
 
-
-    database(`boardgames`).where("id", id).select()
-      .then(result => {
-        if(result.length === 0){
-          getXML(id, res);
-        } else {
-          const types = ["artists", "designers", "publishers", "categories", "mechanisms", "families"];
-          let typeList = {};
-          let count = 0;
-
-          const promise = new Promise((resolve) => {
-            types.forEach((type, i) => {
-              database(`boardgame_${type}`).where("boardgame_id", id).select()
-                .then(typeIDs => {
-                  typeList[type] = [];
-                  typeIDs.forEach(dbObj => {
-                    typeList[type].push(dbObj[convertKey(type)]);
-                  })
+        const promise = new Promise((resolve) => {
+          types.forEach((type, i) => {
+            database(`boardgame_${type}`).where("boardgame_id", id).select()
+              .then(typeIDs => {
+                typeList[type] = [];
+                typeIDs.forEach(dbObj => {
+                  typeList[type].push(dbObj[convertKey(type)]);
                 })
-                .then(() => {
-                  count++;
-                  if(types.length === count){
-                    resolve(typeList);
-                  }
-                });
-            });
-          });
-
-          promise.then(typeList => {
-            let count = 0;
-            let bgDetails = {};
-            let listCount = 0;
-            Object.keys(typeList).forEach(type => {
-              listCount += typeList[type].length;
-            });
-            new Promise((resolve)=> {
-              types.forEach((type, i) => {
-                if (typeList[type].length > 0) {
-                  typeList[type].forEach(typeID => {
-                      database(type).where("id", typeID).select()
-                      .then(obj => {
-                        if(bgDetails[type]){
-                          bgDetails[type].push(obj[0].type)
-                        } else {
-                          bgDetails[type] = [obj[0].type];
-                        }
-                      }). then(() => {
-                        count++;
-                        if(listCount === count){
-                          setTimeout(() => {
-                            resolve(bgDetails)
-                          }, 200)
-                        }
-                      })
-                  })
-                } else {
-                  bgDetails[type] = ["N/A"]
-                }
               })
-            }).then(bgDetails => {
-              res.json(bgDetails)
-            });
+              .then(() => {
+                count++;
+                if(types.length === count){
+                  resolve(typeList);
+                }
+              });
           });
-        }
-      });
+        });
+
+        promise.then(typeList => {
+          let count = 0;
+          let bgDetails = {};
+          let listCount = 0;
+          Object.keys(typeList).forEach(type => {
+            listCount += typeList[type].length;
+          });
+          new Promise((resolve)=> {
+            types.forEach((type, i) => {
+              if (typeList[type].length > 0) {
+                typeList[type].forEach(typeID => {
+                    database(type).where("id", typeID).select()
+                    .then(obj => {
+                      if(bgDetails[type]){
+                        bgDetails[type].push(obj[0].type)
+                      } else {
+                        bgDetails[type] = [obj[0].type];
+                      }
+                    }). then(() => {
+                      count++;
+                      if(listCount === count){
+                        setTimeout(() => {
+                          resolve(bgDetails)
+                        }, 200)
+                      }
+                    })
+                })
+              } else {
+                bgDetails[type] = ["N/A"]
+              }
+            })
+          }).then(bgDetails => {
+            res.json(bgDetails)
+          });
+        });
+      }
+    });
 });
 
-app.get(`/api/v1/search?`, function(req, res){
+app.get(`/api/v1/search?`, (req, res) => {
   let search = req.query.id.split(" ");
   const exact = req.query.exact;
 
@@ -256,6 +254,7 @@ app.get(`/api/v1/search?`, function(req, res){
     let result = str.toLowerCase();
     return result[0].toUpperCase() + result.slice(1);
   });
+
 
   if (exact == 0) {
     database.raw(`SELECT * FROM boardgames WHERE name LIKE '%${search.join(" ")}%'`)
@@ -437,9 +436,9 @@ const addToMatchList = (result, ids, matchList) => {
   return matchList
 }
 
-function cleanData(data){
+const cleanData = (data) => {
   if(typeof data == "object"){
-    return data.map(function(e){
+    return data.map((e) => {
       return e.split(/[\.#$/\]\[\s]/g).join("_");
     });
   } else {
@@ -488,6 +487,13 @@ const updateJoinTables = (type, typeArr, typeStr, type_id, boardgame_id, result)
     })
   }
 };
+
+/////////--------------------FIREBASE--------------------------////////////
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
 
 app.listen(app.get("port"), () => {
   console.log(`Server is running on ${app.get("port")}.`);

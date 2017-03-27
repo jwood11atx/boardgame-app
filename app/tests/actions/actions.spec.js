@@ -30,23 +30,6 @@ describe("actions", () => {
     expect(actions.clearSearchResults()).eql(expectedReturn);
   })
 
-  it("should fire getSearchIDs action", () => {
-    const searchIDs = [1,2,3,5]
-    const expectedReturn = {
-      type: "SEARCH_IDS",
-      searchIDs
-    }
-    expect(actions.getSearchIDs(searchIDs)).eql(expectedReturn);
-  })
-
-  it("should fire clearSearchIDs action", () => {
-    const expectedReturn = {
-    type: "CLEAR_SEARCH_IDS"
-    };
-
-    expect(actions.clearSearchIDs()).eql(expectedReturn);
-  })
-
   it("should fire incDisplayed action", () => {
     const expectedReturn = {
     type: "INCREASE_DISPLAY"

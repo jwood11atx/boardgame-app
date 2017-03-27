@@ -73,23 +73,23 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 296);
+	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 297);
 	
 	var _Hotness2 = _interopRequireDefault(_Hotness);
 	
-	var _Search = __webpack_require__(/*! ./components/Search/Search */ 301);
+	var _Search = __webpack_require__(/*! ./components/Search/Search */ 302);
 	
 	var _Search2 = _interopRequireDefault(_Search);
 	
-	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 302);
+	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 303);
 	
 	var _Favorites2 = _interopRequireDefault(_Favorites);
 	
-	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 303);
+	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 304);
 	
 	var _Recommendations2 = _interopRequireDefault(_Recommendations);
 	
-	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 305);
+	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 306);
 	
 	var _BGDetailPage2 = _interopRequireDefault(_BGDetailPage);
 	
@@ -29965,31 +29965,31 @@
 	
 	var _searchResultsReducer2 = _interopRequireDefault(_searchResultsReducer);
 	
-	var _searchIDsReducer = __webpack_require__(/*! ./searchIDs-reducer */ 278);
-	
-	var _searchIDsReducer2 = _interopRequireDefault(_searchIDsReducer);
-	
-	var _favoritesReducer = __webpack_require__(/*! ./favorites-reducer */ 279);
+	var _favoritesReducer = __webpack_require__(/*! ./favorites-reducer */ 278);
 	
 	var _favoritesReducer2 = _interopRequireDefault(_favoritesReducer);
 	
-	var _recommendationsReducer = __webpack_require__(/*! ./recommendations-reducer */ 280);
+	var _recommendationsReducer = __webpack_require__(/*! ./recommendations-reducer */ 279);
 	
 	var _recommendationsReducer2 = _interopRequireDefault(_recommendationsReducer);
 	
-	var _bgDetailsReducer = __webpack_require__(/*! ./bgDetails-reducer */ 281);
+	var _bgDetailsReducer = __webpack_require__(/*! ./bgDetails-reducer */ 280);
 	
 	var _bgDetailsReducer2 = _interopRequireDefault(_bgDetailsReducer);
+	
+	var _userReducer = __webpack_require__(/*! ./user-reducer */ 281);
+	
+	var _userReducer2 = _interopRequireDefault(_userReducer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var rootReducer = (0, _redux.combineReducers)({
 	  hotness: _hotnessReducer2.default,
 	  searchResults: _searchResultsReducer2.default,
-	  searchIDs: _searchIDsReducer2.default,
 	  favorites: _favoritesReducer2.default,
 	  recommendations: _recommendationsReducer2.default,
-	  bgDetails: _bgDetailsReducer2.default
+	  bgDetails: _bgDetailsReducer2.default,
+	  user: _userReducer2.default
 	});
 	
 	exports.default = rootReducer;
@@ -30058,34 +30058,6 @@
 /***/ },
 /* 278 */
 /*!*******************************************!*\
-  !*** ./app/reducers/searchIDs-reducer.js ***!
-  \*******************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var searchIDs = function searchIDs() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case "SEARCH_IDS":
-	      return action.searchIDs;
-	    case "CLEAR_SEARCH_IDS":
-	      return [];
-	    default:
-	      return state;
-	  }
-	};
-	
-	exports.default = searchIDs;
-
-/***/ },
-/* 279 */
-/*!*******************************************!*\
   !*** ./app/reducers/favorites-reducer.js ***!
   \*******************************************/
 /***/ function(module, exports) {
@@ -30119,7 +30091,7 @@
 	exports.default = favorites;
 
 /***/ },
-/* 280 */
+/* 279 */
 /*!*************************************************!*\
   !*** ./app/reducers/recommendations-reducer.js ***!
   \*************************************************/
@@ -30145,7 +30117,7 @@
 	exports.default = recommendations;
 
 /***/ },
-/* 281 */
+/* 280 */
 /*!*******************************************!*\
   !*** ./app/reducers/bgDetails-reducer.js ***!
   \*******************************************/
@@ -30171,6 +30143,32 @@
 	exports.default = bgDetails;
 
 /***/ },
+/* 281 */
+/*!**************************************!*\
+  !*** ./app/reducers/user-reducer.js ***!
+  \**************************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var user = function user() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case "GET_USER":
+	      return action.user;
+	    default:
+	      return state;
+	  };
+	};
+	
+	exports.default = user;
+
+/***/ },
 /* 282 */
 /*!***********************************!*\
   !*** ./app/components/App/App.js ***!
@@ -30189,21 +30187,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _firebase = __webpack_require__(/*! ../../../firebase */ 283);
-	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 291);
+	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 284);
 	
 	var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
 	
-	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 293);
+	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 286);
 	
 	var _HotnessContainer2 = _interopRequireDefault(_HotnessContainer);
 	
-	var _Header = __webpack_require__(/*! ../Header/Header */ 294);
+	var _Header = __webpack_require__(/*! ../Header/Header */ 287);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
@@ -30226,7 +30222,8 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 	
 	    _this.state = {
-	      searchInput: ""
+	      searchInput: "",
+	      authButtons: null
 	    };
 	    return _this;
 	  }
@@ -30244,17 +30241,6 @@
 	    }
 	  }, {
 	    key: "exact",
-	
-	
-	    // getGames(ids){
-	    //   fetch(`/api/v1/list?id=${ids}`)
-	    //   .then(res => res.json())
-	    //   .then(games => {
-	    //     console.log(games);
-	    //     this.props.getSearchResults(games)
-	    //   })
-	    // }
-	
 	    value: function exact() {
 	      var checkbox = document.getElementById("exact-match-chechbox");
 	      if (checkbox.checked) {
@@ -30268,7 +30254,6 @@
 	    value: function getSearch() {
 	      var _this3 = this;
 	
-	      this.props.clearSearchIDs();
 	      this.props.clearSearchResults();
 	      if (this.state.searchInput) {
 	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
@@ -30283,28 +30268,7 @@
 	            if (document.getElementById("show-newest-checkbox").checked) boardgames = boardgames.reverse();
 	          }
 	
-	          if (boardgames.length > 10) {
-	            boardgames = boardgames.slice(0, 10);
-	          }
-	
 	          _this3.props.getSearchResults(boardgames);
-	
-	          // ids = ids.sort((a, b) => {
-	          //   return Number(a) - Number(b);
-	          // });
-	          //
-	          // if(document.getElementById("show-newest-checkbox").checked)
-	          //   ids = ids.reverse();
-	          //
-	          // this.props.getSearchIDs(ids);
-	          //
-	          // if (ids.length < 10) {
-	          //   ids = ids.join(",");
-	          //   this.getGames(ids);
-	          // } else {
-	          //   ids = ids.slice(0, 10).join(",");
-	          //   this.getGames(ids);
-	          // }
 	        });
 	      }
 	    }
@@ -30402,6 +30366,441 @@
 
 /***/ },
 /* 283 */
+/*!*****************************************************!*\
+  !*** ./app/containers/AppContainer/AppContainer.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    bgDetails: state.bgDetails,
+	    displayed: state.displayed,
+	    favorites: state.favorites,
+	    hotness: state.hotness,
+	    recommendations: state.recommendations,
+	    searchResults: state.searchResults,
+	    user: state.user
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps);
+
+/***/ },
+/* 284 */
+/*!***********************************************************!*\
+  !*** ./app/containers/SearchContainer/SearchContainer.js ***!
+  \***********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
+	
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    getSearchResults: function getSearchResults(games) {
+	      dispatch((0, _actions.getSearchResults)(games));
+	    },
+	    clearSearchResults: function clearSearchResults() {
+	      dispatch((0, _actions.clearSearchResults)());
+	    },
+	    incDisplayed: function incDisplayed() {
+	      dispatch((0, _actions.incDisplayed)());
+	    },
+	    resetDisplayed: function resetDisplayed() {
+	      dispatch((0, _actions.resetDisplayed)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
+
+/***/ },
+/* 285 */
+/*!******************************!*\
+  !*** ./app/actions/index.js ***!
+  \******************************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var getHotness = exports.getHotness = function getHotness(hotness) {
+	  return {
+	    type: "GET_HOTNESS",
+	    hotness: hotness
+	  };
+	};
+	
+	var getSearchResults = exports.getSearchResults = function getSearchResults(searchResults) {
+	  return {
+	    type: "SEARCH_RESULTS",
+	    searchResults: searchResults
+	  };
+	};
+	
+	var clearSearchResults = exports.clearSearchResults = function clearSearchResults() {
+	  return {
+	    type: "CLEAR_SEARCH_RESULTS"
+	  };
+	};
+	
+	var incDisplayed = exports.incDisplayed = function incDisplayed() {
+	  return {
+	    type: "INCREASE_DISPLAY"
+	  };
+	};
+	
+	var resetDisplayed = exports.resetDisplayed = function resetDisplayed() {
+	  return {
+	    type: "RESET_DISPLAY"
+	  };
+	};
+	
+	var removeFavorite = exports.removeFavorite = function removeFavorite(favorite) {
+	  return {
+	    type: "REMOVE_FAVORITE",
+	    favorite: favorite
+	  };
+	};
+	
+	var addFavorite = exports.addFavorite = function addFavorite(favorite) {
+	  return {
+	    type: "ADD_FAVORITE",
+	    favorite: favorite
+	  };
+	};
+	
+	var getRecommendations = exports.getRecommendations = function getRecommendations(recommendations) {
+	  return {
+	    type: "GET_RECOMMENDATIONS",
+	    recommendations: recommendations
+	  };
+	};
+	
+	var getBGDetails = exports.getBGDetails = function getBGDetails(bgDetails) {
+	  return {
+	    type: "GET_BGDETAILS",
+	    bgDetails: bgDetails
+	  };
+	};
+	
+	var getUser = exports.getUser = function getUser(user) {
+	  return {
+	    type: "GET_USER",
+	    user: user
+	  };
+	};
+
+/***/ },
+/* 286 */
+/*!*************************************************************!*\
+  !*** ./app/containers/HotnessContainer/HotnessContainer.js ***!
+  \*************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
+	
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    getHotness: function getHotness(hotness) {
+	      dispatch((0, _actions.getHotness)(hotness));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
+
+/***/ },
+/* 287 */
+/*!*****************************************!*\
+  !*** ./app/components/Header/Header.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 184);
+	
+	var _Nav = __webpack_require__(/*! ../Nav/Nav */ 288);
+	
+	var _Nav2 = _interopRequireDefault(_Nav);
+	
+	var _firebase = __webpack_require__(/*! ../../../firebase */ 289);
+	
+	var _UserContainer = __webpack_require__(/*! ../../containers/UserContainer/UserContainer */ 296);
+	
+	var _UserContainer2 = _interopRequireDefault(_UserContainer);
+	
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
+	
+	var _AppContainer2 = _interopRequireDefault(_AppContainer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+	
+	  function Header() {
+	    _classCallCheck(this, Header);
+	
+	    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
+	
+	    _this.state = {
+	      emailInput: "",
+	      passwordInput: ""
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Header, [{
+	    key: "buttonDisplay",
+	    value: function buttonDisplay(buttons) {
+	      return buttons;
+	    }
+	  }, {
+	    key: "signUp",
+	    value: function signUp() {
+	      fetch("/api/v1/signup", {
+	        method: "POST",
+	        headers: {
+	          'Accept': 'application/json',
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({
+	          email: this.state.emailInput,
+	          password: this.state.passwordInput
+	        })
+	      }).then(function (res) {
+	        return res.json();
+	      }).then(function (json) {
+	        return console.log(json);
+	      });
+	    }
+	  }, {
+	    key: "signIn",
+	    value: function signIn() {
+	      var _this2 = this;
+	
+	      fetch("/api/v1/signin", {
+	        method: "POST",
+	        headers: {
+	          'Accept': 'application/json',
+	          'Content-Type': 'application/json'
+	        },
+	        body: JSON.stringify({
+	          email: this.state.emailInput,
+	          password: this.state.passwordInput
+	        })
+	      }).then(function (res) {
+	        return res.json();
+	      }).then(function (user) {
+	        return _this2.props.getUser(user);
+	      });
+	    }
+	  }, {
+	    key: "signOut",
+	    value: function signOut() {
+	      var _this3 = this;
+	
+	      fetch("/api/v1/signout").then(function (res) {
+	        return res.json();
+	      }).then(function (json) {
+	        return _this3.props.getUser([]);
+	      });
+	    }
+	  }, {
+	    key: "enterKey",
+	    value: function enterKey(e) {
+	      if (e.nativeEvent.key === "Enter" && document.querySelector("#signin-btn")) {
+	        document.querySelector("#signin-btn").click();
+	      }
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "Header" },
+	        _react2.default.createElement(
+	          "h1",
+	          { className: "logo" },
+	          "Boardgame It!"
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { id: "auth-container" },
+	          _react2.default.createElement("input", { type: "text",
+	            placeholder: "email",
+	            onChange: function onChange(e) {
+	              return _this4.setState({ emailInput: e.target.value });
+	            },
+	            onKeyDown: function onKeyDown(e) {
+	              return _this4.enterKey(e);
+	            } }),
+	          _react2.default.createElement("input", { type: "text",
+	            placeholder: "password",
+	            onChange: function onChange(e) {
+	              return _this4.setState({ passwordInput: e.target.value });
+	            },
+	            onKeyDown: function onKeyDown(e) {
+	              return _this4.enterKey(e);
+	            } }),
+	          _react2.default.createElement(
+	            "button",
+	            { id: "signin-btn", onClick: function onClick() {
+	                return _this4.signIn();
+	              } },
+	            "sign in!"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { id: "signin-btn", onClick: function onClick() {
+	                return _this4.signUp();
+	              } },
+	            "sign up!"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { onClick: function onClick() {
+	                return _this4.signOut();
+	              } },
+	            "sign out!"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          null,
+	          _react2.default.createElement(_Nav2.default, null)
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Header;
+	}(_react2.default.Component);
+	
+	exports.default = (0, _AppContainer2.default)((0, _UserContainer2.default)(Header));
+
+/***/ },
+/* 288 */
+/*!***********************************!*\
+  !*** ./app/components/Nav/Nav.js ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 184);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Nav = function Nav() {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "nav-bar" },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: "/" },
+	      _react2.default.createElement(
+	        "button",
+	        null,
+	        "home"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: "/favorites" },
+	      _react2.default.createElement(
+	        "button",
+	        null,
+	        "favorites"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: "/recommendations" },
+	      _react2.default.createElement(
+	        "button",
+	        null,
+	        "recommendations"
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = Nav;
+
+/***/ },
+/* 289 */
 /*!*********************!*\
   !*** ./firebase.js ***!
   \*********************/
@@ -30409,23 +30808,24 @@
 
 	"use strict";
 	
-	var firebase = __webpack_require__(/*! firebase */ 284);
+	var firebase = __webpack_require__(/*! firebase */ 290);
 	
 	var config = {
-	  apiKey: "AIzaSyA6dAV3gwmGQXotavP3j58sgwKFop3LUiM",
-	  authDomain: "bgg-api-test.firebaseapp.com",
-	  databaseURL: "https://bgg-api-test.firebaseio.com",
-	  storageBucket: "bgg-api-test.appspot.com",
-	  messagingSenderId: "394321547983"
+	  apiKey: "AIzaSyClAhS9lvKSElVkGHRv3tKecMylzARFSRg",
+	  authDomain: "boardgame-it.firebaseapp.com",
+	  databaseURL: "https://boardgame-it.firebaseio.com",
+	  storageBucket: "boardgame-it.appspot.com",
+	  messagingSenderId: "253339937377"
 	};
 	firebase.initializeApp(config);
 	
-	var database = firebase.database();
+	var auth = firebase.auth();
+	var fbdb = firebase.database();
 	
-	module.exports = { firebase: firebase, database: database };
+	module.exports = { firebase: firebase, fbdb: fbdb, auth: auth };
 
 /***/ },
-/* 284 */
+/* 290 */
 /*!****************************************!*\
   !*** ./~/firebase/firebase-browser.js ***!
   \****************************************/
@@ -30438,16 +30838,16 @@
 	 *
 	 *   firebase = require('firebase');
 	 */
-	var firebase = __webpack_require__(/*! ./app */ 285);
-	__webpack_require__(/*! ./auth */ 286);
-	__webpack_require__(/*! ./database */ 287);
-	__webpack_require__(/*! ./storage */ 288);
-	__webpack_require__(/*! ./messaging */ 289);
+	var firebase = __webpack_require__(/*! ./app */ 291);
+	__webpack_require__(/*! ./auth */ 292);
+	__webpack_require__(/*! ./database */ 293);
+	__webpack_require__(/*! ./storage */ 294);
+	__webpack_require__(/*! ./messaging */ 295);
 	module.exports = firebase;
 
 
 /***/ },
-/* 285 */
+/* 291 */
 /*!***************************!*\
   !*** ./~/firebase/app.js ***!
   \***************************/
@@ -30495,13 +30895,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 286 */
+/* 292 */
 /*!****************************!*\
   !*** ./~/firebase/auth.js ***!
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 291);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -30750,13 +31150,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 287 */
+/* 293 */
 /*!********************************!*\
   !*** ./~/firebase/database.js ***!
   \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 291);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31023,13 +31423,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 288 */
+/* 294 */
 /*!*******************************!*\
   !*** ./~/firebase/storage.js ***!
   \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 291);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31090,13 +31490,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 289 */
+/* 295 */
 /*!*********************************!*\
   !*** ./~/firebase/messaging.js ***!
   \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 285);
+	/* WEBPACK VAR INJECTION */(function(global) {var firebase = __webpack_require__(/*! ./app */ 291);
 	(function(){
 	/*! @license Firebase v3.7.2
 	    Build: 3.7.2-rc.1
@@ -31139,305 +31539,40 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 290 */
-/*!*****************************************************!*\
-  !*** ./app/containers/AppContainer/AppContainer.js ***!
-  \*****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    bgDetails: state.bgDetails,
-	    displayed: state.displayed,
-	    favorites: state.favorites,
-	    hotness: state.hotness,
-	    recommendations: state.recommendations,
-	    searchIDs: state.searchIDs,
-	    searchResults: state.searchResults
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps);
-
-/***/ },
-/* 291 */
-/*!***********************************************************!*\
-  !*** ./app/containers/SearchContainer/SearchContainer.js ***!
-  \***********************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
-	
-	var _actions = __webpack_require__(/*! ../../actions */ 292);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    getSearchResults: function getSearchResults(games) {
-	      dispatch((0, _actions.getSearchResults)(games));
-	    },
-	    getSearchIDs: function getSearchIDs(ids) {
-	      dispatch((0, _actions.getSearchIDs)(ids));
-	    },
-	    clearSearchResults: function clearSearchResults() {
-	      dispatch((0, _actions.clearSearchResults)());
-	    },
-	    clearSearchIDs: function clearSearchIDs() {
-	      dispatch((0, _actions.clearSearchIDs)());
-	    },
-	    incDisplayed: function incDisplayed() {
-	      dispatch((0, _actions.incDisplayed)());
-	    },
-	    resetDisplayed: function resetDisplayed() {
-	      dispatch((0, _actions.resetDisplayed)());
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
-
-/***/ },
-/* 292 */
-/*!******************************!*\
-  !*** ./app/actions/index.js ***!
-  \******************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var getHotness = exports.getHotness = function getHotness(hotness) {
-	  return {
-	    type: "GET_HOTNESS",
-	    hotness: hotness
-	  };
-	};
-	
-	var getSearchResults = exports.getSearchResults = function getSearchResults(searchResults) {
-	  return {
-	    type: "SEARCH_RESULTS",
-	    searchResults: searchResults
-	  };
-	};
-	
-	var clearSearchResults = exports.clearSearchResults = function clearSearchResults() {
-	  return {
-	    type: "CLEAR_SEARCH_RESULTS"
-	  };
-	};
-	
-	var getSearchIDs = exports.getSearchIDs = function getSearchIDs(searchIDs) {
-	  return {
-	    type: "SEARCH_IDS",
-	    searchIDs: searchIDs
-	  };
-	};
-	
-	var clearSearchIDs = exports.clearSearchIDs = function clearSearchIDs() {
-	  return {
-	    type: "CLEAR_SEARCH_IDS"
-	  };
-	};
-	
-	var incDisplayed = exports.incDisplayed = function incDisplayed() {
-	  return {
-	    type: "INCREASE_DISPLAY"
-	  };
-	};
-	
-	var resetDisplayed = exports.resetDisplayed = function resetDisplayed() {
-	  return {
-	    type: "RESET_DISPLAY"
-	  };
-	};
-	
-	var removeFavorite = exports.removeFavorite = function removeFavorite(favorite) {
-	  return {
-	    type: "REMOVE_FAVORITE",
-	    favorite: favorite
-	  };
-	};
-	
-	var addFavorite = exports.addFavorite = function addFavorite(favorite) {
-	  return {
-	    type: "ADD_FAVORITE",
-	    favorite: favorite
-	  };
-	};
-	
-	var getRecommendations = exports.getRecommendations = function getRecommendations(recommendations) {
-	  return {
-	    type: "GET_RECOMMENDATIONS",
-	    recommendations: recommendations
-	  };
-	};
-	
-	var getBGDetails = exports.getBGDetails = function getBGDetails(bgDetails) {
-	  return {
-	    type: "GET_BGDETAILS",
-	    bgDetails: bgDetails
-	  };
-	};
-
-/***/ },
-/* 293 */
-/*!*************************************************************!*\
-  !*** ./app/containers/HotnessContainer/HotnessContainer.js ***!
-  \*************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
-	
-	var _actions = __webpack_require__(/*! ../../actions */ 292);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    getHotness: function getHotness(hotness) {
-	      dispatch((0, _actions.getHotness)(hotness));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
-
-/***/ },
-/* 294 */
-/*!*****************************************!*\
-  !*** ./app/components/Header/Header.js ***!
-  \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 184);
-	
-	var _Nav = __webpack_require__(/*! ../Nav/Nav */ 295);
-	
-	var _Nav2 = _interopRequireDefault(_Nav);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Header = function Header() {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "Header" },
-	    _react2.default.createElement(
-	      "h1",
-	      { className: "logo" },
-	      "Boardgame It!"
-	    ),
-	    _react2.default.createElement(_Nav2.default, null)
-	  );
-	};
-	
-	exports.default = Header;
-
-/***/ },
-/* 295 */
-/*!***********************************!*\
-  !*** ./app/components/Nav/Nav.js ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 184);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Nav = function Nav() {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "nav-bar" },
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: "/" },
-	      _react2.default.createElement(
-	        "button",
-	        null,
-	        "home"
-	      )
-	    ),
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: "/favorites" },
-	      _react2.default.createElement(
-	        "button",
-	        null,
-	        "favorites"
-	      )
-	    ),
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: "/recommendations" },
-	      _react2.default.createElement(
-	        "button",
-	        null,
-	        "recommendations"
-	      )
-	    )
-	  );
-	};
-	
-	exports.default = Nav;
-
-/***/ },
 /* 296 */
+/*!*******************************************************!*\
+  !*** ./app/containers/UserContainer/UserContainer.js ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
+	
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    getUser: function getUser(user) {
+	      dispatch((0, _actions.getUser)(user));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
+
+/***/ },
+/* 297 */
 /*!*******************************************!*\
   !*** ./app/components/Hotness/Hotness.js ***!
   \*******************************************/
@@ -31453,11 +31588,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 293);
+	var _HotnessContainer = __webpack_require__(/*! ../../containers/HotnessContainer/HotnessContainer */ 286);
 	
 	var _HotnessContainer2 = _interopRequireDefault(_HotnessContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31479,7 +31614,7 @@
 	exports.default = Hotness;
 
 /***/ },
-/* 297 */
+/* 298 */
 /*!*********************************************************!*\
   !*** ./app/components/BoardgameCards/BoardgameCards.js ***!
   \*********************************************************/
@@ -31495,19 +31630,19 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 300);
+	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 301);
 	
 	var _FavButton2 = _interopRequireDefault(_FavButton);
 	
@@ -31637,7 +31772,7 @@
 	exports.default = (0, _BGDetailsContainer2.default)((0, _AppContainer2.default)((0, _FavoritesContainer2.default)(BoardgameCard)));
 
 /***/ },
-/* 298 */
+/* 299 */
 /*!*****************************************************************!*\
   !*** ./app/containers/FavoritesContainer/FavoritesContainer.js ***!
   \*****************************************************************/
@@ -31655,7 +31790,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 292);
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31673,7 +31808,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 299 */
+/* 300 */
 /*!*****************************************************************!*\
   !*** ./app/containers/BGDetailsContainer/BGDetailsContainer.js ***!
   \*****************************************************************/
@@ -31691,7 +31826,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 292);
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31706,7 +31841,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 300 */
+/* 301 */
 /*!***********************************************!*\
   !*** ./app/components/FavButton/FavButton.js ***!
   \***********************************************/
@@ -31724,11 +31859,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
@@ -31800,7 +31935,7 @@
 	exports.default = (0, _AppContainer2.default)((0, _FavoritesContainer2.default)(FavButton));
 
 /***/ },
-/* 301 */
+/* 302 */
 /*!*****************************************!*\
   !*** ./app/components/Search/Search.js ***!
   \*****************************************/
@@ -31818,15 +31953,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 291);
+	var _SearchContainer = __webpack_require__(/*! ../../containers/SearchContainer/SearchContainer */ 284);
 	
 	var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31855,7 +31990,6 @@
 	  _createClass(Search, [{
 	    key: "getNextTen",
 	    value: function getNextTen() {
-	      var ids = this.props.searchIDs;
 	      var start = this.state.displayed;
 	      var end = start + 10;
 	
@@ -31887,30 +32021,20 @@
 	      });
 	    }
 	  }, {
-	    key: "getMoreButton",
-	    value: function getMoreButton() {
-	      var _this3 = this;
-	
-	      if (this.state.displayed < this.props.searchIDs.length) {
-	        return _react2.default.createElement(
-	          "button",
-	          { className: "more-button",
-	            onClick: function onClick() {
-	              return _this3.getNextTen();
-	            } },
-	          "get more!"
-	        );
-	      } else {
-	        return _react2.default.createElement(
-	          "button",
-	          { className: "more-button",
-	            disabled: "true" },
-	          "get more!"
-	        );
-	      }
-	    }
-	  }, {
 	    key: "render",
+	
+	
+	    // getMoreButton(){
+	    //   if(this.state.displayed < this.props.searchIDs.length){
+	    //     return <button className="more-button"
+	    //                    onClick={() => this.getNextTen()}>get more!</button>
+	    //   } else {
+	    //     return <button className="more-button"
+	    //                    disabled="true">get more!</button>
+	    //   }
+	    // }
+	
+	
 	    value: function render() {
 	      return _react2.default.createElement(
 	        "div",
@@ -31924,8 +32048,7 @@
 	          "section",
 	          { className: "bg-img-container" },
 	          _react2.default.createElement(_BoardgameCards2.default, { path: this.props.location.pathname })
-	        ),
-	        this.getMoreButton()
+	        )
 	      );
 	    }
 	  }]);
@@ -31938,7 +32061,7 @@
 	exports.default = (0, _SearchContainer2.default)((0, _AppContainer2.default)(Search));
 
 /***/ },
-/* 302 */
+/* 303 */
 /*!***********************************************!*\
   !*** ./app/components/Favorites/Favorites.js ***!
   \***********************************************/
@@ -31956,15 +32079,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -32007,7 +32130,7 @@
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(Favorites));
 
 /***/ },
-/* 303 */
+/* 304 */
 /*!***********************************************************!*\
   !*** ./app/components/Recommendations/Recommendations.js ***!
   \***********************************************************/
@@ -32025,15 +32148,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 304);
+	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 305);
 	
 	var _RecommendationsContainer2 = _interopRequireDefault(_RecommendationsContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -32108,7 +32231,7 @@
 	exports.default = (0, _RecommendationsContainer2.default)((0, _AppContainer2.default)(Recommendations));
 
 /***/ },
-/* 304 */
+/* 305 */
 /*!*****************************************************************************!*\
   !*** ./app/containers/RecommendationsContainer/RecommendationsContainer.js ***!
   \*****************************************************************************/
@@ -32126,7 +32249,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 239);
 	
-	var _actions = __webpack_require__(/*! ../../actions */ 292);
+	var _actions = __webpack_require__(/*! ../../actions */ 285);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32141,7 +32264,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 305 */
+/* 306 */
 /*!*****************************************************!*\
   !*** ./app/components/BGDetailPage/BGDetailPage.js ***!
   \*****************************************************/
@@ -32157,15 +32280,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 290);
+	var _AppContainer = __webpack_require__(/*! ../../containers/AppContainer/AppContainer */ 283);
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	

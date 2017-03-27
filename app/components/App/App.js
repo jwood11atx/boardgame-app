@@ -1,5 +1,4 @@
 import React from 'react';
-import {firebase, database} from "../../../firebase";
 import AppContainer from "../../containers/AppContainer/AppContainer";
 import SearchContainer from "../../containers/SearchContainer/SearchContainer";
 import HotnessContainer from "../../containers/HotnessContainer/HotnessContainer";
@@ -11,14 +10,16 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      searchInput: ""
+      searchInput: "",
+      authButtons: null
     }
   }
 
   componentDidMount(){
     fetch("/api/v1/hotness")
       .then(res => res.json())
-      .then(hotness => this.props.getHotness(hotness))
+      .then(hotness => this.props.getHotness(hotness));
+
   };
 
   exact(){
@@ -31,7 +32,6 @@ class App extends React.Component {
   }
 
   getSearch(){
-    this.props.clearSearchIDs();
     this.props.clearSearchResults();
     if(this.state.searchInput){
       fetch(`/api/v1/search?id=${this.state.searchInput}${this.exact()}`)

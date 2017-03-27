@@ -9,6 +9,7 @@ const config = {
 };
 firebase.initializeApp(config);
 
+const auth = firebase.auth();
 const fbdb = firebase.database();
 
-module.exports = {firebase, fbdb};
+module.exports = {firebase, fbdb, auth};

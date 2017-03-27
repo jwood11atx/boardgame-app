@@ -3,6 +3,7 @@ process.env.NODE_ENV = "test";
 const chaiHttp = require("chai-http");
 const chai = require("chai");
 const {expect} = require("chai");
+const {firebase, fbdb, auth} = require("../../../firebase");
 const knex = require("../../../db/knex.js");
 const app = require("../../../server.js");
 
@@ -61,7 +62,7 @@ describe("Server/API", () => {
     });
   });
 
-  describe("/bg-rec-list?", function(){
+  describe("/bg-rec-list?", () => {
     it("should fetch the a list of recommended games", (done) => {
       chai.request(app)
         .get("/api/v1/bg-rec-list?id=18480,18785")
@@ -179,7 +180,6 @@ describe("Server/API", () => {
     });
   });
 
-
   describe("/boardgame/id", () => {
     it("should return a game object", (done) => {
       chai.request(app)
@@ -222,4 +222,36 @@ describe("Server/API", () => {
       });
     });
   });
+
+  describe("/signup", () => {
+    it("should signup a new user", (done) => {
+      chai.request(app)
+        .post("/api/v1/signup")
+        .send({
+          email: "test@gmail.com",
+          password: "test1234"
+        })
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          done();
+        })
+    });
+  });
+
+  describe("/signin", () => {
+    it("should signin a user", (done) => {
+      chai.request(app)
+        .post(`/api/v1/signin`)
+        .send({
+          email: "test@gmail.com",
+          password: "test1234"
+        })
+        .end((err, res) => {
+          console.log("response! ", res.body);
+          expect(res).to.have.status(200);
+          done();
+        })
+    })
+  })
+
 });

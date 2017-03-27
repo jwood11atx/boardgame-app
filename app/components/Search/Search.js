@@ -12,7 +12,6 @@ class Search extends React.Component{
   }
 
   getNextTen(){
-    let ids = this.props.searchIDs;
     let start = this.state.displayed;
     let end = start+10;
 
@@ -41,15 +40,15 @@ class Search extends React.Component{
 
   };
 
-  getMoreButton(){
-    if(this.state.displayed < this.props.searchIDs.length){
-      return <button className="more-button"
-                     onClick={() => this.getNextTen()}>get more!</button>
-    } else {
-      return <button className="more-button"
-                     disabled="true">get more!</button>
-    }
-  }
+  // getMoreButton(){
+  //   if(this.state.displayed < this.props.searchIDs.length){
+  //     return <button className="more-button"
+  //                    onClick={() => this.getNextTen()}>get more!</button>
+  //   } else {
+  //     return <button className="more-button"
+  //                    disabled="true">get more!</button>
+  //   }
+  // }
 
 
   render(){
@@ -59,7 +58,7 @@ class Search extends React.Component{
         <section className="bg-img-container">
           <BoardgameCard path={this.props.location.pathname} />
         </section>
-        {this.getMoreButton()}
+        {/* {this.getMoreButton()} */}
       </div>
     )
   }

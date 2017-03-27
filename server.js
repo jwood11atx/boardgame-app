@@ -1,7 +1,8 @@
 //--------TEMP TO BE REPLACED WITH NEW DB
-const {firebase, fbdb} = require("./firebase");
+const {firebase, fbdb, auth} = require("./firebase");
 const request = require("request");
 const xmlParser = require("xml2json");
+const bodyParser = require('body-parser')
 const Promises = require("promise");
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
@@ -14,6 +15,8 @@ const app = express();
 
 const xmlRoot = "https://www.boardgamegeek.com/xmlapi2";
 
+
+app.use(bodyParser.json());
 app.use(express.static(__dirname + "/build"));
 
 app.set("port", process.env.PORT || 3000);
@@ -490,8 +493,60 @@ const updateJoinTables = (type, typeArr, typeStr, type_id, boardgame_id, result)
 
 /////////--------------------FIREBASE--------------------------////////////
 
+app.post(`/api/v1/signup`, (req, res) => {
+  const {email, password} = req.body;
 
+  auth.createUserWithEmailAndPassword(email, password)
+  .then(user => res.json(user))
+  .catch((error, test) => {
+    const err = `error -> ${error.code}: ${error.message}`;
+    console.log(err);
+    res.json(err)
+    });
+    setTimeout(() => {res.send()}, 1000)
+});
 
+app.post(`/api/v1/signin`, (req, res) => {
+  const {email, password} = req.body;
+  auth.signInWithEmailAndPassword(email, password)
+  .then(user => res.json(user.uid))
+  .catch((error) => {
+    const err = `error -> ${error.code}: ${error.message}`;
+    console.log(err);
+    res.json(err)
+  });
+  setTimeout(() => {res.send()}, 1000)
+});
+
+app.get(`/api/v1/signout`, (req, res) => {
+  auth.signOut().then(() => {
+  console.log("logged out");
+  res.json(true);
+  }).catch((error) => {
+  const err = `error ${error.code}: ${error.message}`;
+  console.log(err);
+  res.json(false);
+  });
+});
+
+app.get(`/api/v1/favorites/:userID`, (req, res) => {
+  const {userID} = req.params;
+
+  const favorites = fbdb.ref(`${userID}/favorites/`);
+  console.log(favorites);
+  res.json(favorites);
+});
+
+app.post(`/api/v1/favorites/:userID`, (req, res) => {
+  const {userID} = req.params;
+  const {favID} = req.body;
+
+  fbdb.ref(`${userID}/favorites/` + favID).set({
+    info: "test"
+  });
+
+  res.json(favorites);
+});
 
 ///////////////////////////////////////////////////////////////////////////
 

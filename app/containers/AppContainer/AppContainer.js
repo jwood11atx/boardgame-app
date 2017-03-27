@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
     favorites: state.favorites,
     hotness: state.hotness,
     recommendations: state.recommendations,
-    searchIDs: state.searchIDs,
-    searchResults: state.searchResults
+    searchResults: state.searchResults,
+    user: state.user
   }
 };
 

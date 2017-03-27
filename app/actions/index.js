@@ -18,19 +18,6 @@ export const clearSearchResults = () => {
   }
 };
 
-export const getSearchIDs = (searchIDs) => {
-  return {
-    type: "SEARCH_IDS",
-    searchIDs
-  }
-};
-
-export const clearSearchIDs = () => {
-  return {
-    type: "CLEAR_SEARCH_IDS"
-  }
-};
-
 export const incDisplayed = () => {
   return {
     type: "INCREASE_DISPLAY"
@@ -70,3 +57,10 @@ export const getBGDetails = (bgDetails) => {
     bgDetails
   }
 };
+
+export const getUser = (user) => {
+  return {
+    type: "GET_USER",
+    user
+  }
+}

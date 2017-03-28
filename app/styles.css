@@ -257,9 +257,7 @@ footer {
 }
 
 .bg-card:hover .overlay {
-  cursor: pointer;
-  opacity: .5;
-  width:
+  opacity: .6;
 }
 
 .bg-card:hover .favorite-button {
@@ -269,4 +267,8 @@ footer {
 
 .bg-card:hover .details-button {
   opacity: 1;
+}
+
+.favorite-button:hover, .details-button:hover {
+  background: rgba(77, 216, 159, 0.5);
 }

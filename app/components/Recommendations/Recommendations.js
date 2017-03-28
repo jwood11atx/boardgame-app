@@ -25,7 +25,7 @@ class Recommendations extends React.Component{
     return (
       <div>
         <h2 className="page-title">Recommendations!</h2>
-        <button onClick={() => this.getRecommendations()}>get recommendations</button>
+        <button className="recommendation-button" onClick={() => this.getRecommendations()}>get recommendations</button>
         <BoardgameCards path={this.props.location.pathname}/>
       </div>
     )

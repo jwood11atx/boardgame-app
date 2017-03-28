@@ -1,5 +1,5 @@
-import "./reset";
-import "./styles";
+import "./reset.css";
+import "./styles.css";
 import React from "react"
 import { render } from "react-dom"
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';

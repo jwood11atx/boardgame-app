@@ -49,9 +49,9 @@
 
 	"use strict";
 	
-	__webpack_require__(/*! ./reset */ 1);
+	__webpack_require__(/*! ./reset.css */ 1);
 	
-	__webpack_require__(/*! ./styles */ 5);
+	__webpack_require__(/*! ./styles.css */ 5);
 	
 	var _react = __webpack_require__(/*! react */ 7);
 	
@@ -73,23 +73,23 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 296);
+	var _Hotness = __webpack_require__(/*! ./components/Hotness/Hotness */ 297);
 	
 	var _Hotness2 = _interopRequireDefault(_Hotness);
 	
-	var _Search = __webpack_require__(/*! ./components/Search/Search */ 301);
+	var _Search = __webpack_require__(/*! ./components/Search/Search */ 302);
 	
 	var _Search2 = _interopRequireDefault(_Search);
 	
-	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 302);
+	var _Favorites = __webpack_require__(/*! ./components/Favorites/Favorites */ 303);
 	
 	var _Favorites2 = _interopRequireDefault(_Favorites);
 	
-	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 303);
+	var _Recommendations = __webpack_require__(/*! ./components/Recommendations/Recommendations */ 304);
 	
 	var _Recommendations2 = _interopRequireDefault(_Recommendations);
 	
-	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 305);
+	var _BGDetailPage = __webpack_require__(/*! ./components/BGDetailPage/BGDetailPage */ 306);
 	
 	var _BGDetailPage2 = _interopRequireDefault(_BGDetailPage);
 	
@@ -481,15 +481,15 @@
 
 /***/ },
 /* 5 */
-/*!*************************!*\
-  !*** ./app/styles.scss ***!
-  \*************************/
+/*!************************!*\
+  !*** ./app/styles.css ***!
+  \************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !../~/css-loader!../~/sass-loader!./styles.scss */ 6);
+	var content = __webpack_require__(/*! !../~/css-loader!./styles.css */ 6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ../~/style-loader/addStyles.js */ 4)(content, {});
@@ -498,8 +498,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss", function() {
-				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/index.js!./styles.scss");
+			module.hot.accept("!!../node_modules/css-loader/index.js!./styles.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./styles.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -510,9 +510,9 @@
 
 /***/ },
 /* 6 */
-/*!********************************************************!*\
-  !*** ./~/css-loader!./~/sass-loader!./app/styles.scss ***!
-  \********************************************************/
+/*!***************************************!*\
+  !*** ./~/css-loader!./app/styles.css ***!
+  \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ../~/css-loader/lib/css-base.js */ 3)();
@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: lightgrey;\n  color: white; }\n\nbutton:hover {\n  cursor: pointer; }\n\nbutton:hover:disabled {\n  cursor: default; }\n\nfooter {\n  font-size: 18px;\n  padding: 10px; }\n\n.App {\n  text-align: center; }\n\n.page-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px; }\n\n.logo {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 42px;\n  color: #555;\n  margin: 10px; }\n\n.header-text, .game-details-container, .game-description {\n  font-family: 'Eczar', cursive;\n  font-size: 16px;\n  color: #555;\n  margin: 10px 0; }\n\n.game-details-container {\n  margin-bottom: 50px; }\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center; }\n\n.game-description, .right-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  padding: 22px;\n  margin: 5px;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.bg-img-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3); }\n\n.boardgames-container {\n  text-align: center; }\n\n.more-button {\n  margin-bottom: 20px; }\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px; }\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px; }\n\n.loading {\n  margin-top: 50px; }\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px; }\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px; }\n\n.left-container {\n  display: flex;\n  position: relative;\n  padding: 5px;\n  margin: 5px;\n  color: #ddd;\n  background-color: white;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);\n  vertical-align: middle; }\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto; }\n\n.game-title {\n  display: block;\n  font-family: 'Permanent Marker', cursive;\n  font-size: 24px;\n  margin: 5px; }\n\n.detail-section {\n  flex: 1;\n  padding: 15px; }\n\n.detail-section-title {\n  font-family: 'Permanent Marker', cursive;\n  font-size: 18px;\n  margin-top: 10px; }\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px; }\n\n#bgg-logo {\n  height: 30px; }\n", ""]);
+	exports.push([module.id, "html {\n  /*background: url(\"http://i.imgur.com/i6x8lDh.jpg\") no-repeat top center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;*/\n  background: white;\n}\n\nbody {\n  min-height: 100vh;\n\n}\n\nbutton:hover {\n  cursor: pointer;\n}\n\nbutton:hover:disabled {\n  cursor: default;\n}\n\nfooter {\n  font-size: 18px;\n  padding: 10px;\n}\n\n.App {\n  text-align: center;\n}\n\n\n.page-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px;\n}\n\n.Header {\n  position: relative;\n  background: #4dd89f;\n  height: 70px;\n  width: 100vw;\n}\n\n.nav-bar, .logo {\n  text-decoration: none;\n  height: 75px;\n  display: table-cell;\n  vertical-align: middle;\n  padding-left: 10px;\n}\n\n.logo {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 42px;\n  color: white;\n}\n\n.nav-button, .log-button {\n  margin: 0 10px;\n  border: none;\n  background: rgba(0,0,0,0);\n  font-family: \"Passion One\", cursive;\n  font-size: 20px;\n  color: white;\n  letter-spacing: 1px;\n}\n\n.nav-button:hover, .log-button:hover, .logo-text:hover{\n  color: #3f78a0;\n}\n\n.nav-button:focus, .log-button:focus {\n  outline: none;\n}\n\n.selected {\n  color: #3f78a0;\n}\n\n.log-bar {\n  position: absolute;\n  right: 20px;\n  transform: translateY(-13px);\n  top: 50%;\n  bottom: 50%;\n}\n\n.game-details-container, .game-description {\n  font-family: 'Cabin', cursive;\n  font-size: 16px;\n  color: #555;\n}\n\n.header-text {\n  color: #555;\n}\n\n.search-bar {\n  background: #555;\n}\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}\n\n.bg-card-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding:10px;\n}\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n}\n\n.boardgames-container {\n  text-align: center;\n}\n\n.more-button {\n  margin-bottom: 20px;\n}\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px;\n}\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px;\n}\n\n.loading {\n  margin-top: 50px;\n}\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n}\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px;\n}\n\n.bg-img-container {\n  display: flex;\n  position: relative;\n  margin: 5px;\n}\n\n.bottom-container, .middle-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  justify-content: center;\n  vertical-align: middle;\n}\n\n.bottom-container {\n  margin-top: 10px;\n}\n\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n  vertical-align: middle;\n}\n\n.game-title {\n  display: block;\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  margin: 5px;\n}\n\n.detail-section {\n  flex: 1;\n  padding: 15px;\n  // width: 20%;\n}\n\n\n.detail-section-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 18px;\n  margin-top: 10px;\n}\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px;\n}\n\n#bgg-logo {\n  height: 30px;\n}\n", ""]);
 	
 	// exports
 
@@ -30243,143 +30243,21 @@
 	      });
 	    }
 	  }, {
-	    key: "exact",
-	
-	
-	    // getGames(ids){
-	    //   fetch(`/api/v1/list?id=${ids}`)
-	    //   .then(res => res.json())
-	    //   .then(games => {
-	    //     console.log(games);
-	    //     this.props.getSearchResults(games)
-	    //   })
-	    // }
-	
-	    value: function exact() {
-	      var checkbox = document.getElementById("exact-match-chechbox");
-	      if (checkbox.checked) {
-	        return "&exact=1";
-	      } else {
-	        return "&exact=0";
-	      }
-	    }
-	  }, {
-	    key: "getSearch",
-	    value: function getSearch() {
-	      var _this3 = this;
-	
-	      this.props.clearSearchIDs();
-	      this.props.clearSearchResults();
-	      if (this.state.searchInput) {
-	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
-	          return res.json();
-	        }).then(function (boardgames) {
-	
-	          if (boardgames.length > 1) {
-	            boardgames.sort(function (a, b) {
-	              return a.id - b.id;
-	            });
-	
-	            if (document.getElementById("show-newest-checkbox").checked) boardgames = boardgames.reverse();
-	          }
-	
-	          if (boardgames.length > 10) {
-	            boardgames = boardgames.slice(0, 10);
-	          }
-	
-	          _this3.props.getSearchResults(boardgames);
-	
-	          // ids = ids.sort((a, b) => {
-	          //   return Number(a) - Number(b);
-	          // });
-	          //
-	          // if(document.getElementById("show-newest-checkbox").checked)
-	          //   ids = ids.reverse();
-	          //
-	          // this.props.getSearchIDs(ids);
-	          //
-	          // if (ids.length < 10) {
-	          //   ids = ids.join(",");
-	          //   this.getGames(ids);
-	          // } else {
-	          //   ids = ids.slice(0, 10).join(",");
-	          //   this.getGames(ids);
-	          // }
-	        });
-	      }
-	    }
-	  }, {
-	    key: "searchButton",
-	    value: function searchButton() {
-	      var _this4 = this;
-	
-	      if (this.state.searchInput) {
-	        return _react2.default.createElement(
-	          _reactRouter.Link,
-	          { id: "search-link",
-	            to: "/search",
-	            onClick: function onClick() {
-	              return _this4.getSearch();
-	            } },
-	          _react2.default.createElement(
-	            "button",
-	            null,
-	            "search"
-	          )
-	        );
-	      } else {
-	        return _react2.default.createElement(
-	          "button",
-	          { disabled: "true" },
-	          "search"
-	        );
-	      }
-	    }
-	  }, {
-	    key: "enterKey",
-	    value: function enterKey(e) {
-	      if (e.nativeEvent.key === "Enter" && document.querySelector("#search-link")) {
-	        document.querySelector("#search-link").click();
-	      }
-	    }
-	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this5 = this;
-	
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "App" },
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
-	          "p",
-	          { className: "header-text" },
-	          "Search for a boardgame"
+	          "div",
+	          { className: "page-layout" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "page-display" },
+	            this.props.children
+	          )
 	        ),
-	        _react2.default.createElement("input", { type: "text",
-	          placeholder: "search here!",
-	          onChange: function onChange(e) {
-	            return _this5.setState({ searchInput: e.target.value });
-	          },
-	          onKeyDown: function onKeyDown(e) {
-	            return _this5.enterKey(e);
-	          } }),
-	        this.searchButton(),
-	        _react2.default.createElement("input", { type: "checkbox",
-	          id: "exact-match-chechbox" }),
-	        _react2.default.createElement(
-	          "label",
-	          { className: "header-text" },
-	          "exact match"
-	        ),
-	        _react2.default.createElement("input", { type: "checkbox",
-	          id: "show-newest-checkbox" }),
-	        _react2.default.createElement(
-	          "label",
-	          { className: "header-text" },
-	          "show newest"
-	        ),
-	        this.props.children,
 	        _react2.default.createElement(
 	          "footer",
 	          null,
@@ -30412,17 +30290,17 @@
 	var firebase = __webpack_require__(/*! firebase */ 284);
 	
 	var config = {
-	  apiKey: "AIzaSyA6dAV3gwmGQXotavP3j58sgwKFop3LUiM",
-	  authDomain: "bgg-api-test.firebaseapp.com",
-	  databaseURL: "https://bgg-api-test.firebaseio.com",
-	  storageBucket: "bgg-api-test.appspot.com",
-	  messagingSenderId: "394321547983"
+	  apiKey: "AIzaSyClAhS9lvKSElVkGHRv3tKecMylzARFSRg",
+	  authDomain: "boardgame-it.firebaseapp.com",
+	  databaseURL: "https://boardgame-it.firebaseio.com",
+	  storageBucket: "boardgame-it.appspot.com",
+	  messagingSenderId: "253339937377"
 	};
 	firebase.initializeApp(config);
 	
-	var database = firebase.database();
+	var fbdb = firebase.database();
 	
-	module.exports = { firebase: firebase, database: database };
+	module.exports = { firebase: firebase, fbdb: fbdb };
 
 /***/ },
 /* 284 */
@@ -31362,18 +31240,36 @@
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
+	var _LogBar = __webpack_require__(/*! ../LogBar/LogBar */ 296);
+	
+	var _LogBar2 = _interopRequireDefault(_LogBar);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Header = function Header() {
+	var Header = function Header(path) {
+	  var clearNavSelection = function clearNavSelection() {
+	    // document.getElementsByClassName("selected")[0].classList.remove("selected");
+	
+	  };
+	
 	  return _react2.default.createElement(
 	    "div",
 	    { className: "Header" },
 	    _react2.default.createElement(
-	      "h1",
-	      { className: "logo" },
-	      "Boardgame It!"
+	      _reactRouter.Link,
+	      { to: "/",
+	        className: "logo",
+	        onClick: function onClick() {
+	          return clearNavSelection();
+	        } },
+	      _react2.default.createElement(
+	        "h1",
+	        { className: "logo-text" },
+	        "Boardgame It!"
+	      )
 	    ),
-	    _react2.default.createElement(_Nav2.default, null)
+	    _react2.default.createElement(_Nav2.default, null),
+	    _react2.default.createElement(_LogBar2.default, null)
 	  );
 	};
 	
@@ -31401,16 +31297,32 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Nav = function Nav() {
+	  var highlight = function highlight(tag) {
+	    //   const navArr = document.getElementsByClassName("nav-button");
+	    //
+	    //   for (var i = 0; i < navArr.length; i++) {
+	    //     navArr[i].classList.remove("selected");
+	    //
+	    //     if (tag.innerHTML === navArr[i].innerHTML) {
+	    //       navArr[i].classList.add("selected");
+	    //     }
+	    //   }
+	  };
+	
 	  return _react2.default.createElement(
 	    "div",
 	    { className: "nav-bar" },
 	    _react2.default.createElement(
 	      _reactRouter.Link,
-	      { to: "/" },
+	      { to: "/search" },
 	      _react2.default.createElement(
 	        "button",
-	        null,
-	        "home"
+	        { className: "nav-button",
+	          onClick: function onClick(e) {
+	            return highlight(e.target);
+	          }
+	        },
+	        "search"
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -31418,7 +31330,11 @@
 	      { to: "/favorites" },
 	      _react2.default.createElement(
 	        "button",
-	        null,
+	        { className: "nav-button",
+	          onClick: function onClick(e) {
+	            return highlight(e.target);
+	          }
+	        },
 	        "favorites"
 	      )
 	    ),
@@ -31427,7 +31343,11 @@
 	      { to: "/recommendations" },
 	      _react2.default.createElement(
 	        "button",
-	        null,
+	        { className: "nav-button",
+	          onClick: function onClick(e) {
+	            return highlight(e.target);
+	          }
+	        },
 	        "recommendations"
 	      )
 	    )
@@ -31438,6 +31358,54 @@
 
 /***/ },
 /* 296 */
+/*!*****************************************!*\
+  !*** ./app/components/LogBar/LogBar.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 184);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var LogBar = function LogBar() {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "log-bar" },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: "/" },
+	      _react2.default.createElement(
+	        "button",
+	        { className: "log-button" },
+	        "sign in"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: "/" },
+	      _react2.default.createElement(
+	        "button",
+	        { className: "log-button" },
+	        "sign up"
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = LogBar;
+
+/***/ },
+/* 297 */
 /*!*******************************************!*\
   !*** ./app/components/Hotness/Hotness.js ***!
   \*******************************************/
@@ -31457,7 +31425,7 @@
 	
 	var _HotnessContainer2 = _interopRequireDefault(_HotnessContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -31479,7 +31447,7 @@
 	exports.default = Hotness;
 
 /***/ },
-/* 297 */
+/* 298 */
 /*!*********************************************************!*\
   !*** ./app/components/BoardgameCards/BoardgameCards.js ***!
   \*********************************************************/
@@ -31499,15 +31467,15 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 300);
+	var _FavButton = __webpack_require__(/*! ../FavButton/FavButton */ 301);
 	
 	var _FavButton2 = _interopRequireDefault(_FavButton);
 	
@@ -31629,7 +31597,7 @@
 	
 	  return _react2.default.createElement(
 	    "section",
-	    { className: "bg-img-container" },
+	    { className: "bg-card-container" },
 	    display
 	  );
 	};
@@ -31637,7 +31605,7 @@
 	exports.default = (0, _BGDetailsContainer2.default)((0, _AppContainer2.default)((0, _FavoritesContainer2.default)(BoardgameCard)));
 
 /***/ },
-/* 298 */
+/* 299 */
 /*!*****************************************************************!*\
   !*** ./app/containers/FavoritesContainer/FavoritesContainer.js ***!
   \*****************************************************************/
@@ -31673,7 +31641,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 299 */
+/* 300 */
 /*!*****************************************************************!*\
   !*** ./app/containers/BGDetailsContainer/BGDetailsContainer.js ***!
   \*****************************************************************/
@@ -31706,7 +31674,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 300 */
+/* 301 */
 /*!***********************************************!*\
   !*** ./app/components/FavButton/FavButton.js ***!
   \***********************************************/
@@ -31728,7 +31696,7 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
@@ -31800,7 +31768,7 @@
 	exports.default = (0, _AppContainer2.default)((0, _FavoritesContainer2.default)(FavButton));
 
 /***/ },
-/* 301 */
+/* 302 */
 /*!*****************************************!*\
   !*** ./app/components/Search/Search.js ***!
   \*****************************************/
@@ -31826,9 +31794,11 @@
 	
 	var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 184);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -31847,12 +31817,81 @@
 	    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this));
 	
 	    _this.state = {
-	      displayed: 10
+	      displayed: 10,
+	      searchInput: ""
 	    };
 	    return _this;
 	  }
 	
 	  _createClass(Search, [{
+	    key: "exact",
+	    value: function exact() {
+	      var checkbox = document.getElementById("exact-match-chechbox");
+	      if (checkbox.checked) {
+	        return "&exact=1";
+	      } else {
+	        return "&exact=0";
+	      }
+	    }
+	  }, {
+	    key: "getSearch",
+	    value: function getSearch() {
+	      var _this2 = this;
+	
+	      this.props.clearSearchIDs();
+	      this.props.clearSearchResults();
+	      if (this.state.searchInput) {
+	        fetch("/api/v1/search?id=" + this.state.searchInput + this.exact()).then(function (res) {
+	          return res.json();
+	        }).then(function (boardgames) {
+	
+	          if (boardgames.length > 1) {
+	            boardgames.sort(function (a, b) {
+	              return a.id - b.id;
+	            });
+	
+	            if (document.getElementById("show-newest-checkbox").checked) boardgames = boardgames.reverse();
+	          }
+	
+	          _this2.props.getSearchResults(boardgames);
+	        });
+	      }
+	    }
+	  }, {
+	    key: "searchButton",
+	    value: function searchButton() {
+	      var _this3 = this;
+	
+	      if (this.state.searchInput) {
+	        return _react2.default.createElement(
+	          _reactRouter.Link,
+	          { id: "search-link",
+	            to: "/search",
+	            onClick: function onClick() {
+	              return _this3.getSearch();
+	            } },
+	          _react2.default.createElement(
+	            "button",
+	            null,
+	            "search"
+	          )
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          "button",
+	          { disabled: "true" },
+	          "search"
+	        );
+	      }
+	    }
+	  }, {
+	    key: "enterKey",
+	    value: function enterKey(e) {
+	      if (e.nativeEvent.key === "Enter" && document.querySelector("#search-link")) {
+	        document.querySelector("#search-link").click();
+	      }
+	    }
+	  }, {
 	    key: "getNextTen",
 	    value: function getNextTen() {
 	      var ids = this.props.searchIDs;
@@ -31866,13 +31905,13 @@
 	  }, {
 	    key: "getGames",
 	    value: function getGames(ids) {
-	      var _this2 = this;
+	      var _this4 = this;
 	
 	      fetch("/api/v1/list?id=" + ids).then(function (res) {
 	        return res.json();
 	      }).then(function (games) {
 	        console.log(games);
-	        _this2.props.getSearchResults(games);
+	        _this4.props.getSearchResults(games);
 	      });
 	    }
 	  }, {
@@ -31887,45 +31926,59 @@
 	      });
 	    }
 	  }, {
-	    key: "getMoreButton",
-	    value: function getMoreButton() {
-	      var _this3 = this;
-	
-	      if (this.state.displayed < this.props.searchIDs.length) {
-	        return _react2.default.createElement(
-	          "button",
-	          { className: "more-button",
-	            onClick: function onClick() {
-	              return _this3.getNextTen();
-	            } },
-	          "get more!"
-	        );
-	      } else {
-	        return _react2.default.createElement(
-	          "button",
-	          { className: "more-button",
-	            disabled: "true" },
-	          "get more!"
-	        );
-	      }
-	    }
-	  }, {
 	    key: "render",
+	
+	
+	    // getMoreButton(){
+	    //   if(this.state.displayed < this.props.searchResults.length && this.props.searchResults > 0){
+	    //     return <button className="more-button"
+	    //                    onClick={() => this.getNextTen()}>get more!</button>
+	    //   } else {
+	    //     return <button className="more-button"
+	    //                    disabled="true">get more!</button>
+	    //   }
+	    // }
+	
+	
 	    value: function render() {
+	      var _this5 = this;
+	
 	      return _react2.default.createElement(
 	        "div",
 	        { className: "boardgames-container" },
 	        _react2.default.createElement(
 	          "h2",
 	          { className: "page-title" },
-	          "Search Results!"
+	          "Search!"
+	        ),
+	        _react2.default.createElement("input", { type: "text",
+	          placeholder: "search here!",
+	          onChange: function onChange(e) {
+	            return _this5.setState({ searchInput: e.target.value });
+	          },
+	          onKeyDown: function onKeyDown(e) {
+	            return _this5.enterKey(e);
+	          } }),
+	        this.searchButton(),
+	        _react2.default.createElement("input", { type: "checkbox",
+	          id: "exact-match-chechbox" }),
+	        _react2.default.createElement(
+	          "label",
+	          { className: "header-text" },
+	          "exact match"
+	        ),
+	        _react2.default.createElement("input", { type: "checkbox",
+	          id: "show-newest-checkbox" }),
+	        _react2.default.createElement(
+	          "label",
+	          { className: "header-text" },
+	          "show newest"
 	        ),
 	        _react2.default.createElement(
 	          "section",
 	          { className: "bg-img-container" },
 	          _react2.default.createElement(_BoardgameCards2.default, { path: this.props.location.pathname })
-	        ),
-	        this.getMoreButton()
+	        )
 	      );
 	    }
 	  }]);
@@ -31938,7 +31991,7 @@
 	exports.default = (0, _SearchContainer2.default)((0, _AppContainer2.default)(Search));
 
 /***/ },
-/* 302 */
+/* 303 */
 /*!***********************************************!*\
   !*** ./app/components/Favorites/Favorites.js ***!
   \***********************************************/
@@ -31960,11 +32013,11 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -32007,7 +32060,7 @@
 	exports.default = (0, _FavoritesContainer2.default)((0, _AppContainer2.default)(Favorites));
 
 /***/ },
-/* 303 */
+/* 304 */
 /*!***********************************************************!*\
   !*** ./app/components/Recommendations/Recommendations.js ***!
   \***********************************************************/
@@ -32029,11 +32082,11 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 304);
+	var _RecommendationsContainer = __webpack_require__(/*! ../../containers/RecommendationsContainer/RecommendationsContainer */ 305);
 	
 	var _RecommendationsContainer2 = _interopRequireDefault(_RecommendationsContainer);
 	
-	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 297);
+	var _BoardgameCards = __webpack_require__(/*! ../BoardgameCards/BoardgameCards */ 298);
 	
 	var _BoardgameCards2 = _interopRequireDefault(_BoardgameCards);
 	
@@ -32108,7 +32161,7 @@
 	exports.default = (0, _RecommendationsContainer2.default)((0, _AppContainer2.default)(Recommendations));
 
 /***/ },
-/* 304 */
+/* 305 */
 /*!*****************************************************************************!*\
   !*** ./app/containers/RecommendationsContainer/RecommendationsContainer.js ***!
   \*****************************************************************************/
@@ -32141,7 +32194,7 @@
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps);
 
 /***/ },
-/* 305 */
+/* 306 */
 /*!*****************************************************!*\
   !*** ./app/components/BGDetailPage/BGDetailPage.js ***!
   \*****************************************************/
@@ -32161,11 +32214,11 @@
 	
 	var _AppContainer2 = _interopRequireDefault(_AppContainer);
 	
-	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 299);
+	var _BGDetailsContainer = __webpack_require__(/*! ../../containers/BGDetailsContainer/BGDetailsContainer */ 300);
 	
 	var _BGDetailsContainer2 = _interopRequireDefault(_BGDetailsContainer);
 	
-	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 298);
+	var _FavoritesContainer = __webpack_require__(/*! ../../containers/FavoritesContainer/FavoritesContainer */ 299);
 	
 	var _FavoritesContainer2 = _interopRequireDefault(_FavoritesContainer);
 	
@@ -32247,12 +32300,12 @@
 	      { className: "bg-details-page" },
 	      _react2.default.createElement(
 	        "div",
-	        { className: "left-container" },
+	        { className: "bg-img-container" },
 	        _react2.default.createElement("img", { className: "detail-image", src: game.image })
 	      ),
 	      _react2.default.createElement(
 	        "div",
-	        { className: "right-container" },
+	        { className: "middle-container" },
 	        _react2.default.createElement(
 	          "div",
 	          { className: "game-details-container" },
@@ -32281,13 +32334,6 @@
 	            { className: "game-details" },
 	            display
 	          )
-	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "details-favorite-btn", onClick: function onClick() {
-	              return props.addFavorite(game);
-	            } },
-	          "add to favorite!"
 	        )
 	      ),
 	      _react2.default.createElement(

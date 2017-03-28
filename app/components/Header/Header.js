@@ -1,12 +1,24 @@
 import React from "react";
 import {Link} from "react-router";
 import Nav from "../Nav/Nav";
+import LogBar from "../LogBar/LogBar";
 
-const Header = () => {
+
+const Header = (path) => {
+  const clearNavSelection = () => {
+    // document.getElementsByClassName("selected")[0].classList.remove("selected");
+
+  }
+
   return (
     <div className="Header">
-      <h1 className="logo">Boardgame It!</h1>
+      <Link to="/"
+            className="logo"
+            onClick={() => clearNavSelection()}>
+        <h1 className="logo-text">Boardgame It!</h1>
+      </Link>
       <Nav />
+      <LogBar />
     </div>
   );
 }

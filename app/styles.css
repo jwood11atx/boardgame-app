@@ -1,0 +1,224 @@
+html {
+  /*background: url("http://i.imgur.com/i6x8lDh.jpg") no-repeat top center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: white;
+}
+
+body {
+  min-height: 100vh;
+
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:hover:disabled {
+  cursor: default;
+}
+
+footer {
+  font-size: 18px;
+  padding: 10px;
+}
+
+.App {
+  text-align: center;
+}
+
+
+.page-title {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 24px;
+  color: #555;
+  margin: 10px;
+}
+
+.Header {
+  position: relative;
+  background: #4dd89f;
+  height: 70px;
+  width: 100vw;
+}
+
+.nav-bar, .logo {
+  text-decoration: none;
+  height: 75px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+.logo {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 42px;
+  color: white;
+}
+
+.nav-button, .log-button {
+  margin: 0 10px;
+  border: none;
+  background: rgba(0,0,0,0);
+  font-family: "Passion One", cursive;
+  font-size: 20px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.nav-button:hover, .log-button:hover, .logo-text:hover{
+  color: #3f78a0;
+}
+
+.nav-button:focus, .log-button:focus {
+  outline: none;
+}
+
+.selected {
+  color: #3f78a0;
+}
+
+.log-bar {
+  position: absolute;
+  right: 20px;
+  transform: translateY(-13px);
+  top: 50%;
+  bottom: 50%;
+}
+
+.game-details-container, .game-description {
+  font-family: 'Cabin', cursive;
+  font-size: 16px;
+  color: #555;
+}
+
+.header-text {
+  color: #555;
+}
+
+.search-bar {
+  background: #555;
+}
+
+.game-details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.bg-card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding:10px;
+}
+
+.bg-card {
+  position: relative;
+  display: flex;
+  max-width: 95vw;
+  margin: 10px;
+  background: #fff;
+  padding: 5px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+}
+
+.boardgames-container {
+  text-align: center;
+}
+
+.more-button {
+  margin-bottom: 20px;
+}
+
+.bg-image {
+  max-height: 60vw;
+  height: 300px;
+}
+
+.bg-thumbnail {
+  max-height: 60vw;
+  height: 200px;
+}
+
+.loading {
+  margin-top: 50px;
+}
+
+.favorite-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.bg-details-page {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.bg-img-container {
+  display: flex;
+  position: relative;
+  margin: 5px;
+}
+
+.bottom-container, .middle-container {
+  position: relative;
+  display: flex;
+  max-width: 93vw;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.bottom-container {
+  margin-top: 10px;
+}
+
+
+.detail-image {
+  max-height: 600px;
+  max-width: 100%;
+  height: 60vw;
+  width: auto;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+  vertical-align: middle;
+}
+
+.game-title {
+  display: block;
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 24px;
+  margin: 5px;
+}
+
+.detail-section {
+  flex: 1;
+  padding: 15px;
+  // width: 20%;
+}
+
+
+.detail-section-title {
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.details-favorite-btn {
+  position: absolute;
+  height: 50px;
+  width: 100px;
+  bottom: 25px;
+}
+
+#bgg-logo {
+  height: 30px;
+}

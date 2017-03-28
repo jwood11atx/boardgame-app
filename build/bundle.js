@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html {\n  /*background: url(\"http://i.imgur.com/i6x8lDh.jpg\") no-repeat top center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;*/\n  background: white;\n}\n\nbody {\n  min-height: 100vh;\n\n}\n\nbutton:hover {\n  cursor: pointer;\n}\n\nbutton:hover:disabled {\n  cursor: default;\n}\n\nfooter {\n  font-size: 18px;\n  padding: 10px;\n}\n\n.App {\n  text-align: center;\n}\n\n\n.page-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px;\n}\n\n.Header {\n  position: relative;\n  background: #4dd89f;\n  height: 70px;\n  width: 100vw;\n}\n\n.nav-bar, .logo {\n  text-decoration: none;\n  height: 75px;\n  display: table-cell;\n  vertical-align: middle;\n  padding-left: 10px;\n}\n\n.logo {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 42px;\n  color: white;\n}\n\n.nav-button, .log-button {\n  margin: 0 10px;\n  border: none;\n  background: rgba(0,0,0,0);\n  font-family: \"Passion One\", cursive;\n  font-size: 20px;\n  color: white;\n  letter-spacing: 1px;\n}\n\n.nav-button:hover, .log-button:hover, .logo-text:hover{\n  color: #3f78a0;\n}\n\n.nav-button:focus, .log-button:focus {\n  outline: none;\n}\n\n.selected {\n  color: #3f78a0;\n}\n\n.log-bar {\n  position: absolute;\n  right: 20px;\n  transform: translateY(-13px);\n  top: 50%;\n  bottom: 50%;\n}\n\n.game-details-container, .game-description {\n  font-family: 'Cabin', cursive;\n  font-size: 16px;\n  color: #555;\n}\n\n.header-text {\n  color: #555;\n}\n\n.search-bar {\n  background: #555;\n}\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}\n\n.bg-card-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding:10px;\n}\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  padding: 5px;\n  padding-bottom: 40px;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n}\n\n.boardgames-container {\n  text-align: center;\n}\n\n.more-button {\n  margin-bottom: 20px;\n}\n\n.bg-image {\n  max-height: 60vw;\n  height: 300px;\n}\n\n.bg-thumbnail {\n  max-height: 60vw;\n  height: 200px;\n}\n\n.loading {\n  margin-top: 50px;\n}\n\n.favorite-button {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n}\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px;\n}\n\n.bg-img-container {\n  display: flex;\n  position: relative;\n  margin: 5px;\n}\n\n.bottom-container, .middle-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  justify-content: center;\n  vertical-align: middle;\n}\n\n.bottom-container {\n  margin-top: 10px;\n}\n\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n  vertical-align: middle;\n}\n\n.game-title {\n  display: block;\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  margin: 5px;\n}\n\n.detail-section {\n  flex: 1;\n  padding: 15px;\n  // width: 20%;\n}\n\n\n.detail-section-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 18px;\n  margin-top: 10px;\n}\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px;\n}\n\n#bgg-logo {\n  height: 30px;\n}\n", ""]);
+	exports.push([module.id, "html {\n  /*background: url(\"http://i.imgur.com/i6x8lDh.jpg\") no-repeat top center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;*/\n  background: white;\n}\n\nbody {\n  min-height: 100vh;\n\n}\n\nbutton:hover {\n  cursor: pointer;\n}\n\nbutton:hover:disabled {\n  cursor: default;\n}\n\nfooter {\n  font-size: 18px;\n  padding: 10px;\n}\n\n.App {\n  text-align: center;\n}\n\n\n.page-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px;\n  margin-top: 20px;\n}\n\n.Header {\n  position: relative;\n  background: #4dd89f;\n  height: 70px;\n  width: 100vw;\n}\n\n.nav-bar, .logo {\n  text-decoration: none;\n  height: 75px;\n  display: table-cell;\n  vertical-align: middle;\n  padding-left: 10px;\n}\n\n.logo {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 42px;\n  color: white;\n}\n\n.nav-button, .log-button {\n  margin: 0 10px;\n  border: none;\n  background: rgba(0,0,0,0);\n  font-family: \"Passion One\", cursive;\n  font-size: 20px;\n  color: white;\n  letter-spacing: 1px;\n}\n\n.nav-button:hover, .log-button:hover, .logo-text:hover{\n  color: #3f78a0;\n}\n\n.nav-button:focus, .log-button:focus {\n  outline: none;\n}\n\n.selected {\n  color: #3f78a0;\n}\n\n.log-bar {\n  position: absolute;\n  right: 20px;\n  transform: translateY(-13px);\n  top: 50%;\n  bottom: 50%;\n}\n\n.game-details-container, .game-description {\n  font-family: 'Cabin', cursive;\n  font-size: 16px;\n  color: #555;\n}\n\n.header-text {\n  color: #555;\n}\n\n.search-bar {\n  background: #555;\n}\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}\n\n.bg-card-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding:10px;\n}\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  /*padding: 5px;*/\n  /*padding-bottom: 40px;*/\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n}\n\n.boardgames-container {\n  text-align: center;\n}\n\n.more-button {\n  margin-bottom: 20px;\n}\n\n.bg-image {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 300px;\n}\n\n.bg-thumbnail {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 225px;\n}\n\n.loading {\n  margin-top: 50px;\n}\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px;\n}\n\n.bg-img-container {\n  display: flex;\n  position: relative;\n  margin: 5px;\n}\n\n.bottom-container, .middle-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  justify-content: center;\n  vertical-align: middle;\n}\n\n.bottom-container {\n  margin-top: 10px;\n}\n\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n  vertical-align: middle;\n}\n\n.game-title {\n  display: block;\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  margin: 5px;\n}\n\n.detail-section {\n  flex: 1;\n  padding: 15px;\n  // width: 20%;\n}\n\n\n.detail-section-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 18px;\n  margin-top: 10px;\n}\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px;\n}\n\n#bgg-logo {\n  height: 30px;\n}\n\n/*---------------------------------------------------------*/\n\n.favorite-button, .details-button {\n  transition: .5s ease;\n  opacity: 0;\n  position: absolute;\n  width: 120px;\n  bottom: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  border: 2px solid #4dd89f;\n  background: rgba(0, 0, 0, 0);\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 14px;\n  color: #4dd89f;\n}\n\n.favorite-button:focus, .details-button:focus {\n  outline: none;\n}\n\n.overlay {\n  transition: .5s ease;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: black;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  border-radius: 5px;\n}\n\n.bg-card:hover .overlay {\n  cursor: pointer;\n  opacity: .5;\n  width:\n}\n\n.bg-card:hover .favorite-button {\n  opacity: 1;\n  bottom: 20%;\n}\n\n.bg-card:hover .details-button {\n  opacity: 1;\n}\n", ""]);
 	
 	// exports
 
@@ -31504,18 +31504,25 @@
 	      if (game.name) {
 	        display.push(_react2.default.createElement(
 	          "div",
-	          { key: i, className: "bg-card" },
+	          { key: i, className: "bg-card",
+	            id: game.id },
+	          _react2.default.createElement("img", { className: "bg-image",
+	            src: game.image }),
+	          _react2.default.createElement("div", { className: "overlay" }),
+	          _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	            list: searchResults }),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	              onClick: function onClick() {
 	                return addBGDetails(game.id, searchResults);
 	              } },
-	            _react2.default.createElement("img", { className: "bg-image",
-	              src: game.image })
-	          ),
-	          _react2.default.createElement(_FavButton2.default, { favID: game.id,
-	            list: searchResults })
+	            _react2.default.createElement(
+	              "button",
+	              { className: "details-button" },
+	              "view details"
+	            )
+	          )
 	        ));
 	      } else {
 	        display = _react2.default.createElement(
@@ -31529,37 +31536,64 @@
 	    favorites.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card" },
+	        { key: i, className: "bg-card",
+	          id: game.id },
+	        _react2.default.createElement("img", { className: "bg-image",
+	          src: game.image }),
+	        _react2.default.createElement("div", { className: "overlay" }),
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: favorites }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
 	              return addBGDetails(game.id, favorites);
 	            } },
-	          _react2.default.createElement("img", { className: "bg-image",
-	            src: game.image })
-	        ),
-	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
-	          list: favorites })
+	          _react2.default.createElement(
+	            "button",
+	            { className: "details-button" },
+	            "view details"
+	          )
+	        )
 	      ));
 	    });
 	  } else if (path === "/recommendations") {
 	    recommendations.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card" },
+	        { key: i, className: "bg-card",
+	          id: game.id },
+	        _react2.default.createElement("img", { className: "bg-image",
+	          src: game.image }),
+	        _react2.default.createElement("div", { className: "overlay" }),
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: recommendations }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: game.name[0] ? "/boardgame/" + game.name : "/boardgame/details",
 	            onClick: function onClick() {
 	              return addBGDetails(game.id, recommendations);
 	            } },
-	          _react2.default.createElement("img", { className: "bg-image",
-	            src: game.image })
-	        ),
-	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
-	          list: recommendations })
+	          _react2.default.createElement(
+	            "button",
+	            { className: "details-button" },
+	            "view details"
+	          )
+	        )
 	      ));
+	
+	      // display.push(
+	      //   <div key={i} className="bg-card">
+	      //     <Link to={game.name[0] ? `/boardgame/${game.name}`
+	      //                            : `/boardgame/details`}
+	      //           onClick={() => addBGDetails(game.id, recommendations)}>
+	      //       <img className="bg-image"
+	      //            src={game.image}/>
+	      //     </Link>
+	      //     <FavButton favID={game.id}
+	      //                list={recommendations}/>
+	      //   </div>
+	      // )
 	    });
 	  } else {
 	    hotness.map(function (game, i) {
@@ -31567,17 +31601,23 @@
 	        "div",
 	        { key: i, className: "bg-card",
 	          id: game.id },
+	        _react2.default.createElement("img", { className: "bg-thumbnail",
+	          src: game.thumbnail }),
+	        _react2.default.createElement("div", { className: "overlay" }),
+	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
+	          list: hotness }),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: "/boardgame/" + game.name,
 	            onClick: function onClick() {
 	              return addBGDetails(game.id, hotness);
 	            } },
-	          _react2.default.createElement("img", { className: "bg-thumbnail",
-	            src: game.thumbnail })
-	        ),
-	        _react2.default.createElement(_FavButton2.default, { favID: game.id,
-	          list: hotness })
+	          _react2.default.createElement(
+	            "button",
+	            { className: "details-button" },
+	            "view details"
+	          )
+	        )
 	      ));
 	    });
 	  }

@@ -35,6 +35,7 @@ footer {
   font-size: 24px;
   color: #555;
   margin: 10px;
+  margin-top: 20px;
 }
 
 .Header {
@@ -121,8 +122,8 @@ footer {
   max-width: 95vw;
   margin: 10px;
   background: #fff;
-  padding: 5px;
-  padding-bottom: 40px;
+  /*padding: 5px;*/
+  /*padding-bottom: 40px;*/
   border-radius: 5px;
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
 }
@@ -136,23 +137,19 @@ footer {
 }
 
 .bg-image {
+  border-radius: 5px;
   max-height: 60vw;
   height: 300px;
 }
 
 .bg-thumbnail {
+  border-radius: 5px;
   max-height: 60vw;
-  height: 200px;
+  height: 225px;
 }
 
 .loading {
   margin-top: 50px;
-}
-
-.favorite-button {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
 }
 
 .bg-details-page {
@@ -221,4 +218,55 @@ footer {
 
 #bgg-logo {
   height: 30px;
+}
+
+/*---------------------------------------------------------*/
+
+.favorite-button, .details-button {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  width: 120px;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border: 2px solid #4dd89f;
+  background: rgba(0, 0, 0, 0);
+  font-family: 'Baloo Bhaina', cursive;
+  font-size: 14px;
+  color: #4dd89f;
+}
+
+.favorite-button:focus, .details-button:focus {
+  outline: none;
+}
+
+.overlay {
+  transition: .5s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.bg-card:hover .overlay {
+  cursor: pointer;
+  opacity: .5;
+  width:
+}
+
+.bg-card:hover .favorite-button {
+  opacity: 1;
+  bottom: 20%;
+}
+
+.bg-card:hover .details-button {
+  opacity: 1;
 }

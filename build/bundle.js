@@ -31463,6 +31463,27 @@
 	      path = props.path;
 	
 	
+	  var favCheck = function favCheck(gameid) {
+	    var bgcard = "bg-card";
+	    props.favorites.forEach(function (fav) {
+	      if (gameid == fav.id) bgcard = "bg-card favorited";
+	    });
+	    return bgcard;
+	  };
+	
+	  var addBGDetails = function addBGDetails(id, list) {
+	    fetch("/api/v1/bg-details/" + id).then(function (res) {
+	      return res.json();
+	    }).then(function (details) {
+	      list.forEach(function (game) {
+	        if (game.id === id) {
+	          Object.assign(game, details);
+	          props.getBGDetails(game);
+	        }
+	      });
+	    });
+	  };
+	
 	  if (hotness.length === 0) {
 	    return _react2.default.createElement(
 	      "p",
@@ -31474,7 +31495,7 @@
 	      if (game.name) {
 	        display.push(_react2.default.createElement(
 	          "div",
-	          { key: i, className: "bg-card",
+	          { key: i, className: favCheck(game.id),
 	            id: game.id },
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image }),
@@ -31531,7 +31552,7 @@
 	    recommendations.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card",
+	        { key: i, className: favCheck(game.id),
 	          id: game.id },
 	        _react2.default.createElement("img", { className: "bg-image",
 	          src: game.image }),
@@ -31556,7 +31577,7 @@
 	    hotness.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card",
+	        { key: i, className: favCheck(game.id),
 	          id: game.id },
 	        _react2.default.createElement("img", { className: "bg-thumbnail",
 	          src: game.thumbnail }),
@@ -31578,19 +31599,6 @@
 	      ));
 	    });
 	  }
-	
-	  var addBGDetails = function addBGDetails(id, list) {
-	    fetch("/api/v1/bg-details/" + id).then(function (res) {
-	      return res.json();
-	    }).then(function (details) {
-	      list.forEach(function (game) {
-	        if (game.id === id) {
-	          Object.assign(game, details);
-	          props.getBGDetails(game);
-	        }
-	      });
-	    });
-	  };
 	
 	  return _react2.default.createElement(
 	    "section",

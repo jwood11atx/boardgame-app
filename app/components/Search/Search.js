@@ -57,8 +57,8 @@ class Search extends React.Component{
 
   enterKey(e){
     if(e.nativeEvent.key === "Enter"
-       && document.querySelector("#search-link")){
-      document.querySelector("#search-link").click();
+       && document.querySelector("#search-button")){
+      document.querySelector("#search-button").click();
     }
   }
 

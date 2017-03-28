@@ -82,21 +82,6 @@ const BoardgameCard = (props) => {
           </Link>
         </div>
       )
-
-
-
-      // display.push(
-      //   <div key={i} className="bg-card">
-      //     <Link to={game.name[0] ? `/boardgame/${game.name}`
-      //                            : `/boardgame/details`}
-      //           onClick={() => addBGDetails(game.id, recommendations)}>
-      //       <img className="bg-image"
-      //            src={game.image}/>
-      //     </Link>
-      //     <FavButton favID={game.id}
-      //                list={recommendations}/>
-      //   </div>
-      // )
     })
 
   } else {

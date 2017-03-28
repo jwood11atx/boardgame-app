@@ -26,21 +26,6 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="page-layout">
-          {/* <div className="search-bar">
-            <p className="header-text">Search for a boardgame</p>
-            <input type="text"
-                   placeholder="search here!"
-                   onChange={e => this.setState({searchInput: e.target.value})}
-                   onKeyDown={e => this.enterKey(e)}/>
-            {this.searchButton()}
-            <input type="checkbox"
-                   id="exact-match-chechbox"/>
-                   <label className="header-text">exact match</label>
-            <input type="checkbox"
-                  id="show-newest-checkbox"/>
-                  <label className="header-text">show newest</label>
-          </div> */}
-
           <div className="page-display">
             {this.props.children}
           </div>

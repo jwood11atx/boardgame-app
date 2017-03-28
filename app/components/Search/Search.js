@@ -49,15 +49,9 @@ class Search extends React.Component{
 
   searchButton(){
     if(this.state.searchInput){
-      return (
-        <Link id="search-link"
-              to="/search"
-              onClick={() => this.getSearch()}>
-        <button>search</button>
-      </Link>
-      )
+      return <button className="search-button">search</button>
     } else {
-      return <button disabled="true">search</button>
+      return <button className="search-button" disabled="true">search</button>
     }
   }
 
@@ -114,16 +108,19 @@ class Search extends React.Component{
       <div className="boardgames-container">
         <h2 className="page-title">Search!</h2>
         <input type="text"
+               className="search-bar"
                placeholder="search here!"
                onChange={e => this.setState({searchInput: e.target.value})}
                onKeyDown={e => this.enterKey(e)}/>
         {this.searchButton()}
-        <input type="checkbox"
-               id="exact-match-chechbox"/>
-               <label className="header-text">exact match</label>
-        <input type="checkbox"
-              id="show-newest-checkbox"/>
-              <label className="header-text">show newest</label>
+        <div className="search-checkbox-container">
+          <input type="checkbox"
+                 id="exact-match-chechbox"/>
+                 <label className="header-text">exact match</label>
+          <input type="checkbox"
+                id="show-newest-checkbox"/>
+                <label className="header-text">show newest</label>
+        </div>
         <section className="bg-img-container">
           <BoardgameCard path={this.props.location.pathname} />
         </section>

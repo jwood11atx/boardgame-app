@@ -10,6 +10,8 @@ const FavButton = (props) => {
     const game = event.target;
     event.stopPropagation();
 
+    game.closest(".bg-card").classList.add("favorited");
+
     for(let i=0; list.length>i; i++){
       if(list[i].id == game.id){
         if(list[i].image){
@@ -28,6 +30,13 @@ const FavButton = (props) => {
     }
   }
 
+  const removeFromFavorites = (e, id) => {
+    event.stopPropagation();
+    e.target.closest(".bg-card").classList.remove("favorited");
+
+    removeFavorite(id);
+  }
+
   favorites.forEach(fav => {
     if(fav.id == favID) found = fav;
   })
@@ -37,15 +46,20 @@ const FavButton = (props) => {
       <button className="favorite-button"
         id={favID}
         onClick={e =>
-          addToFavorites(e, list)}>favorite!</button>
-        )
+          addToFavorites(e, list)}>
+        favorite!
+      </button>
+    )
   } else {
+
     return(
       <button className="favorite-button"
         id={favID}
         onClick={e =>
-          removeFavorite(found)}>remove favorite</button>
-        )
+          removeFromFavorites(e, found)}>
+        remove favorite
+      </button>
+    )
   }
 
 }

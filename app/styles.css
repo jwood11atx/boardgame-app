@@ -273,6 +273,10 @@ footer {
   background: rgba(77, 216, 159, 0.5);
 }
 
+.favorited {
+  box-shadow: 0px 0px 30px 10px rgba(77,216,159,1);
+}
+
 .search-button, .recommendation-button {
   border: none;
   background: #4dd89f;

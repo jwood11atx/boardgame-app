@@ -100,7 +100,7 @@ const BoardgameCard = (props) => {
   }
 
   return (
-    <section className="bg-img-container">
+    <section className="bg-card-container">
       {display}
     </section>
   )

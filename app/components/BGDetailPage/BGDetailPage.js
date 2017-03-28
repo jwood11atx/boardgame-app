@@ -64,18 +64,20 @@ const BGDetailPage = (props) => {
     })
     return (
       <div className="bg-details-page">
-        <div className="left-container">
+        <div className="bg-img-container">
           <img className="detail-image" src={game.image}/>
         </div>
-        <div className="right-container">
+
+        <div className="middle-container">
           <div className="game-details-container">
             <h2 className="game-title">{game.name}</h2>
             <p>players: {game.minplayers}-{game.maxplayers}</p>
             <p>playingtime: {game.playingtime}min</p>
             <div className="game-details">{display}</div>
           </div>
-          <button className="details-favorite-btn" onClick={() => props.addFavorite(game)}>add to favorite!</button>
+          {/* <button className="details-favorite-btn" onClick={() => props.addFavorite(game)}>add to favorite!</button> */}
         </div>
+
         <div className="bottom-container">
           <p className="game-description">
             {game.description}

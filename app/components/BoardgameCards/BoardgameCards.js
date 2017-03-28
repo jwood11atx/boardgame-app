@@ -21,15 +21,20 @@ const BoardgameCard = (props) => {
       searchResults.map((game, i) => {
         if(game.name){
           display.push(
-            <div key={i} className="bg-card">
-              <Link to={game.name[0] ? `/boardgame/${game.name}`
-              : `/boardgame/details`}
-              onClick={() => addBGDetails(game.id, searchResults)}>
-              <img className="bg-image"
-                src={game.image}/>
+            <div key={i} className="bg-card"
+                         id={game.id}>
+               <img className="bg-image"
+                     src={game.image}/>
+               <div className="overlay"></div>
+               <FavButton favID={game.id}
+                         list={searchResults}/>
+               <Link to={game.name[0] ? `/boardgame/${game.name}`
+                                      : `/boardgame/details`}
+                     onClick={() => addBGDetails(game.id, searchResults)}>
+                 <button className="details-button">
+                   view details
+                 </button>
               </Link>
-                <FavButton favID={game.id}
-                           list={searchResults}/>
             </div>
           )
         } else {
@@ -40,15 +45,20 @@ const BoardgameCard = (props) => {
   } else if(path === "/favorites") {
     favorites.map((game, i) => {
       display.push(
-        <div key={i} className="bg-card">
-          <Link to={game.name[0] ? `/boardgame/${game.name}`
-                                 : `/boardgame/details`}
-                onClick={() => addBGDetails(game.id, favorites)}>
-            <img className="bg-image"
+        <div key={i} className="bg-card"
+                     id={game.id}>
+           <img className="bg-image"
                  src={game.image}/>
-          </Link>
-          <FavButton favID={game.id}
+           <div className="overlay"></div>
+           <FavButton favID={game.id}
                      list={favorites}/>
+           <Link to={game.name[0] ? `/boardgame/${game.name}`
+                                  : `/boardgame/details`}
+                 onClick={() => addBGDetails(game.id, favorites)}>
+             <button className="details-button">
+               view details
+             </button>
+          </Link>
         </div>
       )
     })
@@ -56,17 +66,37 @@ const BoardgameCard = (props) => {
   } else if(path === "/recommendations") {
     recommendations.map((game, i) => {
       display.push(
-        <div key={i} className="bg-card">
-          <Link to={game.name[0] ? `/boardgame/${game.name}`
-                                 : `/boardgame/details`}
-                onClick={() => addBGDetails(game.id, recommendations)}>
-            <img className="bg-image"
+        <div key={i} className="bg-card"
+                     id={game.id}>
+           <img className="bg-image"
                  src={game.image}/>
-          </Link>
-          <FavButton favID={game.id}
+           <div className="overlay"></div>
+           <FavButton favID={game.id}
                      list={recommendations}/>
+           <Link to={game.name[0] ? `/boardgame/${game.name}`
+                                  : `/boardgame/details`}
+                 onClick={() => addBGDetails(game.id, recommendations)}>
+             <button className="details-button">
+               view details
+             </button>
+          </Link>
         </div>
       )
+
+
+
+      // display.push(
+      //   <div key={i} className="bg-card">
+      //     <Link to={game.name[0] ? `/boardgame/${game.name}`
+      //                            : `/boardgame/details`}
+      //           onClick={() => addBGDetails(game.id, recommendations)}>
+      //       <img className="bg-image"
+      //            src={game.image}/>
+      //     </Link>
+      //     <FavButton favID={game.id}
+      //                list={recommendations}/>
+      //   </div>
+      // )
     })
 
   } else {
@@ -74,13 +104,17 @@ const BoardgameCard = (props) => {
       display.push(
         <div key={i} className="bg-card"
                      id={game.id}>
-            <Link to={`/boardgame/${game.name}`}
-                  onClick={() => addBGDetails(game.id, hotness)}>
-              <img className="bg-thumbnail"
-                   src={game.thumbnail}/>
-             </Link>
-             <FavButton favID={game.id}
-                        list={hotness}/>
+           <img className="bg-thumbnail"
+                 src={game.thumbnail}/>
+           <div className="overlay"></div>
+           <FavButton favID={game.id}
+                     list={hotness}/>
+           <Link to={`/boardgame/${game.name}`}
+                 onClick={() => addBGDetails(game.id, hotness)}>
+             <button className="details-button">
+               view details
+             </button>
+          </Link>
         </div>
       )
     })

@@ -284,6 +284,11 @@ footer {
   border-radius: 5px;
 }
 
+.search-button:hover {
+  cursor: pointer;
+  background: #3f78a0;
+}
+
 .search-checkbox-container {
   font-family: "Cabin", sans-serif;
 }

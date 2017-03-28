@@ -49,16 +49,19 @@ class Search extends React.Component{
 
   searchButton(){
     if(this.state.searchInput){
-      return <button className="search-button">search</button>
+      return <button className="search-button"
+                     onClick={() => this.getSearch()}>search</button>
     } else {
-      return <button className="search-button" disabled="true">search</button>
+      return <button className="search-button"
+                     onClick={() => this.getSearch()}
+                     disabled="true">search</button>
     }
   }
 
   enterKey(e){
     if(e.nativeEvent.key === "Enter"
-       && document.querySelector("#search-button")){
-      document.querySelector("#search-button").click();
+       && document.querySelector(".search-button")){
+      document.querySelector(".search-button").click();
     }
   }
 

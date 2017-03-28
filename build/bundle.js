@@ -520,7 +520,7 @@
 	
 	
 	// module
-	exports.push([module.id, "html {\n  /*background: url(\"http://i.imgur.com/i6x8lDh.jpg\") no-repeat top center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;*/\n  background: white;\n}\n\nbody {\n  min-height: 100vh;\n  font-family: \"Cabin\", sans-serif;\n}\n\nbutton:hover {\n  cursor: pointer;\n}\n\nbutton:hover:disabled {\n  cursor: default;\n}\n\nfooter {\n  font-size: 18px;\n  padding: 10px;\n}\n\n#bgg-logo {\n  height: 30px;\n}\n\n.App {\n  text-align: center;\n}\n\n\n.page-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px;\n  margin-top: 20px;\n}\n\n.Header {\n  position: relative;\n  background: #4dd89f;\n  height: 70px;\n  width: 100vw;\n}\n\n.nav-container, .logo {\n  text-decoration: none;\n  height: 75px;\n  display: table-cell;\n  vertical-align: middle;\n  padding-left: 5vw;\n}\n\n.logo {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 42px;\n  color: white;\n  padding-left: 10px;\n}\n\n.nav-button, .log-button {\n  margin: 0 10px;\n  border: none;\n  background: rgba(0,0,0,0);\n  font-family: \"Passion One\", cursive;\n  font-size: 20px;\n  color: white;\n  letter-spacing: 1px;\n}\n\n.nav-button:hover, .log-button:hover, .logo-text:hover{\n  color: #3f78a0;\n}\n\n.nav-button:focus, .log-button:focus {\n  outline: none;\n}\n\n.selected {\n  color: #3f78a0;\n}\n\n.log-bar {\n  position: absolute;\n  right: 20px;\n  transform: translateY(-13px);\n  top: 50%;\n  bottom: 50%;\n}\n\n.game-details-container, .game-description {\n  font-family: 'Cabin', cursive;\n  font-size: 16px;\n  color: #555;\n}\n\n.header-text {\n  color: #555;\n}\n\n.search-bar {\n  height: 20px;\n  border-radius: 5px;\n}\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}\n\n.bg-card-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding:10px;\n}\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  /*padding: 5px;*/\n  /*padding-bottom: 40px;*/\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n}\n\n.boardgames-container {\n  text-align: center;\n}\n\n.more-button {\n  margin-bottom: 20px;\n}\n\n.bg-image {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 300px;\n}\n\n.bg-thumbnail {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 225px;\n}\n\n.loading {\n  margin-top: 50px;\n}\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px;\n}\n\n.bg-img-container {\n  display: flex;\n  position: relative;\n  margin: 5px;\n}\n\n.bottom-container, .middle-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  justify-content: center;\n  vertical-align: middle;\n}\n\n.bottom-container {\n  margin-top: 10px;\n}\n\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n  vertical-align: middle;\n}\n\n.game-title {\n  display: block;\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  margin: 5px;\n}\n\n.detail-section {\n  flex: 1;\n  padding: 15px;\n  // width: 20%;\n}\n\n\n.detail-section-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 18px;\n  margin-top: 10px;\n}\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px;\n}\n\n.favorite-button, .details-button {\n  transition: .5s ease;\n  opacity: 0;\n  position: absolute;\n  width: 120px;\n  bottom: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  border: 2px solid #4dd89f;\n  background: rgba(0, 0, 0, 0);\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 14px;\n  color: #4dd89f;\n}\n\n.favorite-button:focus, .details-button:focus {\n  outline: none;\n}\n\n.overlay {\n  transition: .5s ease;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: black;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  border-radius: 5px;\n}\n\n.bg-card:hover .overlay {\n  opacity: .6;\n}\n\n.bg-card:hover .favorite-button {\n  opacity: 1;\n  bottom: 20%;\n}\n\n.bg-card:hover .details-button {\n  opacity: 1;\n}\n\n.favorite-button:hover, .details-button:hover {\n  background: rgba(77, 216, 159, 0.5);\n}\n\n.search-button {\n  border: none;\n  background: #4dd89f;\n  height: 25px;\n  font-family: \"Cabin\", sans-serif;\n  font-size: 16px;\n  color: white;\n  margin-left: 5px;\n  border-radius: 5px;\n}\n\n.search-button:hover {\n  cursor: pointer;\n  background: #3f78a0;\n}\n\n.search-checkbox-container {\n  font-family: \"Cabin\", sans-serif;\n}\n\n\n@media screen and (max-width: 850px) {\n    .nav-container {\n        display: block;\n        height: 20px;\n        padding-left: 0;\n        padding-bottom: 10px;\n        background: #4dd89f;\n    }\n\n    .logo-text{\n      display: inline-block;\n      margin: 0;\n      padding: 0;\n      height: auto;\n    }\n\n    .nav-button, .log-button {\n      margin: 0;\n    }\n\n    .Header {\n      position: relative;\n      margin: 0;\n    }\n\n    .logo {\n      display: inline-block;\n      height: 50px;\n      padding-left: 0;\n      padding-top: 10px;\n    }\n\n    .page-layout {\n      margin-top: 40px;\n    }\n\n    .search-checkbox-container {\n      display: block;\n    }\n}\n", ""]);
+	exports.push([module.id, "html {\n  /*background: url(\"http://i.imgur.com/i6x8lDh.jpg\") no-repeat top center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;*/\n  background: white;\n}\n\nbody {\n  min-height: 100vh;\n  font-family: \"Cabin\", sans-serif;\n}\n\nbutton:hover {\n  cursor: pointer;\n}\n\nbutton:hover:disabled {\n  cursor: default;\n}\n\nfooter {\n  font-size: 18px;\n  padding: 10px;\n}\n\n#bgg-logo {\n  height: 30px;\n}\n\n.App {\n  text-align: center;\n}\n\n\n.page-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  color: #555;\n  margin: 10px;\n  margin-top: 20px;\n}\n\n.Header {\n  position: relative;\n  background: #4dd89f;\n  height: 70px;\n  width: 100vw;\n}\n\n.nav-container, .logo {\n  text-decoration: none;\n  height: 75px;\n  display: table-cell;\n  vertical-align: middle;\n  padding-left: 5vw;\n}\n\n.logo {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 42px;\n  color: white;\n  padding-left: 10px;\n}\n\n.nav-button, .log-button {\n  margin: 0 10px;\n  border: none;\n  background: rgba(0,0,0,0);\n  font-family: \"Passion One\", cursive;\n  font-size: 20px;\n  color: white;\n  letter-spacing: 1px;\n}\n\n.nav-button:hover, .log-button:hover, .logo-text:hover{\n  color: #3f78a0;\n}\n\n.nav-button:focus, .log-button:focus {\n  outline: none;\n}\n\n.selected {\n  color: #3f78a0;\n}\n\n.log-bar {\n  position: absolute;\n  right: 20px;\n  transform: translateY(-13px);\n  top: 50%;\n  bottom: 50%;\n}\n\n.game-details-container, .game-description {\n  font-family: 'Cabin', cursive;\n  font-size: 16px;\n  color: #555;\n}\n\n.header-text {\n  color: #555;\n}\n\n.search-bar {\n  height: 20px;\n  border-radius: 5px;\n}\n\n.game-details {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n}\n\n.bg-card-container {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding:10px;\n}\n\n.bg-card {\n  position: relative;\n  display: flex;\n  max-width: 95vw;\n  margin: 10px;\n  background: #fff;\n  /*padding: 5px;*/\n  /*padding-bottom: 40px;*/\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n}\n\n.boardgames-container {\n  text-align: center;\n}\n\n.more-button {\n  margin-bottom: 20px;\n}\n\n.bg-image {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 300px;\n}\n\n.bg-thumbnail {\n  border-radius: 5px;\n  max-height: 60vw;\n  height: 225px;\n}\n\n.loading {\n  margin-top: 50px;\n}\n\n.bg-details-page {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  padding: 10px;\n}\n\n.bg-img-container {\n  display: flex;\n  position: relative;\n  margin: 5px;\n}\n\n.bottom-container, .middle-container {\n  position: relative;\n  display: flex;\n  max-width: 93vw;\n  justify-content: center;\n  vertical-align: middle;\n}\n\n.bottom-container {\n  margin-top: 10px;\n}\n\n\n.detail-image {\n  max-height: 600px;\n  max-width: 100%;\n  height: 60vw;\n  width: auto;\n  justify-content: center;\n  border-radius: 5px;\n  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);\n  vertical-align: middle;\n}\n\n.game-title {\n  display: block;\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 24px;\n  margin: 5px;\n}\n\n.detail-section {\n  flex: 1;\n  padding: 15px;\n  // width: 20%;\n}\n\n\n.detail-section-title {\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 18px;\n  margin-top: 10px;\n}\n\n.details-favorite-btn {\n  position: absolute;\n  height: 50px;\n  width: 100px;\n  bottom: 25px;\n}\n\n.favorite-button, .details-button {\n  transition: .5s ease;\n  opacity: 0;\n  position: absolute;\n  width: 120px;\n  bottom: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  border: 2px solid #4dd89f;\n  background: rgba(0, 0, 0, 0);\n  font-family: 'Baloo Bhaina', cursive;\n  font-size: 14px;\n  color: #4dd89f;\n}\n\n.favorite-button:focus, .details-button:focus {\n  outline: none;\n}\n\n.overlay {\n  transition: .5s ease;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: black;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  border-radius: 5px;\n}\n\n.bg-card:hover .overlay {\n  opacity: .6;\n}\n\n.bg-card:hover .favorite-button {\n  opacity: 1;\n  bottom: 20%;\n}\n\n.bg-card:hover .details-button {\n  opacity: 1;\n}\n\n.favorite-button:hover, .details-button:hover {\n  background: rgba(77, 216, 159, 0.5);\n}\n\n.favorited {\n  box-shadow: 0px 0px 30px 10px rgba(77,216,159,1);\n}\n\n.search-button, .recommendation-button {\n  border: none;\n  background: #4dd89f;\n  height: 25px;\n  font-family: \"Cabin\", sans-serif;\n  font-size: 16px;\n  color: white;\n  margin-left: 5px;\n  border-radius: 5px;\n}\n\n.search-button:hover, .recommendation-button:hover {\n  cursor: pointer;\n  background: #3f78a0;\n}\n\n.search-checkbox-container {\n  font-family: \"Cabin\", sans-serif;\n}\n\n\n@media screen and (max-width: 850px) {\n    .nav-container {\n        display: block;\n        height: 20px;\n        padding-left: 0;\n        padding-bottom: 10px;\n        background: #4dd89f;\n    }\n\n    .logo-text{\n      display: inline-block;\n      margin: 0;\n      padding: 0;\n      height: auto;\n    }\n\n    .nav-button, .log-button {\n      margin: 0;\n    }\n\n    .Header {\n      position: relative;\n      margin: 0;\n    }\n\n    .logo {\n      display: inline-block;\n      height: 50px;\n      padding-left: 0;\n      padding-top: 10px;\n    }\n\n    .page-layout {\n      margin-top: 40px;\n    }\n\n    .search-checkbox-container {\n      display: block;\n    }\n}\n", ""]);
 	
 	// exports
 
@@ -31248,11 +31248,7 @@
 	    { className: "Header" },
 	    _react2.default.createElement(
 	      _reactRouter.Link,
-	      { to: "/",
-	        className: "logo",
-	        onClick: function onClick() {
-	          return clearNavSelection();
-	        } },
+	      { to: "/", className: "logo" },
 	      _react2.default.createElement(
 	        "h1",
 	        { className: "logo-text" },
@@ -31467,6 +31463,27 @@
 	      path = props.path;
 	
 	
+	  var favCheck = function favCheck(gameid) {
+	    var bgcard = "bg-card";
+	    props.favorites.forEach(function (fav) {
+	      if (gameid == fav.id) bgcard = "bg-card favorited";
+	    });
+	    return bgcard;
+	  };
+	
+	  var addBGDetails = function addBGDetails(id, list) {
+	    fetch("/api/v1/bg-details/" + id).then(function (res) {
+	      return res.json();
+	    }).then(function (details) {
+	      list.forEach(function (game) {
+	        if (game.id === id) {
+	          Object.assign(game, details);
+	          props.getBGDetails(game);
+	        }
+	      });
+	    });
+	  };
+	
 	  if (hotness.length === 0) {
 	    return _react2.default.createElement(
 	      "p",
@@ -31478,7 +31495,7 @@
 	      if (game.name) {
 	        display.push(_react2.default.createElement(
 	          "div",
-	          { key: i, className: "bg-card",
+	          { key: i, className: favCheck(game.id),
 	            id: game.id },
 	          _react2.default.createElement("img", { className: "bg-image",
 	            src: game.image }),
@@ -31535,7 +31552,7 @@
 	    recommendations.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card",
+	        { key: i, className: favCheck(game.id),
 	          id: game.id },
 	        _react2.default.createElement("img", { className: "bg-image",
 	          src: game.image }),
@@ -31560,7 +31577,7 @@
 	    hotness.map(function (game, i) {
 	      display.push(_react2.default.createElement(
 	        "div",
-	        { key: i, className: "bg-card",
+	        { key: i, className: favCheck(game.id),
 	          id: game.id },
 	        _react2.default.createElement("img", { className: "bg-thumbnail",
 	          src: game.thumbnail }),
@@ -31582,19 +31599,6 @@
 	      ));
 	    });
 	  }
-	
-	  var addBGDetails = function addBGDetails(id, list) {
-	    fetch("/api/v1/bg-details/" + id).then(function (res) {
-	      return res.json();
-	    }).then(function (details) {
-	      list.forEach(function (game) {
-	        if (game.id === id) {
-	          Object.assign(game, details);
-	          props.getBGDetails(game);
-	        }
-	      });
-	    });
-	  };
 	
 	  return _react2.default.createElement(
 	    "section",
@@ -31715,6 +31719,8 @@
 	    var game = event.target;
 	    event.stopPropagation();
 	
+	    game.closest(".bg-card").classList.add("favorited");
+	
 	    var _loop = function _loop(i) {
 	      if (list[i].id == game.id) {
 	        if (list[i].image) {
@@ -31739,6 +31745,13 @@
 	    }
 	  };
 	
+	  var removeFromFavorites = function removeFromFavorites(e, id) {
+	    event.stopPropagation();
+	    e.target.closest(".bg-card").classList.remove("favorited");
+	
+	    removeFavorite(id);
+	  };
+	
 	  favorites.forEach(function (fav) {
 	    if (fav.id == favID) found = fav;
 	  });
@@ -31754,12 +31767,13 @@
 	      "favorite!"
 	    );
 	  } else {
+	
 	    return _react2.default.createElement(
 	      "button",
 	      { className: "favorite-button",
 	        id: favID,
 	        onClick: function onClick(e) {
-	          return removeFavorite(found);
+	          return removeFromFavorites(e, found);
 	        } },
 	      "remove favorite"
 	    );
@@ -32150,7 +32164,7 @@
 	        ),
 	        _react2.default.createElement(
 	          "button",
-	          { onClick: function onClick() {
+	          { className: "recommendation-button", onClick: function onClick() {
 	              return _this3.getRecommendations();
 	            } },
 	          "get recommendations"

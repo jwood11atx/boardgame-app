@@ -14,6 +14,28 @@ const BoardgameCard = (props) => {
           hotness,
           path} = props;
 
+
+  const favCheck = (gameid) => {
+    let bgcard = "bg-card";
+    props.favorites.forEach(fav => {
+      if(gameid == fav.id) bgcard = "bg-card favorited";
+    });
+    return bgcard;
+  }
+
+  const addBGDetails = (id, list) => {
+    fetch(`/api/v1/bg-details/${id}`)
+      .then(res => res.json())
+      .then(details => {
+        list.forEach(game => {
+          if(game.id === id){
+            Object.assign(game, details);
+            props.getBGDetails(game);
+          }
+        })
+      })
+  }
+
   if(hotness.length === 0){
     return <p className="loading">loading...</p>
 
@@ -21,7 +43,7 @@ const BoardgameCard = (props) => {
       searchResults.map((game, i) => {
         if(game.name){
           display.push(
-            <div key={i} className="bg-card"
+            <div key={i} className={favCheck(game.id)}
                          id={game.id}>
                <img className="bg-image"
                      src={game.image}/>
@@ -66,7 +88,7 @@ const BoardgameCard = (props) => {
   } else if(path === "/recommendations") {
     recommendations.map((game, i) => {
       display.push(
-        <div key={i} className="bg-card"
+        <div key={i} className={favCheck(game.id)}
                      id={game.id}>
            <img className="bg-image"
                  src={game.image}/>
@@ -87,7 +109,7 @@ const BoardgameCard = (props) => {
   } else {
     hotness.map((game, i) => {
       display.push(
-        <div key={i} className="bg-card"
+        <div key={i} className={favCheck(game.id)}
                      id={game.id}>
            <img className="bg-thumbnail"
                  src={game.thumbnail}/>
@@ -103,19 +125,6 @@ const BoardgameCard = (props) => {
         </div>
       )
     })
-  }
-
-  const addBGDetails = (id, list) => {
-    fetch(`/api/v1/bg-details/${id}`)
-      .then(res => res.json())
-      .then(details => {
-        list.forEach(game => {
-          if(game.id === id){
-            Object.assign(game, details);
-            props.getBGDetails(game);
-          }
-        })
-      })
   }
 
   return (

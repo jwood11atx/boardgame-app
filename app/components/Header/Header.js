@@ -6,8 +6,7 @@ import Nav from "../Nav/Nav";
 const Header = (path) => {
   return (
     <div className="Header">
-      <Link to="/"
-            className="logo">
+      <Link to="/" className="logo">
         <h1 className="logo-text">Boardgame It!</h1>
       </Link>
       <Nav />
